@@ -1,0 +1,55 @@
+{
+  "source": {
+    "citation": "Ma--Zheng, arXiv:2401.13698",
+    "hcp47_tex_sha256": "0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003",
+    "arxiv_source_tar_sha256": "13f2d88ad740669f35b4d1859e68da4d489a1223b5ff5a99e128eaa71838234f"
+  },
+  "census_total": 331,
+  "distance_variable_counts": {
+    "0": 19,
+    "1": 76,
+    "2": 155,
+    "3": 81
+  },
+  "verified_one_distance_cases": 76,
+  "verified_zero_distance_cases": 19,
+  "classification": {
+    "rational_descent": 31,
+    "quadratic_descent_with_split_support": 26,
+    "multiquadratic_descent_with_split_support": 11,
+    "quasi_arithmetic": 8,
+    "split_support_obstructions": 0
+  },
+  "higher_degree_cases": [
+    "P_{4,7}",
+    "P_{4,9}",
+    "P_{4,11}",
+    "P_{4,12}",
+    "P_{4,13}",
+    "P_{4,14}",
+    "P_{4,16}",
+    "P_{6,29}",
+    "P_{6,30}",
+    "P_{6,34}",
+    "P_{6,35}"
+  ],
+  "higher_degree_field_certificate": {
+    "degree_4_cases": "four automorphisms, all involutive",
+    "P_{4,13}": "eight automorphisms, all involutive",
+    "meaning": "the trace-field Galois group is elementary abelian 2"
+  },
+  "exact_signature_method": "PARI exact diagonalization followed by nfeltsign at every real embedding",
+  "exact_gram_method": "exact algebraic root comparison followed by a full symbolic 7-by-7 rank-five assertion",
+  "finite_clifford_ramification_in_all_37_nontrivial_descent_cases": [],
+  "certificate_logs": {
+    "results/one_distance_certificates.jsonl": {
+      "lines": 77,
+      "sha256": "9ce673bc24d17b400d5acefb3316c53e78e6f9cad36d1967f9ad48d4c8916a99"
+    },
+    "results/no_distance_certificates.jsonl": {
+      "lines": 20,
+      "sha256": "af87466b69223e92fac658bb47928f8abb4865b037dd255844a7f66a873778b8"
+    }
+  },
+  "conclusion": "Every one-distance case is pseudo-arithmetic; none violates the split-support criterion."
+}

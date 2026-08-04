@@ -1,0 +1,935 @@
+{
+  "ambient_gram": {
+    "all_off_diagonal_nonpositive": true,
+    "exact_inertia_positive_negative_zero": [
+      4,
+      1,
+      2
+    ],
+    "indecomposable": true,
+    "positive_four_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "positive_four_leading_minors": [
+      "1",
+      "1",
+      "-(-5 + sqrt(5))/8",
+      "-3*(-5 + sqrt(5))/32"
+    ],
+    "rank": 5,
+    "rank_five_indices": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "rank_five_minor": "-(1 + sqrt(5))/32"
+  },
+  "conclusion": "finite_volume_noncompact_with_exactly_two_cusps",
+  "edge_completion": {
+    "edges": [
+      {
+        "edge_facets_zero_based": [
+          0,
+          1,
+          2
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            1,
+            2,
+            4
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          0,
+          1,
+          3
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            1,
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          0,
+          1,
+          4
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            4
+          ],
+          [
+            0,
+            1,
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          0,
+          2,
+          3
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            0,
+            2,
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          0,
+          2,
+          4
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          0,
+          3,
+          4
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            3,
+            4
+          ],
+          [
+            0,
+            2,
+            3,
+            4
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          2,
+          3
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            1,
+            2,
+            3,
+            5
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          2,
+          4
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            2,
+            4
+          ],
+          [
+            1,
+            2,
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          2,
+          5
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            2,
+            4,
+            5
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          3,
+          4
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            1,
+            3,
+            4
+          ],
+          [
+            1,
+            3,
+            4,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          3,
+          5
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            2,
+            3,
+            5
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          3,
+          6
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            3,
+            4,
+            6
+          ],
+          [
+            1,
+            3,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          4,
+          5
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            1,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          4,
+          6
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            3,
+            4,
+            6
+          ],
+          [
+            1,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          1,
+          5,
+          6
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            1,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          2,
+          3,
+          4
+        ],
+        "endpoints_zero_based": [
+          [
+            0,
+            2,
+            3,
+            4
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          2,
+          3,
+          5
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            2,
+            3,
+            5
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          2,
+          4,
+          5
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            2,
+            4,
+            5
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          3,
+          4,
+          6
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            3,
+            4,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          3,
+          5,
+          6
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            3,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      },
+      {
+        "edge_facets_zero_based": [
+          4,
+          5,
+          6
+        ],
+        "endpoints_zero_based": [
+          [
+            1,
+            4,
+            5,
+            6
+          ],
+          [
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        ]
+      }
+    ],
+    "elliptic_rank_three_edge_count": 21,
+    "every_edge_has_exactly_two_vertices": true,
+    "incident_edge_counts": [
+      {
+        "count": 4,
+        "vertex": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          0,
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          1,
+          2,
+          3,
+          5
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          1,
+          3,
+          4,
+          6
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          1,
+          3,
+          5,
+          6
+        ]
+      },
+      {
+        "count": 4,
+        "vertex": [
+          1,
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "count": 6,
+        "vertex": [
+          2,
+          3,
+          4,
+          5,
+          6
+        ]
+      }
+    ]
+  },
+  "finite_volume_argument": "Vinberg existence from the indecomposable Gram matrix of exact inertia (4,1,2), followed by Vinberg's finite-volume edge criterion: the maximal elliptic/parabolic subdiagrams are exactly the ten P_11 vertices, and each of the 21 elliptic rank-three edges has exactly two such endpoints.",
+  "ideal_vertex_count": 2,
+  "label": "P_{11,8}",
+  "maximal_elliptic_or_parabolic_subsets": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      1,
+      2,
+      4
+    ],
+    [
+      0,
+      1,
+      3,
+      4
+    ],
+    [
+      0,
+      2,
+      3,
+      4
+    ],
+    [
+      1,
+      2,
+      3,
+      5
+    ],
+    [
+      1,
+      2,
+      4,
+      5
+    ],
+    [
+      1,
+      3,
+      4,
+      6
+    ],
+    [
+      1,
+      3,
+      5,
+      6
+    ],
+    [
+      1,
+      4,
+      5,
+      6
+    ],
+    [
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  ],
+  "nonsimple_ideal_link": {
+    "combinatorial_link": "triangular_prism",
+    "facets": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "nullity": 2,
+    "rank": 3,
+    "type": "affine_A1_disjoint_union_affine_C2"
+  },
+  "ordinary_vertex_count": 8,
+  "peak_rss_raw": 93208576,
+  "source": {
+    "coxeter_vector": "2232ab523242220442222",
+    "coxeter_vector_line": 1604,
+    "facet_indexing": "zero_based",
+    "incidence_line": 17,
+    "incidence_path": "/private/tmp/HCPdm-main/polytopeDATA/pi47.txt",
+    "incidence_raw": "[6,5,4,3,2] [6,5,4,1] [6,5,3,1] [6,4,3,1] [5,4,2,1] [5,3,2,1] [4,3,2,0] [4,3,1,0] [4,2,1,0] [3,2,1,0]",
+    "incidence_sha256": "05bd3d7eddd62598c1446ec562aa6ef63d85d0142e46cac2a550a1d7b054f293",
+    "tex_path": "/private/tmp/paperarXiv/hcp47.tex",
+    "tex_sha256": "0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003"
+  },
+  "vertex_gram_checks": [
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "-3*(-5 + sqrt(5))/32",
+      "facets_one_based": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "facets_zero_based": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "-(-5 + sqrt(5))/8",
+        "-3*(-5 + sqrt(5))/32"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "-(-3 + sqrt(5))/8",
+      "facets_one_based": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "facets_zero_based": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "-(-5 + sqrt(5))/8",
+        "-(-3 + sqrt(5))/8"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "1/16",
+      "facets_one_based": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "facets_zero_based": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "3/4",
+        "1/16"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "1/4",
+      "facets_one_based": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "facets_zero_based": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "3/4",
+        "1/4"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "-(-5 + sqrt(5))/16",
+      "facets_one_based": [
+        2,
+        3,
+        4,
+        6
+      ],
+      "facets_zero_based": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "-(-5 + sqrt(5))/8",
+        "-(-5 + sqrt(5))/8",
+        "-(-5 + sqrt(5))/16"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "-(-3 + sqrt(5))/8",
+      "facets_one_based": [
+        2,
+        3,
+        5,
+        6
+      ],
+      "facets_zero_based": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "-(-5 + sqrt(5))/8",
+        "-(-3 + sqrt(5))/8",
+        "-(-3 + sqrt(5))/8"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "affine_C3",
+      "determinant": "0",
+      "facets_one_based": [
+        2,
+        4,
+        5,
+        7
+      ],
+      "facets_zero_based": [
+        1,
+        3,
+        4,
+        6
+      ],
+      "kind": "ideal",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "1/4",
+        "0"
+      ],
+      "null_vector_in_listed_order": [
+        "sqrt(2)",
+        "1",
+        "sqrt(2)",
+        "1"
+      ],
+      "rank": 3
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "1/4",
+      "facets_one_based": [
+        2,
+        4,
+        6,
+        7
+      ],
+      "facets_zero_based": [
+        1,
+        3,
+        5,
+        6
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "1/2",
+        "1/4"
+      ],
+      "rank": 4
+    },
+    {
+      "coxeter_class": "elliptic_rank_4",
+      "determinant": "1/4",
+      "facets_one_based": [
+        2,
+        5,
+        6,
+        7
+      ],
+      "facets_zero_based": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "kind": "ordinary",
+      "leading_principal_minors": [
+        "1",
+        "3/4",
+        "3/4",
+        "1/4"
+      ],
+      "rank": 4
+    },
+    {
+      "components": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4,
+          5
+        ]
+      ],
+      "coxeter_class": "affine_A1_disjoint_union_affine_C2",
+      "determinant": "0",
+      "facets_one_based": [
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "facets_zero_based": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "kind": "ideal_nonsimple",
+      "leading_principal_minors": [
+        "1",
+        "1",
+        "1/2",
+        "0",
+        "0"
+      ],
+      "nullity": 2,
+      "rank": 3
+    }
+  ],
+  "wall_seconds": 25.561
+}

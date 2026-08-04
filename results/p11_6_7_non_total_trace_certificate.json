@@ -1,0 +1,151 @@
+{
+  "both_non_pseudo_arithmetic": true,
+  "cases": [
+    {
+      "conclusion": "adjoint_trace_field_not_totally_real_implies_not_pseudo_arithmetic",
+      "cyclic_subfield_certificate": {
+        "c035": "-sqrt(2*sqrt(5) + 4*sqrt(2)*sqrt(1 + sqrt(5)) + 14)",
+        "c12": "sqrt(5)/2 + 3/2",
+        "conjugate_discriminant": "8 - 8*sqrt(5)",
+        "conjugate_discriminant_negative_exact": true,
+        "recovers_sqrt5": true,
+        "recovers_u_equals_sqrt2_times_a": true,
+        "u_discriminant": "8*(1+sqrt(5))",
+        "u_relative_polynomial": "(sqrt(5)-1)u^2+2(sqrt(5)-3)u+(sqrt(5)-7)"
+      },
+      "distances": {
+        "a": "sqrt(sqrt(5) + 2*sqrt(2 + 2*sqrt(5)) + 7)/2",
+        "a_numeric": "1.89236271467417588",
+        "b": "sqrt(2*sqrt(5) + 9/2 + sqrt(38 + 17*sqrt(5)))",
+        "b_numeric": "4.20602999702120456",
+        "both_greater_than_one_exact": true
+      },
+      "label": "P_{11,6}",
+      "peak_rss_raw": 92749824,
+      "rank_certificate": {
+        "exact_signature_positive_negative_zero": [
+          4,
+          1,
+          2
+        ],
+        "gram_rank": 5,
+        "leading_principal_minors_ambient_01234": [
+          "1",
+          "1",
+          "-(-5 + sqrt(5))/8",
+          "-3*(-5 + sqrt(5))/32",
+          "-(1 + sqrt(5))/32"
+        ],
+        "numerical_eigenvalues": [
+          -3.7699141562002807,
+          -5.419520595720922e-16,
+          -1.7303075901849883e-16,
+          1.1998216898404481,
+          1.659305379478141,
+          2.2008178665385416,
+          5.7099692203431465
+        ],
+        "numerical_signature_positive_negative_zero": [
+          4,
+          1,
+          2
+        ],
+        "principal_six_minors": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "rank_five_minor_01234": "-(1 + sqrt(5))/32"
+      },
+      "source": {
+        "cusps": 1,
+        "line": 1602,
+        "path": "/private/tmp/paperarXiv/hcp47.tex",
+        "sha256": "0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003",
+        "vector": "2232ab523222220442222",
+        "volume_over_pi_squared": "13/864"
+      },
+      "wall_seconds": 3.472
+    },
+    {
+      "conclusion": "adjoint_trace_field_not_totally_real_implies_not_pseudo_arithmetic",
+      "cyclic_subfield_certificate": {
+        "c035": "-sqrt(2*sqrt(5) + 4*sqrt(2)*sqrt(1 + sqrt(5)) + 14)",
+        "c12": "sqrt(5)/2 + 3/2",
+        "conjugate_discriminant": "8 - 8*sqrt(5)",
+        "conjugate_discriminant_negative_exact": true,
+        "recovers_sqrt5": true,
+        "recovers_u_equals_sqrt2_times_a": true,
+        "u_discriminant": "8*(1+sqrt(5))",
+        "u_relative_polynomial": "(sqrt(5)-1)u^2+2(sqrt(5)-3)u+(sqrt(5)-7)"
+      },
+      "distances": {
+        "a": "sqrt(sqrt(5) + 2*sqrt(2 + 2*sqrt(5)) + 7)/2",
+        "a_numeric": "1.89236271467417588",
+        "b": "sqrt(2) + sqrt(10)/2 + sqrt(29 + 13*sqrt(5))/2",
+        "b_numeric": "6.80549949288192797",
+        "both_greater_than_one_exact": true
+      },
+      "label": "P_{11,7}",
+      "peak_rss_raw": 92717056,
+      "rank_certificate": {
+        "exact_signature_positive_negative_zero": [
+          4,
+          1,
+          2
+        ],
+        "gram_rank": 5,
+        "leading_principal_minors_ambient_01234": [
+          "1",
+          "1",
+          "-(-5 + sqrt(5))/8",
+          "-3*(-5 + sqrt(5))/32",
+          "-(1 + sqrt(5))/32"
+        ],
+        "numerical_eigenvalues": [
+          -6.18713907509555,
+          -4.659891902085532e-16,
+          -2.9925195522362177e-18,
+          1.1627956291158175,
+          1.725134683340576,
+          2.1533556329807393,
+          8.145853129658416
+        ],
+        "numerical_signature_positive_negative_zero": [
+          4,
+          1,
+          2
+        ],
+        "principal_six_minors": [
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ],
+        "rank_five_minor_01234": "-(1 + sqrt(5))/32"
+      },
+      "source": {
+        "cusps": 1,
+        "line": 1603,
+        "path": "/private/tmp/paperarXiv/hcp47.tex",
+        "sha256": "0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003",
+        "vector": "2232ab523232220442222",
+        "volume_over_pi_squared": "1/54"
+      },
+      "wall_seconds": 3.192
+    }
+  ],
+  "memory_policy": "one fresh Python worker per case",
+  "shared_obstruction": {
+    "conjugate_discriminant": "8*(1-sqrt(5)) < 0",
+    "relative_polynomial": "(sqrt(5)-1)u^2+2(sqrt(5)-3)u+(sqrt(5)-7)",
+    "subfield": "Q(sqrt(5),u), u=sqrt(2)*a"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "build": {
+    "architecture": "arm64",
+    "build_type": "Release",
+    "compiler": "AppleClang 21.0.0.21000101",
+    "gmp_version": "6.3.0",
+    "parallel_jobs": 1,
+    "pari_version": "2.17.4",
+    "pcre_package": "conda-forge/osx-arm64/pcre-8.45-hbdafb3b_0.tar.bz2",
+    "pcre_package_sha256": "f2e0c4ae3306f94851eea2318c6d26d24f8e191e329ddd256a612cd1184c5737"
+  },
+  "coxiter": {
+    "binary_path_at_validation": "/private/tmp/coxiter-p118/build-p118/coxiter",
+    "binary_sha256": "cad0b97caa8ab1dc25b86dff65252e1869382ed079d6ec949dbe006b3588f957",
+    "commit": "b800be48d8240fbabd2d1c9542e61054584ad7fe",
+    "commit_date": "2025-07-19T07:15:31Z",
+    "repository": "https://github.com/rgugliel/CoxIter",
+    "source_archive_sha256": "ad0635f5c2d35a4a892c1737e26140c190a5906eaa6125b6f1999abc718a5c6c",
+    "source_archive_url": "https://github.com/rgugliel/CoxIter/archive/refs/heads/master.tar.gz",
+    "version_from_changelog": "1.3"
+  },
+  "input": {
+    "path": "results/p11_8_finite_volume.coxiter",
+    "sha256": "33127f85e901e3876e86a2528079570aedefe71b4999d8a882a186ed1f521e93"
+  },
+  "invocation": "/private/tmp/coxiter-p118/build-p118/coxiter -i results/p11_8_finite_volume.coxiter -fv -compactness -nopenmp",
+  "output": {
+    "cocompact": false,
+    "covolume": "pi^2 * 19/864",
+    "euler_characteristic": "19/1152",
+    "f_vector": [10, 21, 18, 7, 1],
+    "finite_covolume": true,
+    "ideal_vertex_count": 2,
+    "path": "results/p11_8_coxiter_validation.output",
+    "sha256": "b89c7a88267c1cc6bdffeeef40924481df2682074f5af369e678d5f1d91406ac"
+  },
+  "validated_at": "2026-08-04T15:37:00+02:00"
+}

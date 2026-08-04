@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the accompanying manuscript.
+title: PseudoArithmetic
+type: software
+version: 0.1.0
+date-released: 2026-08-04
+authors:
+  - family-names: Kolpakov
+    given-names: Alexander
+repository-code: https://github.com/sashakolpakov/PseudoArithmetic
+keywords:
+  - hyperbolic geometry
+  - pseudo-arithmetic lattices
+  - Coxeter polytopes
+  - adjoint trace fields
+  - number fields
+  - Lean 4
+preferred-citation:
+  type: article
+  title: Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds
+  authors:
+    - family-names: Kolpakov
+      given-names: Alexander
+  year: 2026

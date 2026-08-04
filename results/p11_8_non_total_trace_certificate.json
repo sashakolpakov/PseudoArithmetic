@@ -1,0 +1,130 @@
+{
+  "conclusion": "adjoint_trace_field_not_totally_real_implies_not_pseudo_arithmetic",
+  "cyclic_product_certificate": {
+    "c03416": "-2*sqrt(6*sqrt(10) + 19 + 14*sqrt(2) + 9*sqrt(5)) - 2*sqrt(5) - 3*sqrt(2) - sqrt(10) - 2",
+    "c035": "-sqrt(2*sqrt(5) + 4*sqrt(2)*sqrt(1 + sqrt(5)) + 14)",
+    "c12": "sqrt(5)/2 + 3/2",
+    "c126": "-sqrt(10) - sqrt(2)",
+    "field": "Q(sqrt(5),sqrt(2),a,b)",
+    "recovers_all_raw_generators": true
+  },
+  "distances": {
+    "a": "sqrt(sqrt(5) + 2*sqrt(2 + 2*sqrt(5)) + 7)/2",
+    "a_numeric": "1.89236271467417588",
+    "b": "1/2 + sqrt(10)/4 + 3*sqrt(2)/4 + sqrt(5)/2 + sqrt(6*sqrt(10) + 19 + 14*sqrt(2) + 9*sqrt(5))/2",
+    "b_numeric": "7.88223501304259166",
+    "both_greater_than_one_exact": true
+  },
+  "label": "P_{11,8}",
+  "non_total_reality_certificate": {
+    "conjugate_discriminant_negative_exact": true,
+    "discriminant": "8 + 8*sqrt(5)",
+    "discriminant_at_sqrt5_conjugate": "8 - 8*sqrt(5)",
+    "relative_polynomial": "(sqrt(5)-1)u^2+2(sqrt(5)-3)u+(sqrt(5)-7)",
+    "subfield_generator": "u=sqrt(2)*a"
+  },
+  "peak_rss_raw": 96944128,
+  "rank_certificate": {
+    "equation_a": "-2*a**2 + 2*sqrt(5)*a**2 - 6*sqrt(2)*a + 2*sqrt(10)*a - 7 + sqrt(5)",
+    "equation_b": "-2*b**2 + 2*sqrt(5)*b**2 - 8*b - 2*sqrt(10)*b - 2*sqrt(2)*b - 7 - 2*sqrt(10) - 2*sqrt(2) - sqrt(5)",
+    "exact_signature_positive_negative_zero": [
+      4,
+      1,
+      2
+    ],
+    "gram_rank": 5,
+    "leading_principal_minors_ambient_01234": [
+      "1",
+      "1",
+      "-(-5 + sqrt(5))/8",
+      "-3*(-5 + sqrt(5))/32",
+      "-(1 + sqrt(5))/32"
+    ],
+    "numerical_eigenvalues": [
+      -7.229260791347832,
+      -2.70992317176984e-17,
+      3.3963287302765455e-16,
+      1.146216698550237,
+      1.7465880533658118,
+      2.1435907348791394,
+      9.192865304552644
+    ],
+    "numerical_signature_positive_negative_zero": [
+      4,
+      1,
+      2
+    ],
+    "principal_six_minors": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "rank_five_minor_01234": "-(1 + sqrt(5))/32"
+  },
+  "source": {
+    "cusps": 2,
+    "line": 1604,
+    "path": "/private/tmp/paperarXiv/hcp47.tex",
+    "sha256": "0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003",
+    "vector": "2232ab523242220442222",
+    "volume_over_pi_squared": "19/864"
+  },
+  "wall_seconds": 9.603,
+  "whole_field_certificate": {
+    "degree": 8,
+    "field_discriminant": 40960000,
+    "field_signature": [
+      4,
+      2
+    ],
+    "generator_coordinate_vectors_high_to_low": {
+      "a": [
+        "-15517/2479620",
+        "4627/82654",
+        "943964/619905",
+        "24073691/3306160",
+        "291029/18785",
+        "98929769/4959240",
+        "362351/18785",
+        "4140119/495924"
+      ],
+      "b": [
+        "-25499/9918480",
+        "15293/661232",
+        "3094181/4959240",
+        "9810403/3306160",
+        "5202603/826540",
+        "39042877/4959240",
+        "3246391/413270",
+        "1564741/495924"
+      ],
+      "sqrt2": [
+        "101/11440",
+        "-181/2288",
+        "-12279/5720",
+        "-58623/5720",
+        "-62311/2860",
+        "-79569/2860",
+        "-19051/715",
+        "-1645/143"
+      ],
+      "sqrt5": [
+        "589/206635",
+        "-12697/413270",
+        "-12082/18785",
+        "-859827/413270",
+        "-76996/41327",
+        "150/41327",
+        "91232/206635",
+        "476551/206635"
+      ]
+    },
+    "irreducible": true,
+    "minimal_polynomial": "x^8 - 8*x^7 - 252*x^6 - 1392*x^5 - 3524*x^4 - 5280*x^3 - 5712*x^2 - 3968*x - 1136",
+    "primitive_generator": "w=2*(sqrt(2)+a+b)"
+  }
+}

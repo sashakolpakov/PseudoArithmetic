@@ -1,0 +1,12 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+
+formal/.lake/
+
+manuscript/*.aux
+manuscript/*.fdb_latexmk
+manuscript/*.fls
+manuscript/*.log
+manuscript/*.out
+manuscript/*.synctex.gz
