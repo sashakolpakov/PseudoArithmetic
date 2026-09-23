@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "version": "1.0.0-rc1",
+  "date": "2026-09-24",
+  "artifacts": [
+    {
+      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
+      "sha256": "0878b4268af8efc8489d9260f8eb431922f0230771c095d76bf2dd7f76efe53b"
+    },
+    {
+      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
+      "sha256": "4945f0bc407903aa48fb6a250fa10655ea191ffa804b6b444ac1041295a4b1dc"
+    },
+    {
+      "path": "formal/PseudoArithmetic.lean",
+      "sha256": "3ace423dbffb58fce944ea62fef7692c98cbe8286a863d45de722fe4a54ef927"
+    },
+    {
+      "path": "formal/PseudoArithmetic/Manuscript.lean",
+      "sha256": "0cdc3e5b919b5504bf7f3b63bdfe96aff126932ed1f72b0fbf2a0fd7969ca5fe"
+    },
+    {
+      "path": "formal/PseudoArithmetic/NonTotalReality.lean",
+      "sha256": "37ee23e5714950a459e3f881c8d59c9eeaa98a82d906b8dc77edc0d385ad67ee"
+    },
+    {
+      "path": "formal/PseudoArithmetic/ConditionalDescent.lean",
+      "sha256": "dc2ed0e6f24e389666d810e5e5a4b7b93fd5badb6398feb7652884638cbbb6c0"
+    },
+    {
+      "path": "formal/lakefile.toml",
+      "sha256": "1ede01a3ad6b39133c5e2748dcc2e0d4cb1a7b16695b2156d64d0f925a6775b0"
+    },
+    {
+      "path": "formal/lake-manifest.json",
+      "sha256": "b139e11e40593c4d0630d037394a50702011ae73ab5bc37a94b8dc16e3e326e8"
+    },
+    {
+      "path": "formal/lean-toolchain",
+      "sha256": "2773c517aa90b66ea8a2c52bddddf84393157797f8341be0df45294fff7fd32e"
+    },
+    {
+      "path": "results/p11_6_7_non_total_trace_certificate.json",
+      "sha256": "a48474bc2fb2039c4d27c9d4be2cf2d8e8be500e4a522f88ac8eb207c7b9ab22"
+    },
+    {
+      "path": "results/p11_8_non_total_trace_certificate.json",
+      "sha256": "3d405b9ee7afe209ca6f5cb759d02e9f71ea73eed05f4329e95f15348c2610b5"
+    },
+    {
+      "path": "results/p118_trace_field_certificate.json",
+      "sha256": "c74f0926ad36f7b7dc1e4849bd40b70a04fb04c3da6262484a04f85896dbbbb8"
+    },
+    {
+      "path": "results/p11_8_finite_volume_validation.json",
+      "sha256": "967fd7feb2c1772be5cd6c2ce5b40963443e43889b513def2c6f60386d34d39c"
+    },
+    {
+      "path": "scripts/p11_6_7_non_total_trace.py",
+      "sha256": "d891175c1bbcb30863dceac7bfbdaf03f005ae8b8bedc514112058eaa6281b1a"
+    },
+    {
+      "path": "scripts/p11_8_non_total_trace.py",
+      "sha256": "61365f0c34af3e80389efe002eb9e1907b87e6cae5fb69f5e51e83c717f74335"
+    },
+    {
+      "path": "scripts/p118_trace_field.py",
+      "sha256": "978c432f8a6f8d8c5ec404621db8fa16b8f906d2fc8ae8d841b0fcb12d5bb9f7"
+    },
+    {
+      "path": "scripts/p11_8_finite_volume.py",
+      "sha256": "edab26702f875be983421a01e6c73eacff3e0d91e2ef830ad51f938b540db3f5"
+    },
+    {
+      "path": "scripts/release_check.py",
+      "sha256": "9f14fc713add8c75e3832c379295b5a2fd8559acdbdbf635b5db82d46ec1c7cc"
+    },
+    {
+      "path": "scripts/build_release.py",
+      "sha256": "26336f5f128dbb3d267d0a21b595128f5b07046e4863e5ce34d8896270af40e1"
+    },
+    {
+      "path": "scripts/build_release.sh",
+      "sha256": "a827437226c22b6f69f73773e855a9ce4574f8980913249b19707efe6501bc5f"
+    }
+  ]
+}

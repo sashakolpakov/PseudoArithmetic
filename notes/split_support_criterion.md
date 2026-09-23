@@ -1,11 +1,13 @@
 # Split-support criterion for pseudo-arithmeticity in even dimension
 
-Status: theorem draft, 4 August 2026.  The normalized descent statement is a
-short consequence of classical Hasse--Minkowski and ABHN machinery.  A
-targeted literature check found Emery--Mila's isometry-sensitive Scharlau
-transfer criterion, but no explicit similarity-normalized split-support
-criterion for pseudo-arithmeticity.  The appropriate print claim is therefore
-"to the best of our knowledge," not an unqualified priority claim.
+Status: supplementary theorem note, reviewed for `1.0.0-rc1` on
+24 September 2026. The implication graph is kernel-checked conditionally in
+`formal/PseudoArithmetic/ConditionalDescent.lean`; the classical ABHN,
+Hasse--Minkowski, and local Brauer inputs are not newly formalized. A targeted
+literature check found Emery--Mila's isometry-sensitive Scharlau transfer
+criterion, but no explicit similarity-normalized split-support criterion for
+pseudo-arithmeticity. The appropriate print claim is therefore "to the best
+of our knowledge," not an unqualified priority claim.
 
 ## 1. Canonical normalization in odd rank
 

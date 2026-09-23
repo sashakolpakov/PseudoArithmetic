@@ -1,9 +1,10 @@
 # Three non-pseudo-arithmetic Coxeter lattices in dimension four
 
-Status: theorem draft, 4 August 2026. The algebraic certificate below is
-exact and hand-checkable. Ma--Zheng's published census supplies the
-finite-volume polytopes; a separate local computation independently checks
-the Gram rank, inertia, and vertex links for $P_{11,8}$.
+Status: incorporated into the `1.0.0-rc1` manuscript on 24 September 2026.
+This note is retained as the concise discovery record. The algebraic
+certificate below is exact and hand-checkable. Ma--Zheng's published census
+supplies the finite-volume polytopes; a separate local computation
+independently checks the Gram rank, inertia, and vertex links for $P_{11,8}$.
 
 ## Theorem
 

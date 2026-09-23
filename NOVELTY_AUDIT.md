@@ -1,6 +1,6 @@
 # Novelty audit
 
-Audit date: 2026-08-04.
+Audit date: 2026-09-24.
 
 ## Result being audited
 
@@ -28,7 +28,7 @@ At \(s\mapsto-\sqrt5\), the discriminant is
 
 ## Defensible priority statement
 
-A targeted search through 2026-08-04 found no previously recorded
+A targeted search through 2026-09-24 found no previously recorded
 non-pseudo-arithmetic lattice in \(\mathrm{PO}(n,1)\) for \(n>3\).
 The manuscript therefore says:
 
@@ -89,9 +89,12 @@ corroborating terminology, not the logical basis of the proof.
 
 ## Formal-verification status
 
-Lean kernel-checks the new field-theoretic implication from the minimal
-polynomial of \(s\) and the displayed relation to non-total reality.  It also
-checks the normalized-Clifford and split-support proof graph conditionally,
-with ABHN, Hasse–Minkowski, local Brauer functoriality, and the
-pseudo-arithmetic characterization supplied as explicit theorem hypotheses.
-See [FORMAL_VERIFICATION.md](FORMAL_VERIFICATION.md).
+Lean kernel-checks the exact nested-radical relation, recovery from the two
+cyclic products, and the implication from the minimal polynomial of \(s\) and
+the displayed relation to non-total reality. It checks the manuscript's main
+and finite-index implication chains with every external geometric statement
+exposed as a typed local hypothesis. It also checks the separate
+normalized-Clifford and split-support graph conditionally, with ABHN,
+Hasse–Minkowski, local Brauer functoriality, and the pseudo-arithmetic
+characterization supplied as explicit theorem hypotheses. See
+[FORMAL_VERIFICATION.md](FORMAL_VERIFICATION.md).

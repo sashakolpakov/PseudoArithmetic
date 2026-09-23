@@ -10,3 +10,6 @@ manuscript/*.fls
 manuscript/*.log
 manuscript/*.out
 manuscript/*.synctex.gz
+manuscript/*.toc
+
+dist/

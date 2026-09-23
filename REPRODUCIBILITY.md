@@ -1,5 +1,7 @@
 # Reproducibility
 
+Release candidate: `1.0.0-rc1` (24 September 2026).
+
 All symbolic jobs below are intended to run serially.  The three case workers
 were measured below 100 MB resident memory on the reference machine, and none
 of the commands needs to retain a previous symbolic process.
@@ -179,7 +181,30 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
   non_pseudo_arithmetic_4_manifolds.tex
 ```
 
-The expected output is the seven-page
+The expected output is the 19-page
 `manuscript/non_pseudo_arithmetic_4_manifolds.pdf`.  The build has no undefined
 references, fatal errors, or overfull boxes; the only layout notices are
 harmless underfull bibliography lines.
+
+## Complete local release audit
+
+The repository-level validator performs the checks that do not require a
+fresh download of the pinned source data:
+
+```sh
+python3 scripts/release_check.py
+```
+
+It parses every committed JSON/JSONL result, byte-compiles every Python
+script, audits Lean sources, runs the stored-log and PARI/GP regressions,
+builds Lean, builds the manuscript, and checks the final TeX log.
+
+After that succeeds, build the deterministic release archive with:
+
+```sh
+scripts/build_release.sh
+```
+
+The archive and its `.sha256` file are written under the ignored `dist/`
+directory. The archive contains only tracked release sources and the committed
+PDF, not local caches or TeX auxiliary files.

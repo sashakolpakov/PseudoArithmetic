@@ -1,2 +1,3 @@
 import PseudoArithmetic.NonTotalReality
 import PseudoArithmetic.ConditionalDescent
+import PseudoArithmetic.Manuscript
