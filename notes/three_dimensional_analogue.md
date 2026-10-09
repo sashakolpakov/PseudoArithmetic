@@ -147,6 +147,14 @@ consequently
 [L : L intersection K] <= 2.                         (*)
 ```
 
+For completeness, this bound uses total reality of `K`. Let `F` be the
+normal closure of `K/Q`; it is totally real. At the geometric embedding
+`E` is nonreal, so `E intersection F = K`, since `[E:K] = 2`.
+Also `[EF:F] <= 2`. Because `F/Q` is Galois,
+`[LF:F] = [L:L intersection F]`, and `L intersection F = L intersection K`.
+The inclusion `LF <= EF` now proves (*). A quadratic extension `E/K`
+without the total-reality hypothesis would not by itself justify this bound.
+
 This yields a useful promotion criterion:
 
 > If a finite-volume hyperbolic 3-manifold has odd absolute degree

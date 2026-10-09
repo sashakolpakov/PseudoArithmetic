@@ -29,17 +29,34 @@ noncompact, finite-volume hyperbolic $4$-manifolds with the same obstruction.
 ## Release artifacts
 
 - [Manuscript source](manuscript/non_pseudo_arithmetic_4_manifolds.tex)
-- [Compiled 19-page PDF](manuscript/non_pseudo_arithmetic_4_manifolds.pdf)
+- [Compiled 20-page PDF](manuscript/non_pseudo_arithmetic_4_manifolds.pdf)
 - [Pre-release checklist](PRE_RELEASE_CHECKLIST.md)
 - [Release notes](RELEASE_NOTES.md)
 - [Formal verification boundary](FORMAL_VERIFICATION.md)
+- [Proof and language audit, 8 October 2026](notes/proof_audit_2026_10_08.md)
+- [Worked English-to-Lean audit with positive and negative examples](notes/two_cycle_semantic_audit.md)
+- [Manuscript-wide statement register and examples](notes/manuscript_semantic_audit.md)
+- [External-input translations and the original partial entries](notes/external_translation_audit.md)
+- [Lean subdiagram and face-vector audit with exhaustive controls](notes/subdiagram_face_semantic_audit.md)
 - [Reproduction guide](REPRODUCIBILITY.md)
 - [Novelty audit](NOVELTY_AUDIT.md)
 
-The manuscript is the mathematical source of truth. It introduces all
-specialized background used in the proof, displays the complete Gram matrices,
-proves every new algebraic step, labels every imported theorem, and includes a
-source-to-Lean dependency register.
+The manuscript displays the complete Gram matrices, proves the algebraic
+obstruction, and records the external results used in the proof. Its Lean
+dependency register distinguishes proved algebra from conditional geometric
+implications.
+
+The statement register covers 135 entries across every manuscript source
+block, with positive examples and negative controls. Lean now constructs the
+three displayed cyclic-product fields and proves each is a non-totally-real
+number field. The register assesses translation separately from proof
+provenance. External inputs are accepted with their reviewed hypotheses and
+specializations; the new contracts connect each case to its actual matrix
+and trace field and keep the cover properties on shared witnesses.
+Lean also proves the complete 127-subset classification for the third Gram
+matrix and derives its full face vector (10,21,18,7,1) from the incidence
+poset. The audit checks all 70 incidence-bit flips, every vertex deletion,
+and infinitely many incorrect face vectors that satisfy Euler's formula.
 
 ## The two-cycle certificate
 
@@ -75,6 +92,9 @@ Unconditionally, it proves:
 
 - the exact nested-radical identity;
 - recovery of $s$ and $u$ from the two cyclic products;
+- the minimal polynomial $X^2-5$ from $s^2=5$;
+- construction of the field certificate from the two displayed cycle values
+  under a real embedding;
 - impossibility of a real root at the conjugate value of $s$;
 - existence of the bad embedding from
   $\mathrm{minpoly}_{\mathbf Q}(s)=X^2-5$ using mathlib's number-field
@@ -86,6 +106,9 @@ checked with external geometry and literature results represented as ordinary,
 named theorem hypotheses. The Ma--Zheng classification, Vinberg field
 identification, Emery--Mila total-reality theorem, Selberg's lemma, and
 finite-index trace-field invariance are not claimed as newly verified.
+The geometric predicates are abstract, and the project does not construct
+the three Coxeter groups in Lean. The manifold implication explicitly
+requires noncompactness of the base quotient.
 
 The project contains no project-defined `axiom` or `opaque` declaration and
 no `sorry`, `admit`, or `native_decide`.

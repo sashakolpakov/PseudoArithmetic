@@ -5,27 +5,27 @@
   "artifacts": [
     {
       "path": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
-      "sha256": "0878b4268af8efc8489d9260f8eb431922f0230771c095d76bf2dd7f76efe53b"
+      "sha256": "0e23601f0835bf237e17db6e83de3a92327f9906a8ec82135f208684abcb8177"
     },
     {
       "path": "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
-      "sha256": "4945f0bc407903aa48fb6a250fa10655ea191ffa804b6b444ac1041295a4b1dc"
+      "sha256": "4b65ec64bf68d3acbdba96daebd2819d110f0b3c8af866e1c91a05bb9d63470d"
     },
     {
       "path": "formal/PseudoArithmetic.lean",
-      "sha256": "3ace423dbffb58fce944ea62fef7692c98cbe8286a863d45de722fe4a54ef927"
+      "sha256": "c7ec7079b9778051e2a334dc06a2b1a0640a7a88d44f991834c5e6f96cf619fc"
     },
     {
       "path": "formal/PseudoArithmetic/Manuscript.lean",
-      "sha256": "0cdc3e5b919b5504bf7f3b63bdfe96aff126932ed1f72b0fbf2a0fd7969ca5fe"
+      "sha256": "80d3b649ea7986ffa619e19200684d24ce1063e65e43591b39aef1dc4061f470"
     },
     {
       "path": "formal/PseudoArithmetic/NonTotalReality.lean",
-      "sha256": "37ee23e5714950a459e3f881c8d59c9eeaa98a82d906b8dc77edc0d385ad67ee"
+      "sha256": "f11eca6bac63fca33bceb38d4eca105f264e88bfdc5d20a5cd096290a26f2f54"
     },
     {
       "path": "formal/PseudoArithmetic/ConditionalDescent.lean",
-      "sha256": "dc2ed0e6f24e389666d810e5e5a4b7b93fd5badb6398feb7652884638cbbb6c0"
+      "sha256": "2a3322b45095792476daf3777492e79074eaacbd24c33fd2a247825e4f54f264"
     },
     {
       "path": "formal/lakefile.toml",
@@ -73,7 +73,7 @@
     },
     {
       "path": "scripts/release_check.py",
-      "sha256": "9f14fc713add8c75e3832c379295b5a2fd8559acdbdbf635b5db82d46ec1c7cc"
+      "sha256": "5066abe4cb9185dab6cc4d7930fc58e6289d972a8c88a73d739008da7da2530b"
     },
     {
       "path": "scripts/build_release.py",
@@ -82,6 +82,114 @@
     {
       "path": "scripts/build_release.sh",
       "sha256": "a827437226c22b6f69f73773e855a9ce4574f8980913249b19707efe6501bc5f"
+    },
+    {
+      "path": "formal/PseudoArithmetic/SemanticAudit.lean",
+      "sha256": "80274caf4ddba9aac87da3e0554d81ec356d139e2be6aa7b2054ca4583058604"
+    },
+    {
+      "path": "notes/two_cycle_semantic_audit.md",
+      "sha256": "6d77d18e6007a4ecce06f0d396933e3dd2de06b45e8ca05f0e6b65426d826407"
+    },
+    {
+      "path": "scripts/semantic_audit_examples.py",
+      "sha256": "2f7bce1c37382778c53c6a5ce95f0b055f58236b7a2d2e0ce8423b3ae31b39c0"
+    },
+    {
+      "path": "results/two_cycle_semantic_audit.json",
+      "sha256": "bf18beb7399e628b2e0ac020ad4b594f6846e4d9b1190573971cc89e11c50754"
+    },
+    {
+      "path": "formal/PseudoArithmetic/CensusAudit.lean",
+      "sha256": "da7e21d5fa9223e4e719e19a9bec900d97aab8c02f60af0fbcfb51704ddbb073"
+    },
+    {
+      "path": "formal/PseudoArithmetic/CoverAudit.lean",
+      "sha256": "132e52e2027f054d14123a05117f469dda8b23701e5c3ffe00d0af2a163021fd"
+    },
+    {
+      "path": "formal/PseudoArithmetic/FieldAudit.lean",
+      "sha256": "dda6f878950680d09a91c606d2500aef169b161d15769d31a6b2b4ff24e87b55"
+    },
+    {
+      "path": "formal/PseudoArithmetic/GeometryAudit.lean",
+      "sha256": "83717484b57ba1b9fa60a384d0be3d5ebfc5fababcbc09c47113738b230a3af6"
+    },
+    {
+      "path": "formal/PseudoArithmetic/GramAudit.lean",
+      "sha256": "bf823a86894e4b66fe36cab74fc211b8358f0fc03c4d6a7ea3399ef552a12a16"
+    },
+    {
+      "path": "formal/PseudoArithmetic/InterfaceAudit.lean",
+      "sha256": "821a48a147dddfebf0f7fc369bbdf43ada4d81bfc42d5935295ee3d1db130de9"
+    },
+    {
+      "path": "formal/PseudoArithmetic/RadicalAudit.lean",
+      "sha256": "291950f6a22e1a1c983adcdd61656ac61de77aa12c989083c6b0b69b478df443"
+    },
+    {
+      "path": "formal/PseudoArithmetic/TraceAudit.lean",
+      "sha256": "d1f576a03b16a0b89c744f93e84cc42302c19ed5c1bc22fb0e20c4de5d27d32c"
+    },
+    {
+      "path": "audit/manuscript_statements.json",
+      "sha256": "324667cd4e86339d78fca673e9cea484da50e9f804cfdeaed73d61778ddd158b"
+    },
+    {
+      "path": "notes/manuscript_semantic_audit.md",
+      "sha256": "76b04c16d6d3982c02477eee32e8922deae15db1c0954322ca1e8a1e35824c18"
+    },
+    {
+      "path": "scripts/manuscript_audit.py",
+      "sha256": "96e1268718c4049ccbbabdc5ab18a08a51798d36ceae69b600b0a3e2b8a66c23"
+    },
+    {
+      "path": "scripts/manuscript_computation_audit.py",
+      "sha256": "63d310d03f39a6cf4c0fef8a499321b1ca432c3e637d20a5602fd2fbbb88de38"
+    },
+    {
+      "path": "scripts/manuscript_field_controls.gp",
+      "sha256": "b7fe85448d9354f3988e7f7c51ac7eb7d89df582bfdb7ee51111fbfc61cbba52"
+    },
+    {
+      "path": "results/manuscript_computation_audit.json",
+      "sha256": "ff4f41e8a6cf9cb503747c60227a0ae3fbaf44d65e4d02accc0226cf4dcc4ee6"
+    },
+    {
+      "path": "formal/PseudoArithmetic/ExternalContracts.lean",
+      "sha256": "a2e5dd7942a787a6f63dec70b07aca203a6f6127d90b857772224367d47d4a61"
+    },
+    {
+      "path": "notes/external_translation_audit.md",
+      "sha256": "292c84ab7e272d4de83c7f942e20b85e8157956a6d24a8966b0adc0479d1db49"
+    },
+    {
+      "path": "formal/PseudoArithmetic/SubdiagramAudit.lean",
+      "sha256": "ebd7b3281dcdf16d6a7785872a87b26d51fa45f73026bdce783df57fb487e997"
+    },
+    {
+      "path": "formal/PseudoArithmetic/SubdiagramClassify.lean",
+      "sha256": "9ff7f65ef820292e01ceb765829c1940cf2c93fc0659183298f264f143fc2a72"
+    },
+    {
+      "path": "formal/PseudoArithmetic/SubdiagramControls.lean",
+      "sha256": "7b53beb27472e40c47c4d46914b6043857acbb44686da9602f841f35de474337"
+    },
+    {
+      "path": "formal/PseudoArithmetic/FaceAudit.lean",
+      "sha256": "98a71f7f7dd67649ffcc64ada65bd856cac7be70cadb5e16fb5796cf72556313"
+    },
+    {
+      "path": "formal/PseudoArithmetic/FaceControls.lean",
+      "sha256": "dda494650c011658c6d75d45800737147e3de0fd03e4c43a30f201d98cdbb0cb"
+    },
+    {
+      "path": "formal/PseudoArithmetic/DiagramFaceAudit.lean",
+      "sha256": "442081a28ff928e12ca44dcbd722dee2dbb8089d273c96c635b85c931c82bba5"
+    },
+    {
+      "path": "notes/subdiagram_face_semantic_audit.md",
+      "sha256": "9eb8b45e07842c89d4797f2de8b006af0d9402882cfd74e60f240ce4c3e16913"
     }
   ]
 }

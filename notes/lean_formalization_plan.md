@@ -1,6 +1,12 @@
 # Lean formalization plan and completion record
 
 Status: manuscript target completed for `1.0.0-rc1`, 24 September 2026.
+The 8 October audit added the connection from concrete cycle values to the
+field certificate and made the base noncompactness assumption explicit.
+The 9 October follow-up proves the full principal-subdiagram classification
+and face vector in Lean, with a separate geometric face-correspondence
+contract and exhaustive positive/negative controls; see the
+[worked audit](subdiagram_face_semantic_audit.md).
 
 This file records the design choice behind the formal companion. The release
 formalizes the manuscript's internal proof and translates every external
@@ -33,7 +39,8 @@ checks:
 
 - recovery of $\sqrt5$ and $u$ from the two cyclic products;
 - the concrete positive nested-radical identity;
-- a `TwoCycleCertificate` matching the paper;
+- `TwoCycleCertificate.of_real_cycles`, which derives the field certificate
+  from the two cycle values under a real embedding;
 - the main non-pseudo-arithmeticity implication; and
 - the finite-index manifold corollary.
 
@@ -47,7 +54,14 @@ The external boundary is represented by `CoxeterExternalInputs` and
 - hyperbolic quotient geometry; and
 - finite-index trace-field invariance.
 
-These are theorem parameters, not Lean axioms.
+These are theorem parameters, not Lean axioms. Their geometric predicates
+are abstract, and no census polytope is constructed in Lean.
+
+`minpoly_eq_of_square_five` proves the minimal polynomial from $s^2=5$.
+Together with the certificate constructor, this removes the need to supply
+the minimal polynomial and radical relation as independent assumptions when
+starting from the displayed cycle values. The manifold interface separately
+requires finite volume and noncompactness of the base quotient.
 
 ## Conditional normalized-descent target
 
@@ -80,4 +94,4 @@ The following remain separate possible projects rather than release blockers:
    library theorem.
 
 For bounded memory, the project remains pinned, uses narrow imports, and
-builds with one Lean job.
+limits each Lean elaboration process to one thread.

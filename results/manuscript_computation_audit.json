@@ -1,0 +1,55 @@
+{
+  "arithmetic": "exact polynomial quotient, Sturm isolation, rational intervals",
+  "root_isolating_interval": [
+    "22",
+    "23"
+  ],
+  "radical_branches_verified": true,
+  "cases": [
+    {
+      "row": 6,
+      "inertia": [
+        4,
+        1,
+        2
+      ],
+      "rank": 5,
+      "leading_minors_checked": 5,
+      "zero_six_by_six_minors": 7
+    },
+    {
+      "row": 7,
+      "inertia": [
+        4,
+        1,
+        2
+      ],
+      "rank": 5,
+      "leading_minors_checked": 5,
+      "zero_six_by_six_minors": 7
+    },
+    {
+      "row": 8,
+      "inertia": [
+        4,
+        1,
+        2
+      ],
+      "rank": 5,
+      "leading_minors_checked": 5,
+      "zero_six_by_six_minors": 7
+    }
+  ],
+  "primitive_polynomial_real_roots": 4,
+  "rejected_power_basis_coordinate_mutations": 32,
+  "rejected_cycle_mutations": 24,
+  "principal_subdiagrams_checked": 127,
+  "ordinary_vertices": 8,
+  "ideal_vertices": 2,
+  "elliptic_edges_with_two_endpoints": 21,
+  "rejected_vertex_deletions": 10,
+  "rejected_diagonal_rank_mutations": 3,
+  "inertia_boundary_controls": 2,
+  "principal_minor_rank_counterexample_verified": true,
+  "all_checks_passed": true
+}

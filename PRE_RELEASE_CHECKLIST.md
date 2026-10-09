@@ -89,7 +89,7 @@ the committed PDF).
 - Pinned source SHA-256 values: Ma--Zheng archive
   `13f2d88ad740669f35b4d1859e68da4d489a1223b5ff5a99e128eaa71838234f`,
   `hcp47.tex`
-  `0017931637f017641d4935450cc2a07d070866d9e3ede9f3a39f003`, and HCPdm
+  `0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003`, and HCPdm
   `pi47.txt`
   `05bd3d7eddd62598c1446ec562aa6ef63d85d0142e46cac2a550a1d7b054f293`.
 - Fresh source-level results: all three Gram signatures `(4,1,2)`; all three
@@ -101,3 +101,55 @@ the committed PDF).
 - The archive is generated only after this record is frozen; its exact digest
   and file count are printed by `scripts/build_release.sh` and stored in the
   ignored `dist/` sidecar.
+
+## Follow-up audit: 8 October 2026
+
+The proof and language revisions, stronger algebraic formalization, and
+explicit noncompactness hypothesis are recorded in the
+[audit report](notes/proof_audit_2026_10_08.md). All four source-dependent
+certificates were regenerated and agree with the stored mathematical data.
+The Lean build, transitive axiom audit, 19-page manuscript build, and complete
+release validator passed. The artifact manifest was refreshed for these
+revisions.
+
+## Manuscript-wide semantic audit: 8 October 2026
+
+- [x] Review all 145 manuscript source blocks and register 135 mathematical
+  statement entries, each with a positive example and a negative control.
+- [x] Label all external, partial, conditional, computational, and
+  kernel-checked content explicitly in the
+  [statement register](notes/manuscript_semantic_audit.md).
+- [x] Build the actual three matrices and their cyclic number fields in Lean;
+  prove all three non-total-reality conclusions and the general
+  arbitrary-complex-solution lemma.
+- [x] Include all audit modules and the specialized external contracts
+  in the default Lean build.
+- [x] Run the 28,310 rational examples and the independent all-matrix barrage:
+  127 principal subdiagrams and 69 rejected targeted mutations.
+- [x] Run exact GP positive/negative field controls, including the explicit
+  nonisomorphic fields with identical degree, signature, and discriminant.
+- [x] Check all 290 declarations referenced by the register for unexpected
+  transitive axioms.
+- [x] Verify that coverage rejects changed mathematical prose, an added
+  equation, a missing negative example, and a deleted statement entry;
+  also reject a missing translation review, an unnamed external contract,
+  and an unknown external input.
+- [x] Build the 20-page PDF without undefined references or overfull boxes;
+  visually inspect the revised semantic-audit and external-input pages.
+- [x] Run `python3 scripts/release_check.py`: **PASS** with the enlarged checks.
+
+The acceptance criterion is faithful translation and correct use of imported
+inputs. The register records 83 kernel-level entries, 10 partial entries,
+10 conditional implications, 9 exact computations, 4 external-data entries,
+and 19 external mathematical statements. The ten partial entries concern
+imported geometry or adjoint interpretation. These provenance categories
+are not failure counts; written examples are not presented as Lean proofs.
+The [external translation review](notes/external_translation_audit.md)
+accounts for every one of the original 21 partial entries.
+
+The two local computations singled out in that earlier list are now Lean
+theorems. The default build checks the actual 127-subset classification,
+the complete vertex list and ranks, the face vector, all 70 incidence flips,
+all ten vertex deletions, and an infinite Euler false-positive family.
+V08/V09 now have proved matrix content, with only their affine-type and
+geometric-link interpretation remaining partial.

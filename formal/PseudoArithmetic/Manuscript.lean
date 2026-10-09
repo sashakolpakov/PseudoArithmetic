@@ -79,7 +79,7 @@ theorem cycle_relation_of_radical_identities
   · exact hrelation
 
 /-- A compact, machine-checkable version of the radical computation over
-the real numbers.  Its hypotheses are precisely the four elementary facts
+the real numbers.  Its hypotheses are the seven elementary facts
 established from the positive square-root formulas in the manuscript. -/
 theorem real_radical_calculation
     {s t u : ℝ}
@@ -148,10 +148,10 @@ theorem explicit_radical_cycle_relation :
 
 /-- The exact algebraic data extracted from the two cyclic products.
 
-The cycle equalities and the minimal-polynomial statement are the formal
-translations of the exact Coxeter/trace-field certificate.  The relation can
-either be proved from `cycle_relation_of_radical_identities` or supplied by a
-source-data checker. -/
+The structure records four elements and four equations.  The constructor
+`of_real_cycles` derives all the equations from the two displayed cycle
+values under a real embedding, including the minimal-polynomial statement
+and the radical relation. -/
 structure TwoCycleCertificate (K : Type*) [Field K] [NumberField K] where
   s : K
   u : K
@@ -165,6 +165,42 @@ structure TwoCycleCertificate (K : Type*) [Field K] [NumberField K] where
 namespace TwoCycleCertificate
 
 variable {K : Type*} [Field K] [NumberField K]
+
+/-- Recover the certificate from the two concrete cycle values at a real
+embedding.  The algebraic relation is transported by injectivity, so neither
+it nor the minimal polynomial is an additional hypothesis. -/
+noncomputable def of_real_cycles
+    (ι : K →+* ℝ) (c₁₂ c₀₃₅ : K)
+    (h₁₂ : ι c₁₂ = (3 + radicalS) / 2)
+    (h₀₃₅ : ι c₀₃₅ = -2 * radicalU) : TwoCycleCertificate K := by
+  let s : K := 2 * c₁₂ - 3
+  let u : K := -c₀₃₅ / 2
+  have hs : ι s = radicalS := by
+    dsimp [s]
+    rw [map_sub, map_mul, map_ofNat, map_ofNat, h₁₂]
+    ring
+  have hu : ι u = radicalU := by
+    dsimp [u]
+    rw [map_div₀, map_neg, map_ofNat, h₀₃₅]
+    ring
+  have hsq : s ^ 2 = (5 : K) := by
+    apply ι.injective
+    simpa only [map_pow, map_ofNat, hs, radicalS] using
+      (Real.sq_sqrt (by norm_num : (0 : ℝ) ≤ 5))
+  have hrel : (s - 1) * u ^ 2 + 2 * (s - 3) * u + s - 7 = 0 := by
+    apply ι.injective
+    simpa only [map_sub, map_add, map_mul, map_pow, map_ofNat, map_one,
+      map_zero, hs, hu] using explicit_radical_cycle_relation
+  exact {
+    s := s
+    u := u
+    c₁₂ := c₁₂
+    c₀₃₅ := c₀₃₅
+    cycle12_value := by dsimp [s]; ring
+    cycle035_value := by dsimp [u]; ring
+    sqrt5_minpoly := minpoly_eq_of_square_five hsq
+    cycle_relation := hrel
+  }
 
 theorem recovers_s (C : TwoCycleCertificate K) :
     C.s = 2 * C.c₁₂ - 3 :=
@@ -180,6 +216,16 @@ theorem not_totallyReal (C : TwoCycleCertificate K) :
   not_totallyReal_of_cycle_minpoly C.s C.u C.sqrt5_minpoly C.cycle_relation
 
 end TwoCycleCertificate
+
+/-- The displayed two-cycle values imply non-total reality, with all
+intermediate algebra supplied by `of_real_cycles`. -/
+theorem not_totallyReal_of_real_cycles
+    {K : Type*} [Field K] [NumberField K]
+    (ι : K →+* ℝ) (c₁₂ c₀₃₅ : K)
+    (h₁₂ : ι c₁₂ = (3 + radicalS) / 2)
+    (h₀₃₅ : ι c₀₃₅ = -2 * radicalU) :
+    ¬ NumberField.IsTotallyReal K :=
+  (TwoCycleCertificate.of_real_cycles ι c₁₂ c₀₃₅ h₁₂ h₀₃₅).not_totallyReal
 
 /-- External inputs for one Coxeter case.
 
@@ -202,7 +248,7 @@ structure CoxeterExternalInputs
     ∀ Λ, hasAdjointTraceField Λ → isPseudoArithmetic Λ →
       NumberField.IsTotallyReal K
 
-/-- Manuscript Theorem 1, with all external statements exposed as fields of
+/-- The manuscript's main theorem, with external statements exposed as fields of
 `E` and all new algebra contained in `C`. -/
 theorem coxeter_case_main_theorem
     {Lattice K : Type*} [Field K] [NumberField K]
@@ -225,22 +271,25 @@ structure ManifoldExternalInputs
     (Lattice Manifold K : Type*) [Field K] [NumberField K] where
   Γ : Lattice
   finiteVolumeReflectionLattice : Lattice → Prop
+  noncompactQuotient : Lattice → Prop
   finiteIndex : Lattice → Lattice → Prop
   torsionFreeOrientationPreserving : Lattice → Prop
   quotient : Lattice → Manifold → Prop
-  orientableNoncompactFiniteVolume : Manifold → Prop
+  orientableNoncompactFiniteVolumeHyperbolic4 : Manifold → Prop
   hasAdjointTraceField : Lattice → Prop
   isPseudoArithmeticLattice : Lattice → Prop
   isPseudoArithmeticManifold : Manifold → Prop
   finite_volume : finiteVolumeReflectionLattice Γ
+  noncompact : noncompactQuotient Γ
   trace_field : hasAdjointTraceField Γ
   finiteIndex_cover_exists :
     finiteVolumeReflectionLattice Γ →
       ∃ Λ M, finiteIndex Λ Γ ∧
         torsionFreeOrientationPreserving Λ ∧ quotient Λ M
   quotient_geometry :
-    ∀ Λ M, finiteIndex Λ Γ → torsionFreeOrientationPreserving Λ →
-      quotient Λ M → orientableNoncompactFiniteVolume M
+    ∀ Λ M, finiteVolumeReflectionLattice Γ → noncompactQuotient Γ →
+      finiteIndex Λ Γ → torsionFreeOrientationPreserving Λ →
+      quotient Λ M → orientableNoncompactFiniteVolumeHyperbolic4 M
   traceField_finiteIndex_invariant :
     ∀ Λ, finiteIndex Λ Γ → hasAdjointTraceField Γ →
       hasAdjointTraceField Λ
@@ -251,18 +300,19 @@ structure ManifoldExternalInputs
     ∀ Λ M, quotient Λ M →
       (isPseudoArithmeticManifold M ↔ isPseudoArithmeticLattice Λ)
 
-/-- Manuscript Corollary 2: once the external finite-cover facts are supplied,
+/-- The manuscript's manifold corollary: once the external finite-cover facts are supplied,
 the same non-total-reality certificate obstructs pseudo-arithmeticity of the
 resulting orientable finite-volume manifold. -/
 theorem finiteIndex_manifold_corollary
     {Lattice Manifold K : Type*} [Field K] [NumberField K]
     (E : ManifoldExternalInputs Lattice Manifold K)
     (C : TwoCycleCertificate K) :
-    ∃ M, E.orientableNoncompactFiniteVolume M ∧
+    ∃ M, E.orientableNoncompactFiniteVolumeHyperbolic4 M ∧
       ¬ E.isPseudoArithmeticManifold M := by
   obtain ⟨Λ, M, hindex, htorsion, hquotient⟩ :=
     E.finiteIndex_cover_exists E.finite_volume
-  refine ⟨M, E.quotient_geometry Λ M hindex htorsion hquotient, ?_⟩
+  refine ⟨M, E.quotient_geometry Λ M E.finite_volume E.noncompact
+    hindex htorsion hquotient, ?_⟩
   intro hpseudoM
   have hpseudoΛ := (E.quotient_pseudoArithmetic Λ M hquotient).mp hpseudoM
   have htraceΛ := E.traceField_finiteIndex_invariant Λ hindex E.trace_field

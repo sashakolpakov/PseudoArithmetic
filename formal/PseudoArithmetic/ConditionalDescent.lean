@@ -3,14 +3,15 @@ import PseudoArithmetic.NonTotalReality
 /-!
 # Conditional descent and pseudo-arithmeticity bridges
 
-Mathlib does not yet expose all of the Clifford-algebra, Brauer-group, ABHN,
-and Hasse--Minkowski machinery used by the manuscript.  This file therefore
-does not postulate those results globally.  Instead, each unavailable
-classical input is an explicit hypothesis of the theorem that uses it.
+This supplementary file treats the Clifford-algebra, Brauer-group, ABHN,
+and Hasse--Minkowski inputs used in the repository notes as explicit theorem
+hypotheses.  It does not develop these theories or the hyperbolic geometry
+needed to interpret the abstract predicates.
 
 The conclusions below are consequently kernel-checked implication chains:
 once the named mathematical inputs are supplied, Lean verifies the descent
-criterion and the obstruction arguments.
+criterion and the obstruction arguments.  The candidate type is abstract;
+finiteness and enumeration of geometric candidates are not formalized here.
 -/
 
 namespace PseudoArithmetic
@@ -88,7 +89,7 @@ theorem DescentBridge.not_simDesc_of_not_splitSupport
   intro hsim
   exact hfail (D.simDesc_implies_splitSupport i hsim)
 
-/-- The finite pseudo-arithmeticity criterion assembled from a supplied
+/-- The pseudo-arithmeticity candidate criterion assembled from a supplied
 `DescentBridge`.
 -/
 theorem DescentBridge.pseudoArithmetic_iff
@@ -288,7 +289,7 @@ theorem all_candidates_fail_splitSupport_not_pseudoArithmetic
     (local_brauer_necessary H
       (clifford_necessary H (normalization_necessary H hdescends)))
 
-/-- Conditional finite-candidate obstruction to pseudo-arithmeticity.
+/-- Conditional candidate obstruction to pseudo-arithmeticity.
 
 `pseudoArithmetic_candidate` is the geometric/field-of-definition reduction
 to an eligible multiquadratic descent candidate.  The remaining hypotheses

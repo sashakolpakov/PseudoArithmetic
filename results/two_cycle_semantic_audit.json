@@ -1,0 +1,67 @@
+{
+  "arithmetic": "exact fractions; no floating point",
+  "scope": "quadratic relation and discriminant; field examples are checked in Lean",
+  "positive_root_cases": 2000,
+  "nonzero_perturbation_cases": 4000,
+  "below_boundary_nonroot_cases": 20301,
+  "discriminant_identity_cases": 2001,
+  "named_examples": [
+    {
+      "name": "double_root_boundary",
+      "s": "-1",
+      "u": "-2",
+      "polynomial_value": "0",
+      "is_root": true
+    },
+    {
+      "name": "linear_boundary",
+      "s": "1",
+      "u": "-3/2",
+      "polynomial_value": "0",
+      "is_root": true
+    },
+    {
+      "name": "square_hypothesis_missing",
+      "s": "7",
+      "u": "0",
+      "polynomial_value": "0",
+      "is_root": true
+    },
+    {
+      "name": "ordinary_rational_root",
+      "s": "7/2",
+      "u": "1",
+      "polynomial_value": "0",
+      "is_root": true
+    },
+    {
+      "name": "below_boundary",
+      "s": "-2",
+      "u": "0",
+      "polynomial_value": "-9",
+      "is_root": false
+    },
+    {
+      "name": "incorrect_root_at_boundary",
+      "s": "-1",
+      "u": "0",
+      "polynomial_value": "-8",
+      "is_root": false
+    },
+    {
+      "name": "wrong_root_in_linear_case",
+      "s": "1",
+      "u": "0",
+      "polynomial_value": "-6",
+      "is_root": false
+    },
+    {
+      "name": "excluded_parameter_denominator",
+      "s": "7",
+      "u": "-1",
+      "polynomial_value": "-2",
+      "is_root": false
+    }
+  ],
+  "all_checks_passed": true
+}

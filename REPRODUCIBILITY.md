@@ -28,6 +28,15 @@ mkdir -p "$PA_REPRO_DIR/paperarXiv"
 mkdir -p "$PA_REPRO_DIR/HCPdm-main/polytopeDATA"
 ```
 
+If the Python dependencies are not already installed, create an isolated
+environment and activate it before running the commands below:
+
+```sh
+python3 -m venv "$PA_REPRO_DIR/venv"
+"$PA_REPRO_DIR/venv/bin/python" -m pip install 'sympy==1.14.0' 'numpy==2.4.4'
+. "$PA_REPRO_DIR/venv/bin/activate"
+```
+
 Download Ma–Zheng's arXiv v3 source and extract the one TeX file read by the
 certifiers:
 
@@ -181,10 +190,64 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
   non_pseudo_arithmetic_4_manifolds.tex
 ```
 
-The expected output is the 19-page
+The expected output is the 20-page
 `manuscript/non_pseudo_arithmetic_4_manifolds.pdf`.  The build has no undefined
 references, fatal errors, or overfull boxes; the only layout notices are
 harmless underfull bibliography lines.
+
+## Semantic audit examples
+
+The [worked English-to-Lean audit](notes/two_cycle_semantic_audit.md) is
+checked by the default Lean build. Its finite rational barrage needs only
+the Python standard library:
+
+```sh
+python3 scripts/semantic_audit_examples.py
+```
+
+It checks 2,000 exact roots, 4,000 nonzero perturbations, 20,301 non-roots
+below the real-root boundary, 2,001 discriminant identities, and eight named
+examples. The release validator regenerates this output and compares it
+with `results/two_cycle_semantic_audit.json`. Number-field examples and
+counterexamples are proved in `formal/PseudoArithmetic/SemanticAudit.lean`.
+
+The [manuscript-wide audit](notes/manuscript_semantic_audit.md) has its own
+source coverage check and independent exact arithmetic barrage:
+
+```sh
+python3 scripts/manuscript_audit.py --check
+python3 scripts/manuscript_computation_audit.py
+gp -q scripts/manuscript_field_controls.gp
+```
+
+The registry records 135 statement entries, 270 example/control entries, and
+fingerprints for all 145 manuscript source blocks. Changed text fails the
+coverage check until it has been reviewed and the corresponding register
+entry updated. After that review, `--render` regenerates the readable report.
+The checker verifies bookkeeping, not English meaning. All named Lean
+declarations are checked separately by the release axiom audit.
+Every entry also records its translation assessment and external inputs,
+separately from proof provenance. The
+[external translation review](notes/external_translation_audit.md) explains
+the specialized geometric contracts and their positive/negative controls.
+
+The new Python computation uses only the standard library. It performs
+rational polynomial arithmetic modulo the recorded degree-eight polynomial,
+Sturm root isolation in `(22,23)`, and rational interval sign tests. It
+reconstructs and verifies the positive branches of all three `b` radicals,
+checks all three matrices and all 127 principal subdiagrams of the third,
+and rejects 69 targeted mutations. Every quotient-field inverse is checked
+by multiplication. PARI separately verifies irreducibility, field invariants,
+the two field presentations, and counterexamples to identifying fields by
+their invariants alone. These executions are independent computational
+evidence, not Lean proof certificates.
+
+The same principal-subdiagram classification and the full face vector now
+also have independent Lean proofs. `lake build` includes all six new
+subdiagram/face modules through `DiagramFaceAudit`. Their exact matrix
+certificates and finite proofs do not consume the Python or CoxIter output.
+See the [worked audit](notes/subdiagram_face_semantic_audit.md) for the
+English-to-signature comparison and the positive/negative controls.
 
 ## Complete local release audit
 
@@ -196,8 +259,12 @@ python3 scripts/release_check.py
 ```
 
 It parses every committed JSON/JSONL result, byte-compiles every Python
-script, audits Lean sources, runs the stored-log and PARI/GP regressions,
-builds Lean, builds the manuscript, and checks the final TeX log.
+script, audits project Lean sources (excluding `.lake/` dependencies), runs
+the stored-log and PARI/GP regressions, checks manuscript coverage and fresh
+exact reports, builds Lean, inspects the transitive axioms of every registered
+declaration and the main theorems, builds the manuscript, and checks the final
+TeX log. The allowed logical axioms are `propext`, `Classical.choice`, and
+`Quot.sound`.
 
 After that succeeds, build the deterministic release archive with:
 
@@ -206,5 +273,5 @@ scripts/build_release.sh
 ```
 
 The archive and its `.sha256` file are written under the ignored `dist/`
-directory. The archive contains only tracked release sources and the committed
-PDF, not local caches or TeX auxiliary files.
+directory. The archive contains tracked files and nonignored new release
+sources, including the PDF; local caches and TeX auxiliary files are excluded.

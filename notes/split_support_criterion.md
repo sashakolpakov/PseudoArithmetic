@@ -89,9 +89,10 @@ Every nontrivial local degree in a multiquadratic extension is even.  A
 completely split place the local degree is one, so all primes in the fiber
 receive the same invariant.  This proves the split-support condition.
 
-Conversely, suppose the signatures descend and the split-support condition
-holds.  Prescribe a class `beta0 in Br(k)[2]` as follows.  At every completely
-split place, give it the common invariant of `c(q)`; at real places use the
+First prove sufficiency in the totally real case, assuming that the
+signatures descend and split support holds. Prescribe a class
+`beta0 in Br(k)[2]` as follows. At every completely split finite
+place, give it the common invariant of `c(q)`; at real places use the
 invariant forced by the common signature; and set all other invariants to
 zero.  If the number of prescribed ramified places of `k` is odd, add one
 finite nonsplit place.  Such a place exists by Chebotarev, and its invariant
@@ -114,6 +115,16 @@ same complete set of local invariants as `q#`, so Hasse--Minkowski gives
 ```
 
 This proves sufficiency.
+
+For general number fields, assume condition 2 and choose a Brauer lift
+`beta0` of `c(q)`. At a real place of `k` with real extensions to `K`,
+condition 1 prescribes a common signature, and restriction has local degree
+one, so the Clifford invariant already agrees. At a real place whose
+extensions are complex, choose a square-determinant signature realizing
+the invariant of `beta0`; both invariants occur in odd rank at least three.
+There is no signature to prescribe at a complex place. The same local
+realization, reciprocity, and Hasse--Minkowski argument then proves the
+stated general criterion.
 
 ## 3. The lightweight obstruction and its agreement with the criterion
 
@@ -184,9 +195,9 @@ lightweight test rejects H            =>  full criterion rejects H.
 
 When the same real-signature screen is imposed and both nonsplit ramified
 primes and incomplete ramified fibers are checked, the finite split-support
-answers coincide.  A lightweight pass by itself is not a declaration of
-pseudo-arithmeticity: another descent candidate or the real signatures may
-still decide the question.  In particular, the trivial subgroup must be
+answers coincide. A lightweight pass by itself does not establish
+pseudo-arithmeticity: total reality and the admissible signature pattern
+must also hold for that candidate.  In particular, the trivial subgroup must be
 retained; it has no finite-place obstruction and represents the
 quasi-arithmetic candidate.
 

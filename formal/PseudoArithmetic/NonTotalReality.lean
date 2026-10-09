@@ -1,4 +1,6 @@
 import Mathlib.NumberTheory.NumberField.InfinitePlace.TotallyRealComplex
+import Mathlib.Algebra.Polynomial.SpecificDegree
+import Mathlib.Data.Rat.Sqrt
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 
@@ -10,6 +12,30 @@ used for the Coxeter lattices `P_{11,6}`, `P_{11,7}`, and `P_{11,8}`.
 -/
 
 namespace PseudoArithmetic
+
+/-- The rational polynomial `X² - 5` is irreducible. -/
+theorem sqrt5_polynomial_irreducible :
+    Irreducible (Polynomial.X ^ 2 - Polynomial.C (5 : ℚ)) := by
+  apply Polynomial.irreducible_of_degree_le_three_of_not_isRoot
+  · norm_num [Polynomial.natDegree_X_pow_sub_C]
+  · intro q hq
+    have hsq : q ^ 2 = (5 : ℚ) := by
+      simpa [Polynomial.IsRoot, sub_eq_zero] using hq
+    have hnot : ¬ IsSquare (5 : ℚ) := by
+      intro h
+      exact (show Nat.Prime 5 by decide).not_isSquare
+        (Rat.isSquare_natCast_iff.mp h)
+    exact hnot ⟨q, by nlinarith⟩
+
+/-- The square identity alone determines the minimal polynomial; a caller
+does not need to supply a separate irreducibility certificate. -/
+theorem minpoly_eq_of_square_five
+    {K : Type*} [Field K] [CharZero K]
+    {s : K} (hsq : s ^ 2 = (5 : K)) :
+    minpoly ℚ s = Polynomial.X ^ 2 - Polynomial.C 5 := by
+  apply (minpoly.eq_of_irreducible_of_monic sqrt5_polynomial_irreducible
+    (x := s) ?_ (Polynomial.monic_X_pow_sub_C (5 : ℚ) (by norm_num))).symm
+  simp [hsq]
 
 /-- The conjugate quadratic from the two-cycle certificate has no real root.
 
@@ -31,7 +57,7 @@ theorem conjugateQuadratic_no_real_root
 /-- A complex embedding that sends `s` to the negative square root of `5`
 cannot be real when `s` and `u` satisfy the two-cycle relation.
 
-This isolates the only analytic input: a real embedding would turn the
+This isolates the algebraic contradiction: a real embedding would turn the
 relation into the impossible real quadratic handled above.
 -/
 theorem cycleEmbedding_not_real
@@ -111,5 +137,14 @@ theorem not_totallyReal_of_cycle_minpoly
     exact hzroot
   obtain ⟨phi, hphi⟩ := hzrange
   exact not_totallyReal_of_cycle_embedding s u hsq hrel phi hphi
+
+/-- The two algebraic equations suffice for non-total reality. -/
+theorem not_totallyReal_of_cycle_square
+    {K : Type*} [Field K] [NumberField K]
+    (s u : K)
+    (hsq : s ^ 2 = (5 : K))
+    (hrel : (s - 1) * u ^ 2 + 2 * (s - 3) * u + s - 7 = 0) :
+    ¬ NumberField.IsTotallyReal K :=
+  not_totallyReal_of_cycle_minpoly s u (minpoly_eq_of_square_five hsq) hrel
 
 end PseudoArithmetic

@@ -5,6 +5,49 @@ Date: 24 September 2026
 This is the first publication-oriented release candidate for
 *Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds*.
 
+## Working-tree audit: 8 October 2026
+
+The follow-up audit corrected the conjugate-embedding proof, clarified Gram
+normalization and total reality, repaired the manuscript's source hash, and
+tightened the exposition. Lean now constructs the algebraic certificate
+from the two real cycle values and proves the minimal polynomial internally.
+The manifold interface explicitly assumes a noncompact base quotient.
+The validator now excludes dependency sources from the project token scan
+and checks the transitive axioms of the main declarations. See the
+[audit record](notes/proof_audit_2026_10_08.md) for findings and validation.
+
+The subsequent [manuscript-wide semantic audit](notes/manuscript_semantic_audit.md)
+records 135 statements with positive and negative examples and fingerprints
+every manuscript source block. The audit modules and the specialized
+external contracts are in the default build.
+The displayed matrices and their cyclic fields now supply all three
+non-total-reality proofs internally. Field, reflection, trace, orientation,
+finite-generation, and topological facts have further checked examples.
+The general complex-root lemma is proved at its stated generality.
+
+An independent exact computation checks all three matrices and the third
+matrix's 127 principal subdiagrams, rejecting 69 targeted mutations. GP
+controls test irreducibility, signatures, discriminants, and field
+isomorphism. The register labels every external or partial statement and
+does not count Boolean interface models as geometric examples.
+
+The [external translation review](notes/external_translation_audit.md)
+separates faithful translation from proof provenance. Of the original 21
+partial entries, 13 now have explicit checked statements,
+and 8 retain their expected geometric or adjoint interpretation. New contracts
+identify actual matrix fields by equality, preserve the lattice hypotheses,
+and keep subgroup/quotient properties on shared witnesses. The manuscript
+consistently uses “totally real multiquadratic.”
+
+The 9 October follow-up completes the two local computations in Lean:
+all 127 nonempty principal subsets of P₁₁,₈ are classified against their
+actual real Gram matrices, and all five face counts (10,21,18,7,1) are
+derived from the complete incidence poset. Vertex ranks, all 21 edge
+endpoint counts, 70 incidence-bit flips, ten vertex deletions, and an
+infinite family of Euler false positives are proved. The
+[worked audit](notes/subdiagram_face_semantic_audit.md) maps the English
+statements to signatures and explains each changed-hypothesis control.
+
 ## Headline result
 
 The release gives exact certificates that the reflection lattices of the
@@ -15,7 +58,7 @@ $4$-manifolds with the same obstruction.
 
 ## What changed from 0.1.0
 
-- The manuscript grew from a short seven-page announcement to a 19-page,
+- The manuscript grew from a short seven-page announcement to a 20-page,
   self-contained treatment.
 - The introduction now defines every specialized concept used later:
   hyperbolic lattices, Coxeter polytopes, Gram matrices, number-field

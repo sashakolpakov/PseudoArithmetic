@@ -13,6 +13,8 @@ import subprocess
 import sys
 import tempfile
 
+from manuscript_audit import declarations as statement_declarations
+
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_VERSION = "1.0.0-rc1"
@@ -81,6 +83,24 @@ def check_required_files() -> None:
         "CITATION.cff",
         "release/manifest.json",
         "formal/PseudoArithmetic/Manuscript.lean",
+        "formal/PseudoArithmetic/SemanticAudit.lean",
+        "formal/PseudoArithmetic/ExternalContracts.lean",
+        "formal/PseudoArithmetic/SubdiagramAudit.lean",
+        "formal/PseudoArithmetic/SubdiagramClassify.lean",
+        "formal/PseudoArithmetic/SubdiagramControls.lean",
+        "formal/PseudoArithmetic/FaceAudit.lean",
+        "formal/PseudoArithmetic/FaceControls.lean",
+        "formal/PseudoArithmetic/DiagramFaceAudit.lean",
+        "notes/two_cycle_semantic_audit.md",
+        "results/two_cycle_semantic_audit.json",
+        "audit/manuscript_statements.json",
+        "notes/manuscript_semantic_audit.md",
+        "notes/external_translation_audit.md",
+        "notes/subdiagram_face_semantic_audit.md",
+        "results/manuscript_computation_audit.json",
+        "scripts/manuscript_audit.py",
+        "scripts/manuscript_computation_audit.py",
+        "scripts/manuscript_field_controls.gp",
         "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
         "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
     ]
@@ -137,6 +157,16 @@ def check_json_results() -> None:
             "P11,8 field signature mismatch")
     require(p118["whole_field_certificate"]["field_discriminant"] == 40960000,
             "P11,8 field discriminant mismatch")
+    source_digest = p118["source"]["sha256"]
+    require(re.fullmatch(r"[0-9a-f]{64}", source_digest) is not None,
+            "invalid source SHA-256 in the P11,8 certificate")
+    for name in (
+        "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
+        "REPRODUCIBILITY.md",
+        "PRE_RELEASE_CHECKLIST.md",
+    ):
+        require(source_digest in (ROOT / name).read_text(),
+                f"missing or incorrect source SHA-256 in {name}")
 
     geometry = json.loads((result_dir / "p11_8_finite_volume_validation.json").read_text())
     require(geometry["conclusion"] == "finite_volume_noncompact_with_exactly_two_cusps",
@@ -157,6 +187,31 @@ def check_python_sources() -> None:
                 raise CheckError(str(error)) from error
 
 
+def check_semantic_examples() -> None:
+    output = run_command(
+        "exact rational semantic examples",
+        [sys.executable, "scripts/semantic_audit_examples.py"],
+    )
+    fresh = json.loads(output)
+    stored = json.loads((ROOT / "results/two_cycle_semantic_audit.json").read_text())
+    require(fresh == stored, "semantic example report differs from the fresh exact checks")
+    require(fresh["all_checks_passed"] is True, "semantic example checks did not pass")
+
+
+def check_manuscript_audit() -> None:
+    run_command("statement-by-statement source coverage and examples",
+                [sys.executable, "scripts/manuscript_audit.py", "--check"])
+    output = run_command("independent exact matrix and field mutation barrage",
+                         [sys.executable, "scripts/manuscript_computation_audit.py"])
+    fresh = json.loads(output)
+    stored = json.loads((ROOT / "results/manuscript_computation_audit.json").read_text())
+    require(fresh == stored, "manuscript computation report differs from the fresh exact checks")
+    require(fresh["all_checks_passed"] is True, "manuscript computation checks did not pass")
+    run_command("full-field positive and negative controls",
+                ["gp", "-q", "scripts/manuscript_field_controls.gp"],
+                required_output=("RESULT=PASS",))
+
+
 def strip_lean_comments(source: str) -> str:
     """Remove the comment forms used in these project files for token audit."""
     previous = None
@@ -171,9 +226,65 @@ def check_lean_source_audit() -> None:
     declaration = re.compile(r"(?m)^\s*(axiom|opaque)\s+")
     escape = re.compile(r"\b(sorry|admit|native_decide)\b")
     for path in sorted((ROOT / "formal").rglob("*.lean")):
+        if ".lake" in path.relative_to(ROOT / "formal").parts:
+            continue
         source = strip_lean_comments(path.read_text())
         require(not declaration.search(source), f"forbidden declaration in {path}")
         require(not escape.search(source), f"proof escape in {path}")
+
+
+def check_lean_axioms() -> None:
+    """Inspect the transitive axioms of the main algebra and implication theorems."""
+    declarations = (
+        "PseudoArithmetic.minpoly_eq_of_square_five",
+        "PseudoArithmetic.not_totallyReal_of_cycle_square",
+        "PseudoArithmetic.Manuscript.explicit_radical_cycle_relation",
+        "PseudoArithmetic.Manuscript.TwoCycleCertificate.of_real_cycles",
+        "PseudoArithmetic.Manuscript.not_totallyReal_of_real_cycles",
+        "PseudoArithmetic.Manuscript.coxeter_case_main_theorem",
+        "PseudoArithmetic.Manuscript.finiteIndex_manifold_corollary",
+        "PseudoArithmetic.DescentBridge.simDesc_iff",
+        "PseudoArithmetic.SemanticAudit.square_iff_minpoly",
+        "PseudoArithmetic.SemanticAudit.real_root_iff",
+        "PseudoArithmetic.SemanticAudit.rational_root_family",
+        "PseudoArithmetic.SemanticAudit.rational_perturbation_family",
+        "PseudoArithmetic.SemanticAudit.negative_parameter_family",
+        "PseudoArithmetic.SemanticAudit.concrete_positive_example",
+        "PseudoArithmetic.SemanticAudit.concrete_cycle_constructor",
+        "PseudoArithmetic.SemanticAudit.square_hypothesis_necessary",
+        "PseudoArithmetic.SemanticAudit.relation_hypothesis_necessary",
+        "PseudoArithmetic.SemanticAudit.field_membership_necessary",
+        "PseudoArithmetic.SemanticAudit.real_embedding_does_not_mean_totallyReal",
+        "PseudoArithmetic.SemanticAudit.witness_not_totallyComplex",
+        "PseudoArithmetic.SemanticAudit.witness_has_nonreal_embedding",
+        "PseudoArithmetic.SemanticAudit.negative_sign_necessary",
+        "PseudoArithmetic.SemanticAudit.negative_sign_alone_insufficient",
+        "PseudoArithmetic.SemanticAudit.changed_middle_sign_also_provable",
+        "PseudoArithmetic.SemanticAudit.middle_sign_mutation_rejected",
+    )
+    catalog = json.loads((ROOT / "audit/manuscript_statements.json").read_text())
+    declarations = tuple(sorted(set(declarations) | set(statement_declarations(catalog))))
+    source = "import PseudoArithmetic\n" + "".join(
+        f"#print axioms {name}\n" for name in declarations
+    )
+    with tempfile.TemporaryDirectory(prefix="pseudo-arithmetic-axioms-") as temporary:
+        path = Path(temporary) / "Audit.lean"
+        path.write_text(source, encoding="utf-8")
+        output = run_command(
+            "Lean theorem axiom audit", ["lake", "env", "lean", "-j", "1", str(path)],
+            cwd=ROOT / "formal",
+        )
+    allowed = {"propext", "Classical.choice", "Quot.sound"}
+    for name in declarations:
+        match = re.search(
+            rf"'{re.escape(name)}' depends on axioms: \[([^\]]*)\]", output
+        )
+        if match is None:
+            require(f"'{name}' does not depend on any axioms" in output,
+                    f"missing axiom report for {name}:\n{output}")
+            continue
+        actual = {item.strip() for item in match.group(1).split(",") if item.strip()}
+        require(actual <= allowed, f"unexpected axioms for {name}: {sorted(actual - allowed)}")
 
 
 def check_markdown() -> None:
@@ -235,6 +346,8 @@ def main() -> int:
         check_version_consistency()
         check_json_results()
         check_python_sources()
+        check_semantic_examples()
+        check_manuscript_audit()
         check_lean_source_audit()
         check_markdown()
         check_manifest()
@@ -255,6 +368,7 @@ def main() -> int:
                     required_output=("RESULT: local degree 2 kills the discrepancies",))
         run_command("Lean build", ["lake", "build"], cwd=ROOT / "formal",
                     required_output=("Build completed successfully",))
+        check_lean_axioms()
         run_command(
             "manuscript build",
             ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error",

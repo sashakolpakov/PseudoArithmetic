@@ -76,19 +76,16 @@ pseudo-arithmetic.  Torsion-free orientation-preserving finite-index
 subgroups yield orientable noncompact finite-volume hyperbolic
 \(4\)-manifolds with the same obstruction.
 
-The exposition includes all specialized definitions used in the argument,
-an exact source-to-matrix transcription, a proof of every new algebraic
-step, independent exact certificates, and an explicit register of imported
-theorems.  A pinned Lean~4 development kernel-checks the radical identity,
-the number-field obstruction, the main implication, and the finite-index
-corollary.  Statements imported from geometry and the literature are
-represented in Lean as local hypotheses rather than asserted as axioms or
-reproved here.
+Exact computations check the census data and provide independent field and
+finite-volume certificates.  A pinned Lean~4 development verifies the
+radical identity and the number-field obstruction.  It also checks the
+lattice and manifold implications conditional on explicit geometric and
+literature hypotheses.
 \end{abstract}
 
 \tableofcontents
 
-\section{Introduction and complete reader's primer}
+\section{Introduction}
 \label{sec:introduction}
 
 \subsection{The question and the answer}
@@ -133,16 +130,14 @@ Emery--Mila checked the higher-dimensional Coxeter examples then available
 to them.  The final 2026 version of
 Belolipetsky--Bogachev--Kolpakov--Slavich still described the known examples
 in \(\PO(n,1)\), \(n>3\), as pseudo-arithmetic \cite{BBKS}.  A targeted
-literature audit through 24 September 2026 found no earlier recorded
-non-pseudo-arithmetic lattice in these dimensions.  We therefore use the
-qualified statement that we know of no previous example; a bounded search is
-not a proof of absolute priority.
+literature search through 24 September 2026 found no earlier recorded
+non-pseudo-arithmetic lattice in these dimensions.  We know of no previous
+example.
 
-\subsection{All specialized language used in the proof}
+\subsection{Definitions and conventions}
 \label{subsec:primer}
 
-This subsection is a compact primer.  Later sections repeat the definitions
-at the point where calculations use them.
+We recall the definitions used in the argument.
 
 \paragraph{Hyperbolic space and lattices.}
 On \(\R^{n+1}\), put
@@ -155,17 +150,18 @@ The upper sheet
  \HH^n=\{x\in\R^{n+1}:\langle x,x\rangle_{n,1}=-1,
                        \ x_{n+1}>0\}
 \]
-is the hyperboloid model of real hyperbolic space.  The group preserving the
-form acts by isometries; after quotienting by its scalar center one obtains
-the projective orthogonal group \(\PO(n,1)\).  A subgroup
+is the hyperboloid model of real hyperbolic space.  The subgroup of the
+orthogonal group preserving this sheet acts by isometries and is naturally
+isomorphic to \(\PO(n,1)=\mathrm O(n,1)/\{\pm I\}\).  A subgroup
 \(\Gamma<\Isom(\HH^n)\) is \emph{discrete} if the identity is isolated in
-\(\Gamma\), and it is a \emph{lattice} if
+\(\Gamma\).  A discrete subgroup is a \emph{lattice} if
 \(\Gamma\backslash\HH^n\) has finite volume.  The quotient is an orbifold in
 general and a manifold when \(\Gamma\) is torsion-free.
 
 \paragraph{Coxeter polytopes and Gram matrices.}
-A convex hyperbolic polytope is \emph{Coxeter} when every dihedral angle is
-\(\pi/m\) for an integer \(m\ge2\).  Reflections in its facets generate a
+A convex hyperbolic polytope is \emph{Coxeter} when every nonzero dihedral
+angle is \(\pi/m\) for an integer \(m\ge2\); zero angles at ideal intersections
+are also allowed.  Reflections in its facets generate a
 discrete group for which the polytope is a fundamental domain.  If the
 polytope has finite volume, this reflection group is a lattice.  Choose an
 outward unit spacelike normal \(e_i\) to each facet.  The matrix
@@ -214,7 +210,7 @@ totally real field \(k\) is \emph{admissible} for hyperbolic \(n\)-space when
 one real factor is the required noncompact projective orthogonal group and
 the other real factors are compact.  In Emery--Mila's definition, a lattice
 is \emph{pseudo-arithmetic} when its ambient group is obtained from such an
-admissible group by scalar extension through a finite real multiquadratic
+admissible group by scalar extension through a finite totally real multiquadratic
 extension \(K/k\).  Their definition implies that \(K=k(\Gamma)\) is totally
 real.  This last necessary condition is the only part of
 pseudo-arithmeticity used in the proof.
@@ -305,8 +301,8 @@ The number \(\sqrt5\) is irrational and
 \[
  \minpoly_\Q(\sqrt5)=X^2-5.
 \]
-Its two embeddings over \(\Q\) send \(\sqrt5\) to \(\sqrt5\) and
-\(-\sqrt5\), respectively.
+The two embeddings of \(\Q(\sqrt5)\) over \(\Q\) send \(\sqrt5\) to
+\(\sqrt5\) and \(-\sqrt5\), respectively.
 \end{lemma}
 
 \begin{proof}
@@ -380,9 +376,9 @@ of its restriction \(\sigma\), a contradiction.
 \subsection{The hyperboloid model and reflecting hyperplanes}
 
 Let \(V=\R^{n+1}\) with the form \(\langle\ ,\ \rangle_{n,1}\) defined in
-Subsection~\ref{subsec:primer}.  A vector is spacelike, null, or timelike
-according as its norm is positive, zero, or negative.  If \(e\) is a unit
-spacelike vector, then
+Subsection~\ref{subsec:primer}.  A nonzero vector is spacelike, null, or
+timelike according as its squared Lorentzian norm is positive, zero, or
+negative.  If \(e\) is a unit spacelike vector, then
 \[
  H_e=\{x\in\HH^n:\langle x,e\rangle_{n,1}=0\}
 \]
@@ -403,7 +399,7 @@ Lorentzian calculations for intersecting, asymptotic, and ultraparallel
 hyperplanes \cite[Chapter~3]{Ratcliffe}.
 
 \begin{definition}
-A Coxeter matrix has diagonal entries one and off-diagonal labels
+A Coxeter matrix is symmetric, has diagonal entries one, and has off-diagonal labels
 \(m_{ij}\in\{2,3,\ldots\}\cup\{\infty\}\).  Its Coxeter group is generated
 by involutions \(r_i\) with relations \((r_ir_j)^{m_{ij}}=1\) when
 \(m_{ij}<\infty\).  For a hyperbolic Coxeter polytope, these generators are
@@ -459,8 +455,8 @@ Zariski-dense subgroup \(\Gamma\), define
 \]
 For lattices in a connected noncompact simple Lie group, Borel density gives
 the required Zariski density.  Vinberg's theory produces a form of the
-ambient algebraic group over \(k(\Gamma)\), unique in the appropriate
-isomorphism or isogeny class \cite{VinbergRings}.  We do not need its
+ambient adjoint algebraic group over \(k(\Gamma)\), unique up to
+\(k(\Gamma)\)-isomorphism \cite{VinbergRings}.  We do not need its
 construction; only the field is used below.
 
 We also use the standard finite-index invariance
@@ -486,7 +482,7 @@ arithmetic admissibility condition.
 Let \(n>3\).  A group over a number field \(K\) is
 \emph{pseudo-admissible over \(K/k\)} if it is the scalar extension
 \(\mathbf H_K\) of an admissible \(k\)-group through a finite, possibly
-trivial, real multiquadratic extension
+trivial, totally real multiquadratic extension
 \[
  K=k(\sqrt{d_1},\ldots,\sqrt{d_t}).
 \]
@@ -494,9 +490,13 @@ A lattice \(\Gamma<\PO(n,1)\) is \emph{pseudo-arithmetic} when its ambient
 group is pseudo-admissible \cite[Definitions~1.6--1.7]{EmeryMila}.
 \end{definition}
 
-The trivial case \(t=0\) includes quasi-arithmetic lattices.  The adjective
-``real'' in this definition is the archimedean condition ensuring that the
-extension has only real embeddings over the relevant real places.
+The trivial case \(t=0\) includes quasi-arithmetic lattices.
+Total reality means that every embedding of \(K\) is real, as required in
+\cite[Section~1.4]{EmeryMila}.
+Equivalently, the generators \(d_i\in k^\times\) can be chosen totally
+positive, meaning \(\sigma(d_i)>0\) for every embedding
+\(\sigma:k\hookrightarrow\R\).  Merely requiring \(K\subset\R\) at one
+embedding would not imply total reality.
 
 \begin{proposition}[Total-reality obstruction]
 \label{prop:total-real-obstruction}
@@ -505,11 +505,13 @@ trace field \(k(\Gamma)\) is totally real.
 \end{proposition}
 
 \begin{proof}
-This is the immediate necessary condition recorded by Emery--Mila
-\cite[Section~1.4]{EmeryMila}.  In their definition the base field is totally
-real by admissibility and \(K/k\) is a real multiquadratic extension.  Thus
-every embedding \(K\hookrightarrow\C\) has image in \(\R\).  Since
-\(K=k(\Gamma)\), the adjoint trace field is totally real.
+We use the necessary condition stated by Emery--Mila immediately before
+Question~1.10 in \cite[Section~1.4]{EmeryMila}.  In the notation above, an
+embedding \(\tau:K\hookrightarrow\C\) restricts to a real embedding
+\(\sigma\) of \(k\), and
+\(\tau(\sqrt{d_i})^2=\sigma(d_i)>0\).  Hence every generator has real
+image, so \(\tau(K)\subset\R\).  Since \(K=k(\Gamma)\), the conclusion
+follows.
 \end{proof}
 
 The contrapositive is what we use:
@@ -546,16 +548,22 @@ If \(P\) has finite volume and \(\Gamma(P)\) is its reflection group, then
 This is the cyclic-product form of Vinberg's field-of-definition theorem
 \cite{VinbergRings}; see also \cite[Section~4.1]{EmeryMila} and
 \cite[Section~3.1]{GuoMaZangZheng}.  It is an external input.  The factor two
-is not cosmetic: Vinberg's convention uses the bilinear Gram matrix with
-diagonal two.  Starting from unit normals, that matrix is \(A=2G\).
+fixes the normalization of the displayed cyclic products: starting from unit
+normals, Vinberg's diagonal-two convention gives \(A=2G\).  The generated
+field is unchanged if one uses \(G\), since a cycle of length \(\ell\) is
+multiplied by the rational factor \(2^\ell\).
 
 \begin{remark}[Entry field versus trace field]
 The field generated by all individual entries of \(G\) can be strictly
-larger than \(k(P)\).  An individual entry changes if a normal vector is
-rescaled, whereas closed products cancel these rescalings.  Accordingly,
-showing that a radical occurs in one Gram entry does not show that it lies in
-the adjoint trace field.  Every field inclusion below is obtained from an
-explicit closed product.
+larger than \(k(P)\).  The relevant rescaling invariance concerns the
+reflection coefficients
+\(a_{ij}=2\langle e_i,e_j\rangle/\langle e_i,e_i\rangle\), which equal
+\(A_{ij}\) for unit normals.  Replacing \(e_i\) by \(\lambda_i e_i\)
+changes \(a_{ij}\) to \((\lambda_j/\lambda_i)a_{ij}\), so the factors
+cancel around a closed cycle.  Raw bilinear Gram entries do not have this
+rescaling rule.  Thus a radical in an individual Gram entry need not lie in
+the adjoint trace field; the field inclusions below follow from explicit
+cyclic products.
 \end{remark}
 
 \section{The three Coxeter polytopes and their exact matrices}
@@ -703,8 +711,7 @@ Consequently
  u:=ra=-\frac12c_{035}\in k(P_{11,j}).
 \label{eq:recover-u}
 \end{equation}
-These equations prove membership in the cyclic-product field directly.  No
-individual-entry argument is being used.
+These equations prove membership in the cyclic-product field.
 
 \section{The radical identity and the complex place}
 \label{sec:field-obstruction}
@@ -799,7 +806,7 @@ checks the final factorization over an arbitrary characteristic-zero field.
 
 \begin{lemma}[Non-total-reality certificate]
 \label{lem:non-real-subfield}
-Let \(s=\sqrt5\) and let \(u\) satisfy \eqref{eq:cycle-relation}.  Then
+Let \(s=\sqrt5\in\R\) and let \(u\in\C\) satisfy \eqref{eq:cycle-relation}.  Then
 \(L=\Q(s,u)\) is not totally real.
 \end{lemma}
 
@@ -829,13 +836,12 @@ quadratic \(f^\sigma\) with discriminant
 because \(s=\sqrt5>1\).  By Lemma~\ref{lem:quadratic-test},
 \(f^\sigma\) has no real root.
 
-If \(u\in\Q(s)\), then applying \(\sigma\) to \(f(u)=0\) would make the
-real number \(\sigma(u)\) a root of \(f^\sigma\), a contradiction.  Hence
-\(u\notin\Q(s)\).  Since \(f\) is quadratic and has \(u\) as a root, it is
-the minimal polynomial of \(u\) over \(\Q(s)\).  Extend \(\sigma\) from
-\(\Q(s)\) to \(L=\Q(s,u)\).  The image of \(u\) must be one of the two
-roots of \(f^\sigma\); neither root is real.  Thus this extension is a
-nonreal embedding of \(L\), and \(L\) is not totally real.
+Since \(f\) is a nonzero polynomial with \(f(u)=0\), the extension
+\(L=\Q(s,u)\) is a number field.  By
+Proposition~\ref{prop:embedding-extension}, \(\sigma\) extends to an
+embedding \(\widetilde\sigma:L\hookrightarrow\C\).  Applying this
+embedding to \(f(u)=0\) shows that \(\widetilde\sigma(u)\) is a root of
+\(f^\sigma\), hence is nonreal.  Therefore \(L\) is not totally real.
 \end{proof}
 
 There is a shorter intrinsic formulation.  If a number field \(K\) contains
@@ -849,6 +855,9 @@ of \(s\) under some embedding \(K\hookrightarrow\C\).  If that embedding
 were real, the image of \(u\) would solve the impossible conjugate quadratic.
 This is exactly the formulation kernel-checked in
 \code{not\_totallyReal\_of\_cycle\_minpoly}.
+For the positive radicals used here, \(\Q(s,u)\subset\R\) in its
+distinguished embedding.  The conclusion concerns its other embeddings:
+at least one has nonreal image.
 
 \section{Proofs of the main theorem and manifold corollary}
 \label{sec:main-proof}
@@ -872,7 +881,9 @@ products of \(A_j=2G_j\).  Equations \eqref{eq:recover-s} and
  s=\sqrt5\in K_j,
  \qquad u=\sqrt2a\in K_j.
 \]
-Consequently \(L=\Q(s,u)\) is a subfield of \(K_j\).
+All entries of \(G_j\) are algebraic, so their entry field is a number
+field, as is its subfield \(K_j\).  Consequently \(L=\Q(s,u)\) is a
+number subfield of \(K_j\).
 
 Lemma~\ref{lem:radical-relation} gives the quadratic relation for \(s,u\),
 and Lemma~\ref{lem:non-real-subfield} gives a nonreal embedding of \(L\).
@@ -889,8 +900,9 @@ to all three rows.
 \begin{proof}[Proof of Corollary~\ref{cor:manifolds}]
 Choose one \(j\) and write \(\Gamma=\Gamma_{11,j}\).  Let
 \(\Gamma^+=\Gamma\cap\Isom^+(\HH^4)\).  The orientation character shows
-that \([\Gamma:\Gamma^+]=2\).  The group \(\Gamma^+\) is finitely generated
-and linear in characteristic zero.  By Selberg's lemma, it contains a
+that \([\Gamma:\Gamma^+]=2\).  As a finite-index subgroup of the finitely
+generated reflection group, \(\Gamma^+\) is finitely generated; it is also
+linear in characteristic zero.  By Selberg's lemma, it contains a
 torsion-free subgroup \(\Lambda\) of finite index.
 
 The action of \(\Lambda\) on \(\HH^4\) is free and orientation preserving,
@@ -933,23 +945,24 @@ for \(j=6,7,8\).  Here the entries count positive, negative, and zero
 eigenvalues.  The common principal block on facets \(0,1,2,3,4\) has leading
 principal minors
 \begin{equation}
- 1,quad 1,quad \frac{5-s}{8},quad
- \frac{3(5-s)}{32},quad -\frac{1+s}{32}.
+ 1,\quad 1,\quad \frac{5-s}{8},\quad
+ \frac{3(5-s)}{32},\quad -\frac{1+s}{32}.
 \label{eq:leading-minors}
 \end{equation}
 They are all nonzero because \(1<s<3\).  The signs are
 \(+,+,+,+,-\); the Jacobi signature criterion therefore gives four positive
 and one negative direction on this block.  Exact elimination shows that the
 full matrix has rank five, so the remaining two directions are null.  The
-programs additionally verify that the determinant and every principal
-six-by-six minor vanish.  The nonzero five-by-five minor and the elimination
-certificate are the rank witnesses; no floating-point eigenvalue is used.
+programs additionally verify that every principal six-by-six minor vanishes.
+The nonzero five-by-five minor and the elimination certificate are the rank witnesses; no floating-point eigenvalue is used.
 
 \subsection{Direct finite-volume check for the third polytope}
 
-For \(P_{11,8}\), the script enumerates all \(127\) nonempty principal
-submatrices and matches them with the ten maximal vertex subdiagrams of the
-published combinatorial type.  Eight vertices have elliptic rank-four links.
+For \(P_{11,8}\), Lean classifies all \(127\) nonempty principal submatrices:
+\(54\) are positive definite, \(12\) are positive semidefinite but not
+positive definite, and \(61\) have a negative direction.  It proves that
+exactly ten subsets are maximal positive semidefinite, matching the vertex
+incidences of the published combinatorial type.  Eight vertices have elliptic rank-four links.
 The remaining two are parabolic:
 \[
  \{1,3,4,6\}\quad\text{of type }\widetilde C_3,
@@ -967,8 +980,14 @@ An independent CoxIter run, pinned to a recorded source commit, returns
  (f_0,f_1,f_2,f_3,f_4)=(10,21,18,7,1),
  \qquad \vol(P_{11,8})=\frac{19\pi^2}{864},
 \]
-agreeing with the census \cite{Guglielmetti}.  This redundancy verifies the
-geometric input for one case; the proof of the family still cites the
+agreeing with the census.  Lean independently proves all five face counts
+by closing the vertex--facet incidences and counting nonempty faces,
+including the polytope, by strict-chain dimension.  The correspondence
+between this incidence poset and geometric faces uses the published
+realization; no numerical face count is assumed in the Lean calculation.
+CoxIter is described in \cite{Guglielmetti}.
+These checks verify the geometric input for one case; the proof of
+the family still cites the
 Ma--Zheng classification for all three.
 
 \subsection{A complete trace-field check for the third polytope}
@@ -1025,7 +1044,7 @@ commands, source URLs, versions, and expected digests are in
 
 The Ma--Zheng source file used by the certifiers has SHA-256
 \[
-\text{\code{0017931637f017641d4935450cc2a07d070866d9e3ede9f3a39f003}}.
+\text{\code{0017931637f017641d4935450cc2a07d070866d9c749443d9e3ede9f3a39f003}}.
 \]
 Each headline Python certifier checks this digest before parsing the rows.
 
@@ -1037,61 +1056,119 @@ The directory \code{formal/} is a Lean~4 project pinned to Lean and mathlib
 
 \subsection{Unconditional kernel-checked mathematics}
 
-The module \code{PseudoArithmetic/Manuscript.lean} proves the following.
+The modules \code{NonTotalReality.lean} and \code{Manuscript.lean}
+prove the following.
 
 \begin{enumerate}[leftmargin=2.2em]
 \item \code{recover\_s\_from\_twoCycle} and
-  \code{recover\_u\_from\_threeCycle} check the two rearrangements in
+  \code{recover\_u\_from\_threeCycle} check the rearrangements in
   \eqref{eq:recover-s} and \eqref{eq:recover-u} over every
   characteristic-zero field.
-\item \code{explicit\_radical\_cycle\_relation} defines the positive nested
-  radicals \(s,t,a,u\) over \(\R\), proves their square and positivity facts,
-  and derives \eqref{eq:cycle-relation}.
-\item \code{conjugateQuadratic\_no\_real\_root} proves directly that the
-  conjugate relation has no real solution when \(s^2=5\) and \(s<0\).
-\item \code{not\_totallyReal\_of\_cycle\_minpoly} uses mathlib's number-field
-  embedding theorem to obtain an embedding sending \(s\) to \(-\sqrt5\),
-  proves that embedding nonreal, and concludes that the field is not totally
-  real.
-\item A \code{TwoCycleCertificate} packages exactly the four algebraic values
-  and two equations used by the paper.  Its theorem \code{not\_totallyReal}
-  composes the preceding results.
+\item \code{explicit\_radical\_cycle\_relation} proves
+  \eqref{eq:cycle-relation} from the positive nested-radical definitions
+  over \(\R\).
+\item \code{minpoly\_eq\_of\_square\_five} proves that \(s^2=5\) implies
+  \(\minpoly_\Q(s)=X^2-5\) in any characteristic-zero field.  It uses a
+  proof of the irreducibility of \(X^2-5\) over \(\Q\).
+\item \code{conjugateQuadratic\_no\_real\_root} proves that the conjugate
+  relation has no real solution.  The theorem
+  \code{not\_totallyReal\_of\_cycle\_minpoly} then uses mathlib's
+  number-field embedding theorem to realize \(s\mapsto-\sqrt5\) and
+  deduce non-total reality.  Its square-identity variant is
+  \code{not\_totallyReal\_of\_cycle\_square}.
+\item A \code{TwoCycleCertificate} records four field elements and four
+  equations: the two cycle values, the minimal polynomial of \(s\), and
+  the relation for \(u\).  The constructor \code{of\_real\_cycles}
+  builds this certificate from a real embedding \(\iota:K\hookrightarrow\R\)
+  and the two equalities
+  \[
+   \iota(c_{12})=(3+\sqrt5)/2,\qquad
+   \iota(c_{035})=-2\sqrt2a.
+  \]
+  It recovers \(s,u\in K\), transports the radical relation by injectivity,
+  and proves the minimal-polynomial statement.  The theorem
+  \code{not\_totallyReal\_of\_real\_cycles} concludes that \(K\) is not
+  totally real.
 \end{enumerate}
 
-The minpoly hypothesis in \code{TwoCycleCertificate} is deliberately
-intrinsic: it says that the element recovered in the trace field really has
-minimal polynomial \(X^2-5\).  The exact source certifier supplies this
-case-specific fact; Lean then derives the bad embedding rather than accepting
-that embedding as an input.
+The module \code{GramAudit.lean} also defines all three displayed matrices
+over \(\R\), their entry fields, and their cyclic-product fields.  It proves
+the cycle values, algebraicity of the entries, the number-field instances,
+and non-total reality of all three cyclic-product fields.  For the third
+matrix it also proves equality of the cyclic-product and entry fields.
+These results require no geometric predicates.  Identifying these matrices
+with the census polytopes, and their cyclic-product fields with the adjoint
+trace fields of the reflection groups, remains external.
 
-\subsection{Faithful translation of external inputs}
+\subsection{Conditional geometric implications}
 
-The structure \code{CoxeterExternalInputs} has fields for:
+The module \code{ExternalContracts.lean} specializes the imported statements
+to hyperbolic dimension four.  Its structure \code{CensusInputs} records:
 \begin{itemize}[leftmargin=2em]
-\item the case name \(P_{11,6}\), \(P_{11,7}\), or \(P_{11,8}\);
-\item the assertion that its reflection group is a finite-volume lattice;
-\item the assertion that \(K\) is its adjoint trace field; and
-\item the Emery--Mila implication from pseudo-arithmeticity to total reality.
+\item a reflection group \(\Gamma_j\) for each of the three cases, related
+  to its actual unit-normal matrix \(G_j\);
+\item finite volume and noncompactness of its quotient as separate inputs;
+\item Vinberg's equality between the group's adjoint trace field and the
+  field generated by closed products in \(2G_j\); and
+\item the implication from pseudo-arithmeticity of a finite-volume lattice
+  to total reality of its adjoint trace field.
 \end{itemize}
-The theorem \code{coxeter\_case\_main\_theorem} proves, from these fields and
-a \code{TwoCycleCertificate}, the conjunction
+The theorem \code{census\_main\_theorem} combines these inputs with the
+matrix-derived field proofs to conclude, for every case,
 \[
  \text{finite-volume lattice}\ \wedge\
- \text{trace-field identification}\ \wedge\
+ k(\Gamma_j)=k(G_j)\ \wedge\
  \neg\text{total reality}\ \wedge\
  \neg\text{pseudo-arithmeticity}.
 \]
-Because the imported facts are structure fields supplied locally, the Lean
-environment gains no axiom from this translation.
+Here \(k(G_j)\) denotes the concrete cyclic-product field.  The trace-field
+identification is a literal equality of intermediate fields of \(\R/\Q\).
+The theorem requires no separately chosen field or two-cycle certificate.
+The group and manifold vocabulary has its cited geometric interpretation;
+Lean checks the implications from the stated contracts.
 
-Likewise, \code{ManifoldExternalInputs} names the finite-index relation,
-torsion-free orientation-preserving subgroup, quotient construction,
-finite-cover geometry, trace-field invariance, and the correspondence between
-a quotient and its fundamental group.  The theorem
-\begin{center}
-\code{finiteIndex\_manifold\_corollary}
-\end{center}
-checks the complete logical passage to Corollary~\ref{cor:manifolds}.
+The structure \code{CoverInputs} requires one subgroup--quotient pair
+\((\Lambda,M)\) satisfying finite index, torsion-freeness, orientation,
+and quotient correspondence simultaneously.  Finite-index invariance is
+the equality \(k(\Lambda)=k(\Gamma_j)\).  The field
+\code{quotient\_geometry} uses both finite volume and noncompactness of the
+base, and supplies the lattice property of \(\Lambda\) as well as the
+required manifold geometry.  Thus the pseudo-arithmetic implication applies
+to the cover group with its hypotheses intact.  The theorem
+\code{census\_manifold\_corollary} proves Corollary~\ref{cor:manifolds}
+from these contracts.  The earlier interfaces \code{CoxeterExternalInputs}
+and \code{ManifoldExternalInputs} remain reusable abstract implications.
+
+\subsection{Statement-by-statement semantic audit}
+
+The register \path{audit/manuscript_statements.json} maps the mathematical
+assertions in every source paragraph, displayed equation, and table to
+their Lean declarations or to an explicit external boundary.  Its readable
+companion is \path{notes/manuscript_semantic_audit.md}.  Each entry records a
+positive example and a negative control: a failed hypothesis, a boundary
+case, or a counterexample to a proposed stronger statement.  A valid
+theorem has no counterexample satisfying all its hypotheses.  The register
+assesses translation separately from proof provenance: external inputs are
+acceptable when their specialization, hypotheses, and use match the text.
+Reusing a checked library result or a different proof is also acceptable.
+
+The audit modules additionally prove the two embeddings of \(\Q(\sqrt5)\),
+embedding extension, the discriminant criterion, the equivalence of total
+reality and total positivity for nonzero defining square-root radicands,
+the Lorentz reflection identities, and elementary
+orientation-index and noncompactness statements.  Exact scripts test all
+three matrices and all \(127\) principal subdiagrams of the third, and reject
+perturbed cycle values, power-basis coordinates, ranks, and vertex lists.
+The five displayed leading-minor identities, the complete principal-subdiagram
+classification for \(P_{11,8}\), and its face vector are also proved in Lean.
+Further Lean controls reject all \(70\) single-bit vertex--facet incidence
+changes and all ten vertex deletions.  They also prove that the incorrect
+vectors \((10,21+t,18+t,7,1)\), for every integer \(t>0\), pass the Euler
+alternating-sum check.
+The contract controls reject an unrelated field, a wrong case--matrix pair,
+a reversed implication, and incompatible existential witnesses.  Logical
+test models do not instantiate hyperbolic lattices or manifolds; the
+geometric interpretation remains the explicit imported input.
 
 \subsection{Other formal modules}
 
@@ -1108,10 +1185,13 @@ settled by non-total reality before any Clifford invariant is considered.
 
 A release audit searches all project Lean sources for the declarations
 \code{axiom} and \code{opaque} and for the proof escapes \code{sorry},
-\code{admit}, and \code{native\_decide}.  None occurs.  The
-trusted computing base is therefore the Lean kernel, the pinned Lean compiler
-and mathlib declarations, and the explicitly visible hypotheses at the
-external boundary.  The successful command is
+\code{admit}, and \code{native\_decide}.  None occurs in project
+declarations or proofs; dependency sources are excluded from this textual
+check.  A successful Lean build checks the proof terms against the kernel
+and imported library declarations.  The theorem-level axiom audit reports
+only Lean's standard \code{propext}, \code{Classical.choice}, and
+\code{Quot.sound}.  The geometric conclusions remain conditional on the
+hypotheses described above.  The build command is
 \[
  \code{cd formal \&\& lake build}.
 \]
@@ -1119,9 +1199,9 @@ external boundary.  The successful command is
 \section{External-input register}
 \label{sec:external-register}
 
-This register is normative: an assertion listed here is used but not newly
-proved by the manuscript or its Lean project.  Each item says both what the
-paper imports and how the Lean theorem exposes it.
+This register records the geometric, field-theoretic, and library inputs.
+Each item distinguishes facts proved in the text or in mathlib from those
+assumed by the manuscript-facing Lean theorems.
 
 \begin{description}[style=nextline]
 \item[\textbf{E1: Census rows and finite volume.}]
@@ -1129,26 +1209,25 @@ Ma--Zheng's classification supplies the three vectors, positive radical
 values, cusp counts, volumes, and the assertion that they are finite-volume
 hyperbolic Coxeter \(4\)-polytopes \cite{MaZheng}.  Exact scripts verify the
 transcription, Gram rank, and inertia; a direct vertex-link proof independently
-verifies finite volume for \(P_{11,8}\).  In Lean this is the field
-\code{finite\_volume} of \code{CoxeterExternalInputs}.
+verifies finite volume for \(P_{11,8}\).  The Lean input
+\code{census\_realization} relates each group to its actual matrix, while
+\code{finite\_volume} and \code{noncompact} give the two separate geometric
+properties.  The census rows themselves remain external data.
 
 \item[\textbf{E2: Vinberg field identification.}]
 For a finite-volume Coxeter polytope, the field generated by cyclic products
 in \(2G\) is the adjoint trace field of the reflection lattice
-\cite{VinbergRings}.  In Lean the concrete algebra is a
-\code{TwoCycleCertificate}; the geometric identification is the separate
-field \code{trace\_field}.
+\cite{VinbergRings}.  The Lean input \code{vinberg} requires the reflection
+group--matrix correspondence and finite volume, and concludes equality
+with the concrete cyclic-product field.  The theorem
+\code{traceField\_eq\_cycleField} specializes it to each census case.
 
 \item[\textbf{E3: Pseudo-arithmetic fields are totally real.}]
 Emery--Mila's definition and Section~1.4 imply that a pseudo-arithmetic
 lattice in dimension \(n>3\) has totally real adjoint trace field
-\cite{EmeryMila}.  Lean translates this as the structure field
-\begin{center}
-\code{pseudoArithmetic\_totallyReal}.
-\end{center}
-It is an implication, so the
-kernel checks its contrapositive application without proving its geometric
-premise.
+\cite{EmeryMila}.  The structure field
+\path{pseudoArithmetic_totallyReal} records this implication for
+finite-volume lattices in the fixed dimension four; Lean checks its use.
 
 \item[\textbf{E4: Extension and realization of number-field embeddings.}]
 The standard extension theorem and mathlib's theorem describing evaluations
@@ -1160,22 +1239,25 @@ verified result rather than a project hypothesis.
 \item[\textbf{E5: Selberg's lemma.}]
 A finitely generated characteristic-zero linear group has a torsion-free
 finite-index subgroup \cite{Selberg}.  It is not formalized from first
-principles here.  The Lean field \code{finiteIndex\_cover\_exists} exposes
-the precise existence statement needed after also passing to the orientation
-subgroup.
+principles here.  The Lean input \code{cover\_exists} packages the needed
+specialization after passing to the orientation subgroup, together with
+the quotient existence used in E7.  All properties use the same witnesses.
 
 \item[\textbf{E6: Finite-index trace-field invariance.}]
 The adjoint trace field is a commensurability invariant
-\cite{VinbergRings}.  Lean translates the used direction as
-\code{traceField\_finiteIndex\_invariant}.
+\cite{VinbergRings}.  The input \path{traceField_invariant} requires
+a finite-volume base lattice and a finite-index subgroup, and concludes
+equality of their field values.
 
 \item[\textbf{E7: Finite-cover quotient geometry.}]
 The standard facts that a torsion-free orientation-preserving subgroup gives
 an orientable manifold, finite index preserves finite volume, and a finite
 cover of the noncompact quotient remains noncompact are proved at the
 elementary level in Subsection~\ref{subsec:orbifold-manifold}.  Lean packages
-their geometric realization as \code{quotient\_geometry}; there is presently
-no project formalization of hyperbolic orbifolds themselves.
+their geometric realization as \code{quotient\_geometry}, including the
+cover's lattice property.  The input \code{quotient\_pseudoArithmetic}
+relates the same group and manifold.  These are specialized external
+statements; the project does not construct hyperbolic orbifolds.
 \end{description}
 
 No item E1--E7 is hidden behind a global Lean axiom.  Replacing an input by a
@@ -1185,8 +1267,8 @@ corresponding structure, not the checked proof downstream.
 \section{Reproducibility and release audit}
 \label{sec:reproducibility}
 
-The repository is designed so that the central conclusion can be checked at
-three increasing levels of cost.
+The repository is designed so that the central conclusion can be checked in
+three complementary ways.
 
 \paragraph{Level 1: read the certificate.}
 Check the four entries in \eqref{eq:four-entries}, multiply the cycles,
@@ -1242,7 +1324,7 @@ s,u\in k(P),\quad \minpoly_\Q(s)=X^2-5\\[2pt]
 \Downarrow\\[-2pt]
 (s-1)u^2+2(s-3)u+s-7=0\\[2pt]
 \Downarrow\\[-2pt]
-\text{the place }s\mapsto-\sqrt5\text{ forces }u\notin\R\\[2pt]
+\text{an embedding extending }s\mapsto-\sqrt5\text{ sends }u\text{ outside }\R\\[2pt]
 \Downarrow\\[-2pt]
 k(P)\text{ is not totally real}\\[2pt]
 \Downarrow\ \text{Vinberg (E2)}\\[-2pt]
@@ -1251,7 +1333,7 @@ k(\Gamma)\text{ is not totally real}\\[2pt]
 \Gamma\text{ is not pseudo-arithmetic}.
 \end{array}
 \]
-The manifold corollary appends E5--E7 and E6.  The radical relation and both
+The manifold corollary appends E5--E7.  The radical relation and both
 downstream implication chains are checked by Lean; E1--E3 and E5--E7 remain
 visible external inputs.
 
@@ -1262,10 +1344,10 @@ The full-field computation is not part of the proof, but it gives a useful
 cross-check.  The signature \((4,2)\) of the degree-eight field means that it
 has four real embeddings and two conjugate pairs of nonreal embeddings,
 since \(r_1+2r_2=8\).  The two-cycle proof detects at least one of those pairs
-without constructing the other six embeddings.  This explains why the short
-certificate is logically stronger as an audit artifact: it contains exactly
-the information needed for non-total reality and no dependence on a large
-primitive-element calculation.
+without constructing the other six embeddings.  The short certificate
+therefore proves the required obstruction without a
+primitive-element calculation.  The full-field computation gives the
+additional degree, signature, and discriminant data.
 
 \begin{thebibliography}{99}
 
