@@ -5,11 +5,11 @@
   "artifacts": [
     {
       "path": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
-      "sha256": "0e23601f0835bf237e17db6e83de3a92327f9906a8ec82135f208684abcb8177"
+      "sha256": "1285198ad5d866c6bae53739f1fa2b2fafb1d1b6a8f5c87bccbf081de944e0db"
     },
     {
       "path": "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
-      "sha256": "4b65ec64bf68d3acbdba96daebd2819d110f0b3c8af866e1c91a05bb9d63470d"
+      "sha256": "d0c4e641f9b1bbbeae5ff25f1af8e51f15005072f826557adbeff375099942a1"
     },
     {
       "path": "formal/PseudoArithmetic.lean",
@@ -141,7 +141,7 @@
     },
     {
       "path": "scripts/manuscript_audit.py",
-      "sha256": "96e1268718c4049ccbbabdc5ab18a08a51798d36ceae69b600b0a3e2b8a66c23"
+      "sha256": "4564683075e8d7acf6606c7a5ac26aa1e09599be1c120e3ac3f70ba2b7505678"
     },
     {
       "path": "scripts/manuscript_computation_audit.py",
@@ -190,6 +190,19 @@
     {
       "path": "notes/subdiagram_face_semantic_audit.md",
       "sha256": "9eb8b45e07842c89d4797f2de8b006af0d9402882cfd74e60f240ce4c3e16913"
+    },
+    {
+      "path": "manuscript/references.bib",
+      "sha256": "9bf74784e9f2a326ce1dc3b4e601deb0e14f1340b43100e371b64f47fddf4e43"
+    },
+    {
+      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.bbl",
+      "sha256": "4e51962295d81c3584e52dc1ce7afd2cc7606a0523cde1dd7d35dbd0ab049ead"
     }
-  ]
+  ],
+  "typesetting_revision": {
+    "date": "2026-10-30",
+    "change": "Standard BibTeX database and plain style; freshly rebuilt manuscript PDF and bibliography. Mathematical body and statement register unchanged.",
+    "build_record": "results/arxiv_submission_build_20261030.json"
+  }
 }

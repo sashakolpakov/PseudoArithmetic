@@ -191,9 +191,24 @@ latexmk -pdf -interaction=nonstopmode -halt-on-error \
 ```
 
 The expected output is the 20-page
-`manuscript/non_pseudo_arithmetic_4_manifolds.pdf`.  The build has no undefined
-references, fatal errors, or overfull boxes; the only layout notices are
-harmless underfull bibliography lines.
+`manuscript/non_pseudo_arithmetic_4_manifolds.pdf`. Both manuscript editions
+use `references.bib` and the standard BibTeX `plain` style. `latexmk` runs
+PDFLaTeX and BibTeX automatically. In an editor, select the sequence
+PDFLaTeX, BibTeX, PDFLaTeX, PDFLaTeX. The current builds have no warnings or
+undefined references or citations.
+
+To replace both PDFs and the submission ZIP in place, run from the repository
+root:
+
+```sh
+python3 -B scripts/prepare_arxiv.py
+```
+
+This needs `latexmk`, `pdflatex`, `bibtex`, and the Python package `pypdf`.
+Each build starts in a temporary directory with only its `.tex` and `.bib`
+files, so the check requires a successful fresh BibTeX run. The generated
+`.bbl` files are included with the sources; other TeX build products are
+removed. This typesetting check does not rerun Lean or the scientific checks.
 
 ## Semantic audit examples
 

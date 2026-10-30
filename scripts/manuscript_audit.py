@@ -39,7 +39,8 @@ TRANSLATIONS = {
 
 def source_blocks(source: str) -> list[dict]:
     start = source.index(r"\begin{abstract}")
-    stop = source.index(r"\begin{thebibliography}")
+    stop = min(source.index(marker) for marker in
+               (r"\begin{thebibliography}", r"\bibliographystyle") if marker in source)
     return [dict(index=i, line=source.count("\n", 0, start+m.start())+1,
                  sha256=hashlib.sha256(m.group().encode()).hexdigest(), text=m.group())
             for i, m in enumerate(re.finditer(r"\S[\s\S]*?(?=\n\s*\n|\Z)", source[start:stop]))]

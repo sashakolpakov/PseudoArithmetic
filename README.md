@@ -1,7 +1,8 @@
 # Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds
 
 Current paper: [arXiv submission edition](arxiv/README.md) (30 October 2026).
-Preserved companion baseline: `1.0.0-rc1` (24 September 2026).
+Companion release: `1.0.0-rc1` (24 September 2026), with a BibTeX typesetting
+update on 30 October 2026.
 
 This repository accompanies Alexander Kolpakov's manuscript
 **“Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds.”** It gives three explicit
@@ -154,6 +155,10 @@ cd manuscript
 latexmk -pdf -interaction=nonstopmode -halt-on-error \
   non_pseudo_arithmetic_4_manifolds.tex
 ```
+
+Both source folders use the standard `references.bib` database. `latexmk`
+runs PDFLaTeX and BibTeX automatically. From the repository root,
+`python3 -B scripts/prepare_arxiv.py` replaces both PDFs and the upload ZIP.
 
 Build Lean after obtaining mathlib's binary cache on a first networked run:
 

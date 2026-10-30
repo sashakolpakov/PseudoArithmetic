@@ -1,53 +1,131 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "edition_date": "2026-10-30",
-  "status": "PASS_SOURCE_PACKAGING_AND_SAMPLED_LAYOUT_REVIEW",
+  "status": "PASS_BIBTEX_WORKFLOWS_SOURCE_PACKAGING_AND_SAMPLED_LAYOUT_REVIEW",
   "source": {
     "path": "arxiv/non_pseudo_arithmetic_4_manifolds/main.tex",
-    "bytes": 57936,
-    "sha256": "51ea870f245c910a79d6af2832216538571e3ea4df0205bf58b23252d866851c"
+    "bytes": 55788,
+    "sha256": "ba887ca4a937851f5d55b2e377c259878fe1946e29cb5a3877eec2d054f54208"
+  },
+  "bibliography": {
+    "path": "arxiv/non_pseudo_arithmetic_4_manifolds/references.bib",
+    "bytes": 2923,
+    "sha256": "9bf74784e9f2a326ce1dc3b4e601deb0e14f1340b43100e371b64f47fddf4e43"
+  },
+  "bbl": {
+    "path": "arxiv/non_pseudo_arithmetic_4_manifolds/main.bbl",
+    "bytes": 2493,
+    "sha256": "0479e8731d87d5f67dac3d36b7996eab59ce177f0a8963932857f1fce84d0bbb"
   },
   "pdf": {
     "path": "arxiv/build/non_pseudo_arithmetic_4_manifolds.pdf",
-    "bytes": 480294,
-    "sha256": "76731648e18868f259c374690818c242b9d8001253f31a2066025a12343aea3f"
+    "bytes": 479911,
+    "sha256": "cc92bfdba9ca83cc3bfcfad1fc6708ae288496e80145ff913ca5527c28b40cf5"
   },
   "archive": {
     "path": "dist/PseudoArithmetic-arxiv-2026-10-30.zip",
-    "bytes": 20516,
-    "sha256": "908d4b7be1c3008ca076f9a0470a7ecbf23e3f89f4b61aa97c39d12ea2239ad5"
+    "bytes": 22083,
+    "sha256": "71f0343d833c73ee755fae7ed8cd42285bff15dfae236592c21f06df5f7dfb14"
+  },
+  "manuscript_build": {
+    "source": {
+      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
+      "bytes": 55234,
+      "sha256": "1285198ad5d866c6bae53739f1fa2b2fafb1d1b6a8f5c87bccbf081de944e0db"
+    },
+    "bibliography": {
+      "path": "manuscript/references.bib",
+      "bytes": 2923,
+      "sha256": "9bf74784e9f2a326ce1dc3b4e601deb0e14f1340b43100e371b64f47fddf4e43"
+    },
+    "bbl": {
+      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.bbl",
+      "bytes": 2209,
+      "sha256": "4e51962295d81c3584e52dc1ce7afd2cc7606a0523cde1dd7d35dbd0ab049ead"
+    },
+    "pdf": {
+      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
+      "bytes": 478328,
+      "sha256": "d0c4e641f9b1bbbeae5ff25f1af8e51f15005072f826557adbeff375099942a1"
+    }
   },
   "comparison_manuscript": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
   "companion_snapshot": "736246d60d56a9be955fd8a8f8060fa5263c3e6b",
   "source_changes": [
-    "Fixed submission-edition date: 30 October 2026.",
-    "Repository citation in the reproducibility introduction and pinned bibliography entry.",
-    "Existing ACKNOWLEDGMENTS.md disclosure included in the paper.",
-    "Ragged-right bibliography to remove underfull-box diagnostics."
+    "Submission date: 30 October 2026.",
+    "Repository citation and existing AI-use disclosure in the submission edition.",
+    "Both editions use a standard references.bib database and plain BibTeX style.",
+    "Both PDFs and matching generated bibliographies rebuilt and replaced in place."
   ],
-  "mathematical_statements_and_proofs_unchanged": true,
-  "separate_agent_source_and_builder_review": true,
-  "builder_review_correction": "Resolve temporary path before comparing recorded inputs, including macOS /var alias.",
-  "preserved_release_manifest_artifacts_checked": 47,
+  "mathematical_bodies_unchanged_before_bibliography": true,
+  "separate_agent_bibliography_and_builder_review": true,
+  "bibliography_review": "All original citation keys, entries and URLs retained; databases identical; original9 and submission10 cited entries.",
+  "release_manifest_artifacts_checked": 49,
+  "unchanged_baseline_artifact_hashes": 44,
   "original_statement_register_check": {
     "command": "python3 -B scripts/manuscript_audit.py --check",
     "status": "PASS",
     "statements": 135,
     "source_blocks": 145
   },
+  "clean_latexmk_bibtex_builds": {
+    "manuscript": "PASS",
+    "submission": "PASS"
+  },
+  "explicit_editor_sequence": [
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "bibtex",
+        "main"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "pdflatex",
+        "-no-shell-escape",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "main.tex"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "editor_aux_bibdata_and_bibstyle": "PASS",
+  "extracted_zip_pdflatex_with_supplied_bbl": "PASS",
   "archive_crc_and_byte_roundtrip": "PASS",
   "artifact_hash_checks": "PASS",
   "local_markdown_links": "PASS",
-  "new_text_trailing_whitespace": "PASS",
   "sampled_visual_review": {
-    "pages": [
+    "submission_pages": [
       1,
-      8,
-      19,
       20
     ],
-    "scope": "Title, abstract, contents, field theorem, census conventions, dependency graph, acknowledgment and bibliography.",
-    "result": "PASS; readable equations and bibliography, no clipping in sampled pages."
+    "manuscript_pages": [
+      20
+    ],
+    "scope": "Title, abstract, contents, and regenerated references in both PDFs.",
+    "result": "PASS; readable text and bibliography, no clipping in sampled pages."
   },
   "new_mathematical_or_lean_executions": 0,
   "arxiv_submission_performed": false,

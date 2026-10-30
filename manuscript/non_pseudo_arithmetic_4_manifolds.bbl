@@ -1,0 +1,61 @@
+\begin{thebibliography}{1}
+
+\bibitem{BBKS}
+M.~Belolipetsky, N.~Bogachev, A.~Kolpakov, and L.~Slavich.
+\newblock Subspace stabilisers in hyperbolic lattices.
+\newblock {\em Journal of the Association for Mathematical Research},
+  4:111--182, 2026.
+\newblock \url{https://doi.org/10.56994/JAMR.004.001.003}.
+
+\bibitem{EmeryMila}
+V.~Emery and O.~Mila.
+\newblock Hyperbolic manifolds and pseudo-arithmeticity.
+\newblock {\em Transactions of the American Mathematical Society, Series B},
+  8:277--295, 2021.
+\newblock \url{https://doi.org/10.1090/btran/48}.
+
+\bibitem{Guglielmetti}
+R.~Guglielmetti.
+\newblock {CoxIter}---computing invariants of hyperbolic {Coxeter} groups.
+\newblock {\em LMS Journal of Computation and Mathematics}, 18:754--773, 2015.
+\newblock \url{https://doi.org/10.1112/S1461157015000273}.
+
+\bibitem{GuoMaZangZheng}
+L.~Guo, J.~Ma, Y.~Zang, and F.~Zheng.
+\newblock Several families of incommensurable noncompact hyperbolic {Coxeter}
+  polytopes.
+\newblock Preprint, arXiv:2607.14715, 2026.
+\newblock \url{https://arxiv.org/abs/2607.14715}.
+
+\bibitem{MaZheng}
+J.~Ma and F.~Zheng.
+\newblock Finite-volume hyperbolic {Coxeter} $4$-dimensional polytopes with $7$
+  facets.
+\newblock {\em Geometriae Dedicata}, 219, 2025.
+\newblock Article 25. \url{https://doi.org/10.1007/s10711-025-00986-8}.
+
+\bibitem{Ratcliffe}
+J.~G. Ratcliffe.
+\newblock {\em Foundations of Hyperbolic Manifolds}, volume 149 of {\em
+  Graduate Texts in Mathematics}.
+\newblock Springer, second edition, 2006.
+
+\bibitem{Selberg}
+A.~Selberg.
+\newblock On discontinuous groups in higher-dimensional symmetric spaces.
+\newblock In {\em Contributions to Function Theory}, pages 147--164. Tata
+  Institute of Fundamental Research, Bombay, 1960.
+
+\bibitem{VinbergRings}
+E.~B. Vinberg.
+\newblock Rings of definition of dense subgroups of semisimple linear groups.
+\newblock {\em Mathematics of the USSR-Izvestiya}, 5:45--55, 1971.
+\newblock \url{https://doi.org/10.1070/IM1971v005n01ABEH001006}.
+
+\bibitem{VinbergReflections}
+E.~B. Vinberg.
+\newblock Hyperbolic reflection groups.
+\newblock {\em Russian Mathematical Surveys}, 40(1):31--75, 1985.
+\newblock \url{https://doi.org/10.1070/RM1985v040n01ABEH003527}.
+
+\end{thebibliography}
