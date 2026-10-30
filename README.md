@@ -1,6 +1,7 @@
 # Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds
 
-Release candidate: `1.0.0-rc1` (24 September 2026)
+Current paper: [arXiv submission edition](arxiv/README.md) (30 October 2026).
+Preserved companion baseline: `1.0.0-rc1` (24 September 2026).
 
 This repository accompanies Alexander Kolpakov's manuscript
 **“Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds.”** It gives three explicit
@@ -28,6 +29,7 @@ noncompact, finite-volume hyperbolic $4$-manifolds with the same obstruction.
 
 ## Release artifacts
 
+- [arXiv submission edition and upload instructions](arxiv/README.md) (30 October 2026)
 - [Manuscript source](manuscript/non_pseudo_arithmetic_4_manifolds.tex)
 - [Compiled 20-page PDF](manuscript/non_pseudo_arithmetic_4_manifolds.pdf)
 - [Pre-release checklist](PRE_RELEASE_CHECKLIST.md)
@@ -174,13 +176,17 @@ commands, and expected conclusions.
 
 ## Repository map
 
-- `manuscript/`: self-contained paper and compiled PDF;
+- `arxiv/`: current submission source, reading PDF, and submission metadata;
+- `manuscript/`: audited proof source and PDF bound to the statement register;
 - `formal/`: pinned Lean project;
 - `scripts/`: exact arithmetic, geometry, regression, release, and audit code;
 - `results/`: durable exact certificates and independent CoxIter artifacts;
 - `notes/`: search ledger and supplementary mathematical developments;
 - `FORMAL_VERIFICATION.md`: theorem-by-theorem trust boundary; and
 - `PRE_RELEASE_CHECKLIST.md`: executed release plan and final evidence.
+
+`dist/` holds the current generated upload ZIP and checksum. Superseded
+archives and temporary build files are removed; Git retains earlier sources.
 
 The defensible priority wording is: **we know of no previously recorded
 non-pseudo-arithmetic lattice in these dimensions.** This reports a targeted

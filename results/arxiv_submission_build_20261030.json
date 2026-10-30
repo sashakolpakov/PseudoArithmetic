@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-30",
+  "status": "PASS_ISOLATED_TEX_BUILD_AND_PACKAGING_ONLY",
+  "builder": {
+    "path": "scripts/prepare_arxiv.py",
+    "bytes": 7854,
+    "sha256": "7c8556b4305f9fc759cf17aacf7bdb086e864a9349b60c7d23421c673df1d6b3"
+  },
+  "source": {
+    "path": "arxiv/non_pseudo_arithmetic_4_manifolds/main.tex",
+    "bytes": 57936,
+    "sha256": "51ea870f245c910a79d6af2832216538571e3ea4df0205bf58b23252d866851c"
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "exit_code": 0
+    },
+    {
+      "pass": 2,
+      "exit_code": 0
+    },
+    {
+      "pass": 3,
+      "exit_code": 0
+    }
+  ],
+  "mathematical_checks_rerun": false,
+  "lean_rerun": false,
+  "arxiv_submission_performed": false,
+  "source_date_epoch": 1793318400,
+  "engine_version": "pdfTeX 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew)",
+  "command": [
+    "pdflatex",
+    "-no-shell-escape",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-file-line-error",
+    "-recorder",
+    "main.tex"
+  ],
+  "warnings": [],
+  "undefined_references_or_citations": false,
+  "repository_inputs_read_by_tex": [],
+  "local_source_inputs": [
+    "main.tex"
+  ],
+  "pages": 20,
+  "pdf_metadata": {
+    "/Producer": "pdfTeX-1.40.29",
+    "/Author": "Alexander Kolpakov",
+    "/Title": "Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds",
+    "/Subject": "",
+    "/Creator": "LaTeX with hyperref",
+    "/Keywords": "",
+    "/CreationDate": "D:20261030000000Z",
+    "/ModDate": "D:20261030000000Z",
+    "/Trapped": "/False",
+    "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew) kpathsea version 6.4.2"
+  },
+  "fonts": {
+    "/YQPPQP+SFRM1728": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/JYPWPZ+CMR17": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/SZIQDX+SFRM1200": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/YTSVCB+SFBX1000": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UUUCSX+SFRM1000": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/VGEKNR+CMMI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/GDCRYW+CMR7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/SRDPYF+CMMI7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/DOWSID+CMR10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/AASNBF+CMSY10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HALXNC+SFBX1440": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/LKZCCI+SFBX1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/YBAMAX+SFRM1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/ZKRSVK+SFBX1200": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HIDUCM+SFTI1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MVJRUH+CMR8": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/BDVOWE+CMMI8": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HLYEZJ+MSBM10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MDXGTO+CMEX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UCGASP+CMR6": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/QCPTGT+CMMI6": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/KTIMXO+SFTT1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/YQKRAV+CMBX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MPMWDL+EUFM10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/AVUNXD+CMSY8": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HBIEHQ+CMSY6": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/APWRWU+CMTT10": {
+      "subtype": "/Type1",
+      "embedded": true
+    }
+  },
+  "pdf": {
+    "path": "arxiv/build/non_pseudo_arithmetic_4_manifolds.pdf",
+    "bytes": 480294,
+    "sha256": "76731648e18868f259c374690818c242b9d8001253f31a2066025a12343aea3f"
+  },
+  "archive": {
+    "path": "dist/PseudoArithmetic-arxiv-2026-10-30.zip",
+    "bytes": 20516,
+    "sha256": "908d4b7be1c3008ca076f9a0470a7ecbf23e3f89f4b61aa97c39d12ea2239ad5"
+  },
+  "archive_members": [
+    "main.tex"
+  ],
+  "temporary_auxiliaries_removed": true
+}

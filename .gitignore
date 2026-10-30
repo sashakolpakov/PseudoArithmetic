@@ -12,4 +12,12 @@ manuscript/*.out
 manuscript/*.synctex.gz
 manuscript/*.toc
 
+arxiv/**/*.aux
+arxiv/**/*.fdb_latexmk
+arxiv/**/*.fls
+arxiv/**/*.log
+arxiv/**/*.out
+arxiv/**/*.synctex.gz
+arxiv/**/*.toc
+
 dist/

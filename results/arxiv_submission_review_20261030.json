@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "edition_date": "2026-10-30",
+  "status": "PASS_SOURCE_PACKAGING_AND_SAMPLED_LAYOUT_REVIEW",
+  "source": {
+    "path": "arxiv/non_pseudo_arithmetic_4_manifolds/main.tex",
+    "bytes": 57936,
+    "sha256": "51ea870f245c910a79d6af2832216538571e3ea4df0205bf58b23252d866851c"
+  },
+  "pdf": {
+    "path": "arxiv/build/non_pseudo_arithmetic_4_manifolds.pdf",
+    "bytes": 480294,
+    "sha256": "76731648e18868f259c374690818c242b9d8001253f31a2066025a12343aea3f"
+  },
+  "archive": {
+    "path": "dist/PseudoArithmetic-arxiv-2026-10-30.zip",
+    "bytes": 20516,
+    "sha256": "908d4b7be1c3008ca076f9a0470a7ecbf23e3f89f4b61aa97c39d12ea2239ad5"
+  },
+  "comparison_manuscript": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
+  "companion_snapshot": "736246d60d56a9be955fd8a8f8060fa5263c3e6b",
+  "source_changes": [
+    "Fixed submission-edition date: 30 October 2026.",
+    "Repository citation in the reproducibility introduction and pinned bibliography entry.",
+    "Existing ACKNOWLEDGMENTS.md disclosure included in the paper.",
+    "Ragged-right bibliography to remove underfull-box diagnostics."
+  ],
+  "mathematical_statements_and_proofs_unchanged": true,
+  "separate_agent_source_and_builder_review": true,
+  "builder_review_correction": "Resolve temporary path before comparing recorded inputs, including macOS /var alias.",
+  "preserved_release_manifest_artifacts_checked": 47,
+  "original_statement_register_check": {
+    "command": "python3 -B scripts/manuscript_audit.py --check",
+    "status": "PASS",
+    "statements": 135,
+    "source_blocks": 145
+  },
+  "archive_crc_and_byte_roundtrip": "PASS",
+  "artifact_hash_checks": "PASS",
+  "local_markdown_links": "PASS",
+  "new_text_trailing_whitespace": "PASS",
+  "sampled_visual_review": {
+    "pages": [
+      1,
+      8,
+      19,
+      20
+    ],
+    "scope": "Title, abstract, contents, field theorem, census conventions, dependency graph, acknowledgment and bibliography.",
+    "result": "PASS; readable equations and bibliography, no clipping in sampled pages."
+  },
+  "new_mathematical_or_lean_executions": 0,
+  "arxiv_submission_performed": false,
+  "novelty_audit_scope": "Historical manuscript statement through 24 September 2026 preserved; not refreshed.",
+  "guidance": [
+    "https://info.arxiv.org/help/submit_tex.html",
+    "https://info.arxiv.org/help/submit/index.html"
+  ]
+}
