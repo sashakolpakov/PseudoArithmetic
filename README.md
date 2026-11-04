@@ -1,8 +1,8 @@
 # Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds
 
-Current paper: [arXiv submission edition](arxiv/README.md) (30 October 2026).
-Companion release: `1.0.0-rc1` (24 September 2026), with a BibTeX typesetting
-update on 30 October 2026.
+Current paper: [PDF](arxiv/main.pdf), [TeX source](arxiv/main.tex), and
+[submission instructions](arxiv/README.md). Updated 4 November 2026.
+Companion release: `1.0.0-rc1` (24 September 2026).
 
 This repository accompanies Alexander Kolpakov's manuscript
 **“Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds.”** It gives three explicit
@@ -30,9 +30,9 @@ noncompact, finite-volume hyperbolic $4$-manifolds with the same obstruction.
 
 ## Release artifacts
 
-- [arXiv submission edition and upload instructions](arxiv/README.md) (30 October 2026)
-- [Manuscript source](manuscript/non_pseudo_arithmetic_4_manifolds.tex)
-- [Compiled 20-page PDF](manuscript/non_pseudo_arithmetic_4_manifolds.pdf)
+- [Manuscript source](arxiv/main.tex)
+- [Compiled PDF](arxiv/main.pdf)
+- [arXiv upload instructions](arxiv/README.md)
 - [Pre-release checklist](PRE_RELEASE_CHECKLIST.md)
 - [Release notes](RELEASE_NOTES.md)
 - [Formal verification boundary](FORMAL_VERIFICATION.md)
@@ -151,14 +151,14 @@ python3 scripts/release_check.py
 Build the manuscript directly:
 
 ```sh
-cd manuscript
-latexmk -pdf -interaction=nonstopmode -halt-on-error \
-  non_pseudo_arithmetic_4_manifolds.tex
+cd arxiv
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Both source folders use the standard `references.bib` database. `latexmk`
-runs PDFLaTeX and BibTeX automatically. From the repository root,
-`python3 -B scripts/prepare_arxiv.py` replaces both PDFs and the upload ZIP.
+The paper uses `arxiv/references.bib` and the standard BibTeX `plain` style.
+From the repository root, `python3 -B scripts/prepare_arxiv.py` rebuilds the
+PDF and replaces `dist/PseudoArithmetic-arxiv.zip` and its checksum. There is
+one manuscript source and one compiled PDF, both in `arxiv/`.
 
 Build Lean after obtaining mathlib's binary cache on a first networked run:
 
@@ -181,8 +181,7 @@ commands, and expected conclusions.
 
 ## Repository map
 
-- `arxiv/`: current submission source, reading PDF, and submission metadata;
-- `manuscript/`: audited proof source and PDF bound to the statement register;
+- `arxiv/`: the canonical manuscript source, PDF, bibliography, and submission metadata;
 - `formal/`: pinned Lean project;
 - `scripts/`: exact arithmetic, geometry, regression, release, and audit code;
 - `results/`: durable exact certificates and independent CoxIter artifacts;

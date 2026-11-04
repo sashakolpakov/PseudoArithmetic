@@ -185,19 +185,17 @@ between kernel-checked deductions and explicit classical hypotheses.
 ## Manuscript
 
 ```sh
-cd manuscript
-latexmk -pdf -interaction=nonstopmode -halt-on-error \
-  non_pseudo_arithmetic_4_manifolds.tex
+cd arxiv
+latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-The expected output is the 20-page
-`manuscript/non_pseudo_arithmetic_4_manifolds.pdf`. Both manuscript editions
-use `references.bib` and the standard BibTeX `plain` style. `latexmk` runs
+The output is `arxiv/main.pdf`, built from the canonical `arxiv/main.tex`.
+The paper uses `arxiv/references.bib` and the standard BibTeX `plain` style. `latexmk` runs
 PDFLaTeX and BibTeX automatically. In an editor, select the sequence
 PDFLaTeX, BibTeX, PDFLaTeX, PDFLaTeX. The current builds have no warnings or
 undefined references or citations.
 
-To replace both PDFs and the submission ZIP in place, run from the repository
+To replace the PDF and the submission ZIP in place, run from the repository
 root:
 
 ```sh
@@ -205,10 +203,12 @@ python3 -B scripts/prepare_arxiv.py
 ```
 
 This needs `latexmk`, `pdflatex`, `bibtex`, and the Python package `pypdf`.
-Each build starts in a temporary directory with only its `.tex` and `.bib`
-files, so the check requires a successful fresh BibTeX run. The generated
-`.bbl` files are included with the sources; other TeX build products are
-removed. This typesetting check does not rerun Lean or the scientific checks.
+The build starts in a temporary directory with only `main.tex` and
+`references.bib`, so the check requires a successful fresh BibTeX run. The
+generated `main.bbl` is included with the source; other TeX build products are
+removed. The current ZIP is `dist/PseudoArithmetic-arxiv.zip`, and the build
+record is `results/arxiv_build.json`. This typesetting check does not rerun
+Lean or the scientific checks.
 
 ## Semantic audit examples
 

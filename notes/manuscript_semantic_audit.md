@@ -1,8 +1,10 @@
 # Manuscript-wide semantic audit
 
-Reviewed 9 October 2026.
+Mathematical translation reviewed 9 October 2026.
 
-The register contains **135 distinct statement entries**, with a positive example and a negative control for each. All **145 source blocks** from the abstract through the final mathematical appendix are classified; 87 blocks contain mathematical assertions. Repeated statements point to the same entries.
+Source coverage refreshed 2026-11-04 for the [current manuscript](../arxiv/main.tex).
+
+The register contains **135 distinct statement entries**, with a positive example and a negative control for each. All **143 source blocks** from the abstract through the final mathematical appendix are classified; 83 blocks contain mathematical assertions. Repeated statements point to the same entries.
 
 **Acceptance criterion: faithful translation and correct use of the imported inputs.** External geometric theorems may remain explicit assumptions. Their proof provenance is separate from translation correctness; using mathlib or a different checked proof is not a defect. The [external-input translation review](external_translation_audit.md) explains all seven input contracts and the disposition of the original 21 partial entries. Boolean interface models test logic, not geometric existence.
 
@@ -47,7 +49,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The ambient form is the sum of n spatial products minus the time product.
 
-**Status.** Mathematical content checked in Lean. Source lines: 142, 378.
+**Status.** Mathematical content checked in Lean. Source lines: 142, 338.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -63,7 +65,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Hyperbolic points satisfy norm -1 and strictly positive time coordinate.
 
-**Status.** Mathematical content checked in Lean. Source lines: 142, 378.
+**Status.** Mathematical content checked in Lean. Source lines: 142, 338.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -143,7 +145,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Nonzero dihedral angles are π/m with integer m≥2; zero ideal angles are allowed.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 401.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 361.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The off-diagonal Coxeter labels exclude 1 and encode infinity by 0. Angles themselves belong to the geometric interpretation of reflectionGroupOf. External inputs: E1.
 
@@ -159,7 +161,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A Coxeter matrix is symmetric, has diagonal 1, and no off-diagonal 1.
 
-**Status.** Mathematical content checked in Lean. Source lines: 401.
+**Status.** Mathematical content checked in Lean. Source lines: 361.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -175,7 +177,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The generators are involutions and (rᵢrⱼ)^m=1 for finite m; infinity imposes no such relation.
 
-**Status.** Mathematical statement remains external. Source lines: 401.
+**Status.** Mathematical statement remains external. Source lines: 361.
 
 **Translation.** Background generality not separately used by the Lean argument. The Coxeter presentation is reviewed background; the contract interprets reflectionGroupOf as the actual facet-reflection group, not an arbitrary matrix group. External inputs: background.
 
@@ -191,7 +193,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Facet reflections of a hyperbolic Coxeter polytope form a discrete group with that polytope as fundamental domain.
 
-**Status.** Mathematical statement remains external. Source lines: 161, 409, 865.
+**Status.** Mathematical statement remains external. Source lines: 161, 369, 825.
 
 **Translation.** Reviewed external interpretation of the vocabulary. reflectionGroupOf includes the Coxeter fundamental polytope interpretation. Its specialization to each actual matrix is census_realization; it is not a theorem about every symmetric matrix. External inputs: E1.
 
@@ -207,7 +209,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Finite volume of a fundamental domain is equivalent to finite covolume.
 
-**Status.** Mathematical statement remains external. Source lines: 161, 409, 591, 865.
+**Status.** Mathematical statement remains external. Source lines: 161, 369, 551, 825.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The finite-volume census polytope is a fundamental domain in the intended interpretation, giving finiteVolumeLattice. Quotient measure is not independently defined. External inputs: E1.
 
@@ -223,7 +225,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A nonzero vector is spacelike, null, or timelike according to the sign of its Lorentz norm.
 
-**Status.** Mathematical content checked in Lean. Source lines: 378.
+**Status.** Mathematical content checked in Lean. Source lines: 338.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -239,7 +241,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The orthogonal locus of a unit spacelike normal on the hyperboloid is a totally geodesic hyperplane.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 378.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 338.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The orthogonal locus is explicit. The assertion that a unit-spacelike locus is totally geodesic remains the standard geometric interpretation. External inputs: E1.
 
@@ -255,7 +257,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For a unit spacelike e, reflection is x−2⟨x,e⟩e.
 
-**Status.** Mathematical content checked in Lean. Source lines: 378, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 338, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -271,7 +273,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The reflection fixes every vector orthogonal to e.
 
-**Status.** Mathematical content checked in Lean. Source lines: 378, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 338, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -287,7 +289,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A unit spacelike normal is mapped to its negative.
 
-**Status.** Mathematical content checked in Lean. Source lines: 378, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 338, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -303,7 +305,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For norm(e)=1, reflection preserves the Lorentz form and its square is identity.
 
-**Status.** Mathematical content checked in Lean. Source lines: 378, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 338, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -319,7 +321,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Outward normals give the half-space inequalities ⟨x,eᵢ⟩≤0.
 
-**Status.** Mathematical content checked in Lean. Source lines: 394.
+**Status.** Mathematical content checked in Lean. Source lines: 354.
 
 **Translation.** Matched mathematical statement, checked in Lean. Membership is exactly upper-sheet membership and the nonpositive Lorentz inner-product condition. The normal-sign control checks that reversing the normal changes the half-space. External inputs: none.
 
@@ -335,7 +337,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A unit-normal Gram matrix has diagonal entries 1.
 
-**Status.** Mathematical content checked in Lean. Source lines: 161, 642.
+**Status.** Mathematical content checked in Lean. Source lines: 161, 602.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -351,7 +353,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For outward unit normals, the Gram entry at angle π/m is −cos(π/m).
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 394, 642.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 354, 602.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The normalization is unit outward normals, with a minus sign and angle π/m. The exact special cosines and row decoding are checked; the angle/inner-product theorem is imported. External inputs: E1.
 
@@ -367,7 +369,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Asymptotic facets have unit Gram entry -1.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 394, 642.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 354, 602.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The parallel entry is -1 in the unit-normal convention. Decoding the source symbol 0 to this entry is checked separately from its asymptotic geometry. External inputs: E1.
 
@@ -383,7 +385,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Ultraparallel facets at distance ρ have entry -cosh ρ<-1.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 394, 642.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 161, 354, 602.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The distance formula refers to positive distance between disjoint hyperplanes and outward unit normals. Bounds a,b>1 are checked; the distance interpretation is imported. External inputs: E1.
 
@@ -399,7 +401,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The kernel of an orientation character has index at most 2.
 
-**Status.** Mathematical content checked in Lean. Source lines: 417, 900, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 377, 860, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -415,7 +417,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** If an element reverses orientation, the orientation kernel has index 2.
 
-**Status.** Mathematical content checked in Lean. Source lines: 417, 900, 1155, 1239.
+**Status.** Mathematical content checked in Lean. Source lines: 377, 860, 1115, 1199.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -431,7 +433,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** An index-d subgroup gives a degree-d cover and scales volume by the positive integer d.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 61, 417, 908, 1130, 1252.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 61, 377, 868, 1090, 1212.
 
 **Translation.** Reviewed external interpretation of the vocabulary. E7 uses finite-index preservation of finite volume. The stronger exact degree-times-volume formula is reviewed geometric background with checked scalar controls, not a hidden extra numerical premise. External inputs: E7.
 
@@ -447,7 +449,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A finitely generated characteristic-zero linear group has a torsion-free subgroup of finite index.
 
-**Status.** Mathematical statement remains external. Source lines: 61, 424, 426, 432, 900, 1130, 1239, 1314.
+**Status.** Mathematical statement remains external. Source lines: 61, 384, 386, 392, 860, 1090, 1199, 1274.
 
 **Translation.** Reviewed specialization of an external input. The imported specialization asks for one finite-index, torsion-free orientation-preserving subgroup together with its quotient; it packages Selberg after the orientation/finite-generation step, not the full general Selberg theorem. External inputs: E5, E7.
 
@@ -463,7 +465,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Finitely many facet reflections generate a finitely generated linear group in characteristic zero.
 
-**Status.** Mathematical statement remains external. Source lines: 432, 900.
+**Status.** Mathematical statement remains external. Source lines: 392, 860.
 
 **Translation.** Reviewed external interpretation of the vocabulary. Finite generation and linearity justify the E5 specialization; the seven geometric reflections are not constructed as a faithful matrix-group representation in this project. External inputs: E1, E5.
 
@@ -479,7 +481,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A torsion-free discrete hyperbolic group acts freely; an orientation-preserving such group has orientable quotient.
 
-**Status.** Mathematical statement remains external. Source lines: 61, 432, 908, 1130, 1252.
+**Status.** Mathematical statement remains external. Source lines: 61, 392, 868, 1090, 1212.
 
 **Translation.** Reviewed specialization of an external input. Finite volume, noncompactness, finite index, torsion/orientation, and quotient correspondence concern the same subgroup and quotient. The conclusion supplies both the cover lattice and the manifold geometry. External inputs: E7.
 
@@ -495,7 +497,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A space admitting a continuous surjection onto a noncompact space is noncompact.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 432, 908, 1130, 1155, 1252.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 392, 868, 1090, 1115, 1212.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -511,7 +513,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The manifold corollary needs noncompactness of the base separately from finite volume.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 908, 1130, 1206.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 868, 1090, 1166.
 
 **Translation.** Reviewed specialization of an external input. Finite volume and noncompactness are distinct premises, and quotient_geometry consumes both. A Boolean control explicitly separates them. External inputs: E1, E7.
 
@@ -527,7 +529,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A finite-index subgroup of a finitely generated group is finitely generated.
 
-**Status.** Mathematical content checked in Lean. Source lines: 900.
+**Status.** Mathematical content checked in Lean. Source lines: 860.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -543,7 +545,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A number field is a finite extension of ℚ.
 
-**Status.** Mathematical content checked in Lean. Source lines: 182, 839, 871.
+**Status.** Mathematical content checked in Lean. Source lines: 182, 799, 831.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -559,7 +561,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A unital field homomorphism into ℂ is injective and fixes the rationals.
 
-**Status.** Mathematical content checked in Lean. Source lines: 182, 308, 327.
+**Status.** Mathematical content checked in Lean. Source lines: 182, 306.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -575,7 +577,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A number field is totally real exactly when every complex embedding is real.
 
-**Status.** Mathematical content checked in Lean. Source lines: 182, 493, 847.
+**Status.** Mathematical content checked in Lean. Source lines: 182, 453, 807.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -591,7 +593,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** One nonreal embedding refutes total reality; it need not exclude all real embeddings.
 
-**Status.** Mathematical content checked in Lean. Source lines: 182, 847, 1343.
+**Status.** Mathematical content checked in Lean. Source lines: 182, 807, 1303.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -603,13 +605,13 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **Scope.** Negating a universal statement gives existence of a nonreal embedding, not absence of real embeddings.
 
-### F05 — Minimal polynomial normalization
+### F05 — Minimal polynomial notation
 
-**English.** The minimal polynomial of an algebraic element is the unique monic annihilator of least positive degree.
+**English.** minpolyℚ(α) denotes the monic minimal polynomial of an algebraic number α over ℚ.
 
-**Status.** Mathematical content checked in Lean. Source lines: 286, 292.
+**Status.** Mathematical content checked in Lean. Source lines: 285.
 
-**Translation.** Matched mathematical statement, checked in Lean. The equivalence states monicity, positive degree, annihilation, and minimal degree among nonzero annihilators over a number field. Mathlib supplies the checked uniqueness argument. External inputs: none.
+**Translation.** Matched mathematical statement, checked in Lean. The notation uses the standard monic minimal polynomial. The listed Lean declarations verify its characterization and normalization. External inputs: none.
 
 **Lean mapping.** [`PseudoArithmetic.minpoly_eq_of_square_five`](../formal/PseudoArithmetic/NonTotalReality.lean); [`PseudoArithmetic.FieldAudit.vanishes_iff_minpoly_dvd`](../formal/PseudoArithmetic/FieldAudit.lean); [`PseudoArithmetic.FieldAudit.minpoly_characterization`](../formal/PseudoArithmetic/FieldAudit.lean).
 
@@ -617,13 +619,13 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **Negative control (Lean evidence).** The square (X²-5)² also annihilates √5 but is not minimal. Evidence: [`PseudoArithmetic.FieldAudit.annihilating_polynomial_need_not_be_minimal`](../formal/PseudoArithmetic/FieldAudit.lean).
 
-**Scope.** The wrapper is stated for number fields, the domain of the manuscript argument. The proof may use mathlib; no new uniqueness axiom is assumed.
+**Scope.** The paper uses standard monic normalization as notation; the registered characterization and uniqueness results are supplied by mathlib.
 
 ### F06 — Kernel of polynomial evaluation
 
 **English.** An annihilating polynomial is divisible by the minimal polynomial.
 
-**Status.** Mathematical content checked in Lean. Source lines: 292, 327.
+**Status.** Mathematical content checked in Lean. Source lines: 306.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -639,9 +641,9 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** No rational number equals √5.
 
-**Status.** Mathematical content checked in Lean. Source lines: 298, 308.
+**Status.** Mathematical content checked in Lean. Source lines: 289.
 
-**Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
+**Translation.** Matched mathematical statement, checked in Lean. The stated degree-two minimal polynomial implies irrationality; the listed Lean theorems check this supporting fact. External inputs: none.
 
 **Lean mapping.** [`PseudoArithmetic.FieldAudit.sqrt_five_irrational`](../formal/PseudoArithmetic/FieldAudit.lean); [`PseudoArithmetic.sqrt5_polynomial_irreducible`](../formal/PseudoArithmetic/NonTotalReality.lean).
 
@@ -649,13 +651,13 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **Negative control (Lean evidence).** √4=2 is rational, so replacing '5' by an arbitrary positive integer is false. Evidence: [`PseudoArithmetic.FieldAudit.sqrt_four_rational`](../formal/PseudoArithmetic/FieldAudit.lean).
 
-**Scope.** The proof uses the verified rational nonsquare theorem rather than assuming irrationality.
+**Scope.** In the rewritten subsection, irrationality is implicit in the degree-two minimal polynomial, with no separate elementary proof.
 
 ### F08 — Square identity and minimal polynomial
 
 **English.** In a characteristic-zero field, s²=5 is equivalent to minpolyℚ(s)=X²-5.
 
-**Status.** Mathematical content checked in Lean. Source lines: 298, 308, 847, 1062, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 289, 807, 1022, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -671,7 +673,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Its complex embeddings send √5 to ±√5, both choices occur, and the generator image determines the embedding.
 
-**Status.** Mathematical content checked in Lean. Source lines: 298, 308, 813, 1155, 1232.
+**Status.** Mathematical content checked in Lean. Source lines: 289, 773, 1115, 1192.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -687,7 +689,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Every complex embedding of a number subfield extends to the ambient number field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 182, 320, 327, 368, 839, 1155, 1232.
+**Status.** Mathematical content checked in Lean. Source lines: 182, 299, 306, 329, 799, 1115, 1192.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -703,7 +705,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Transporting an irreducible minimal polynomial and choosing a complex root gives an extending field embedding.
 
-**Status.** Mathematical content checked in Lean. Source lines: 182, 327, 1232.
+**Status.** Mathematical content checked in Lean. Source lines: 182, 306, 1192.
 
 **Translation.** Matched mathematical statement, checked in Lean. The quotient-root construction is an injective unital field homomorphism that restricts to the given base embedding and sends the distinguished root to the chosen complex root. External inputs: none.
 
@@ -715,27 +717,27 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **Scope.** The root embedding is constructed for AdjoinRoot of an irreducible polynomial. The general extension theorem and primitive-element theorem are also checked; the written proof need not be replayed by the same tactics.
 
-### F12 — Quadratic discriminant criterion
+### F12 — Negative quadratic discriminant
 
-**English.** For a≠0, ax²+bx+c has a real root iff b²-4ac≥0.
+**English.** A real quadratic with nonzero leading coefficient and negative discriminant has no real root.
 
-**Status.** Mathematical content checked in Lean. Source lines: 345, 352, 813, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 323, 773, 1115.
 
-**Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
+**Translation.** Matched mathematical statement, checked in Lean. The manuscript statement follows from the necessary direction of the checked real-root equivalence. External inputs: none.
 
 **Lean mapping.** [`PseudoArithmetic.FieldAudit.quadratic_root_iff`](../formal/PseudoArithmetic/FieldAudit.lean).
 
-**Positive example (Lean evidence).** x²-1 has roots; x²+2x+1 has the double root -1. Evidence: [`PseudoArithmetic.FieldAudit.quadratic_positive_and_negative`](../formal/PseudoArithmetic/FieldAudit.lean); [`PseudoArithmetic.FieldAudit.discriminant_zero_has_root`](../formal/PseudoArithmetic/FieldAudit.lean).
+**Positive example (Lean evidence).** X²+1 has negative discriminant and no real root. Evidence: [`PseudoArithmetic.FieldAudit.quadratic_positive_and_negative`](../formal/PseudoArithmetic/FieldAudit.lean).
 
-**Negative control (Lean evidence).** x²+1 has no real root; for a=b=0,c=1 the discriminant is 0 but no root exists. Evidence: [`PseudoArithmetic.FieldAudit.quadratic_positive_and_negative`](../formal/PseudoArithmetic/FieldAudit.lean); [`PseudoArithmetic.FieldAudit.quadratic_leading_coefficient_necessary`](../formal/PseudoArithmetic/FieldAudit.lean).
+**Negative control (Lean evidence).** At discriminant zero, (X+1)² has the real double root -1; replacing strict negativity by nonpositivity would be false. Evidence: [`PseudoArithmetic.FieldAudit.discriminant_zero_has_root`](../formal/PseudoArithmetic/FieldAudit.lean).
 
-**Scope.** The nonzero leading coefficient and non-strict discriminant inequality are both essential.
+**Scope.** Only the negative-discriminant implication is stated in the paper; the registered Lean theorem proves the full discriminant criterion.
 
 ### F13 — Nonreal subfield persistence
 
 **English.** If a number subfield is not totally real, neither is any number-field extension.
 
-**Status.** Mathematical content checked in Lean. Source lines: 362, 368, 888.
+**Status.** Mathematical content checked in Lean. Source lines: 329, 848.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -751,7 +753,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For x≥0, the chosen real square root is nonnegative and has square x.
 
-**Status.** Mathematical content checked in Lean. Source lines: 352, 619, 733.
+**Status.** Mathematical content checked in Lean. Source lines: 579, 693.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -767,7 +769,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The finitely many displayed rational expressions and nested square roots are algebraic over ℚ.
 
-**Status.** Mathematical content checked in Lean. Source lines: 619, 871.
+**Status.** Mathematical content checked in Lean. Source lines: 579, 831.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -783,7 +785,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A finite extension of number fields is separable and generated by one element.
 
-**Status.** Mathematical content checked in Lean. Source lines: 327.
+**Status.** Mathematical content checked in Lean. Source lines: 306.
 
 **Translation.** Matched mathematical statement, checked in Lean. For an extension of number fields the declaration supplies both separability and a single element whose adjoin is the whole extension. External inputs: none.
 
@@ -799,7 +801,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A nonconstant transported polynomial has a complex root, and evaluation at that root factors through its defining ideal.
 
-**Status.** Mathematical content checked in Lean. Source lines: 327.
+**Status.** Mathematical content checked in Lean. Source lines: 306.
 
 **Translation.** Matched mathematical statement, checked in Lean. Positive polynomial degree supplies a complex root; vanishing under the transported evaluation gives a homomorphism out of the polynomial quotient. Nonconstancy and evaluation vanishing are explicit, separate premises. External inputs: none.
 
@@ -815,7 +817,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Ad(g) is conjugation X ↦ gXg⁻¹ on the Lie algebra, not the defining matrix g itself.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 193, 448.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 192, 408.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The field-valued vocabulary denotes the real adjoint representation. The sl₂ control rules out conflating adjoint and defining traces; construction of the general Lie algebra remains external. External inputs: E2.
 
@@ -831,7 +833,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Conjugating a matrix by an invertible basis change preserves its trace.
 
-**Status.** Mathematical content checked in Lean. Source lines: 193, 448.
+**Status.** Mathematical content checked in Lean. Source lines: 192, 408.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -847,7 +849,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The field is the rational field generated by all adjoint traces, rather than all matrix entries.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 193, 448.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 192, 408.
 
 **Translation.** Reviewed external interpretation of the vocabulary. adjointTraceField is a field-valued function interpreted as adjoining all adjoint traces. E2 and E6 are literal equalities involving this same function, not free predicates about unrelated fields. External inputs: E2, E6.
 
@@ -863,7 +865,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Restricting the set of group elements can only decrease the generated trace field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 462.
+**Status.** Mathematical content checked in Lean. Source lines: 422.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -879,7 +881,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For the lattices under consideration, a finite-index subgroup has the same adjoint trace field.
 
-**Status.** Mathematical statement remains external. Source lines: 193, 462, 919, 1130, 1246.
+**Status.** Mathematical statement remains external. Source lines: 192, 422, 879, 1090, 1206.
 
 **Translation.** Reviewed specialization of an external input. The base is a finite-volume lattice, finiteIndex Λ Γ is directed from cover to base, and the conclusion is equality of their actual field values. External inputs: E6.
 
@@ -895,7 +897,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Borel density supplies Zariski density for lattices in the connected noncompact simple group.
 
-**Status.** Mathematical statement remains external. Source lines: 206, 448.
+**Status.** Mathematical statement remains external. Source lines: 205, 408.
 
 **Translation.** Background generality not separately used by the Lean argument. Borel density supplies the Zariski-density premise behind the cited field results. The general density statement is reviewed background, not an additional unchecked Lean inference. External inputs: background.
 
@@ -911,7 +913,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Vinberg supplies a form over the adjoint trace field, unique up to field-isomorphism of groups.
 
-**Status.** Mathematical statement remains external. Source lines: 206, 448.
+**Status.** Mathematical statement remains external. Source lines: 205, 408.
 
 **Translation.** Background generality not separately used by the Lean argument. The ambient algebraic group is interpreted through the cited Vinberg theorem. Its construction and uniqueness are background behind E3, not claimed as constructed Lean objects. External inputs: background, E3.
 
@@ -927,7 +929,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The base is totally real, exactly one real factor is the required noncompact orthogonal group, and the others are compact.
 
-**Status.** Mathematical statement remains external. Source lines: 206, 475.
+**Status.** Mathematical statement remains external. Source lines: 205, 435.
 
 **Translation.** Background generality not separately used by the Lean argument. The admissibility definition requires a totally real base and exactly one appropriate noncompact real factor. Its algebraic-group objects are background to E3. External inputs: background, E3.
 
@@ -943,7 +945,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For n>3 the ambient group must be scalar extension of an admissible group through a finite totally real multiquadratic extension.
 
-**Status.** Mathematical statement remains external. Source lines: 93, 206, 481, 493.
+**Status.** Mathematical statement remains external. Source lines: 93, 205, 441, 453.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The imported implication is specialized to dimension four and the totally real meaning of the multiquadratic extension. It does not assert that a merely real embedding makes a lattice pseudo-arithmetic. External inputs: E3.
 
@@ -959,7 +961,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Over a totally real number field, an extension generated by square roots of nonzero base elements is totally real if and only if every defining radicand is totally positive.
 
-**Status.** Mathematical content checked in Lean. Source lines: 206, 493, 507, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 205, 453, 467, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The equivalence quantifies over every real embedding of the base and every nonzero defining radicand. A single real embedding is insufficient. The generating-adjoin hypothesis belongs to the sufficient direction. External inputs: none.
 
@@ -975,7 +977,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A complex number whose square is a positive real number is itself real.
 
-**Status.** Mathematical content checked in Lean. Source lines: 507.
+**Status.** Mathematical content checked in Lean. Source lines: 467.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -991,7 +993,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** An embedding real on the base and all field generators is real on the generated field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 507.
+**Status.** Mathematical content checked in Lean. Source lines: 467.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1007,7 +1009,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A number field generated over a totally real base by square roots of totally positive elements is totally real.
 
-**Status.** Mathematical content checked in Lean. Source lines: 206, 493, 507, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 205, 453, 467, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1023,7 +1025,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For n>3, pseudo-arithmeticity implies a totally real adjoint trace field.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 93, 206, 258, 501, 507, 893, 932, 1105, 1225, 1273, 1314.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 93, 205, 259, 461, 467, 853, 892, 1065, 1185, 1234, 1274.
 
 **Translation.** Reviewed specialization of an external input. For every finite-volume lattice in the fixed dimension four, pseudo-arithmeticity implies total reality of its own adjoint trace field; the implication is not reversed. External inputs: E3.
 
@@ -1039,7 +1041,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A non-totally-real adjoint trace field excludes pseudo-arithmeticity.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 517, 893, 919, 1225, 1314.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 477, 853, 879, 1185, 1274.
 
 **Translation.** Reviewed specialization of an external input. The checked contrapositive applies E3 to the same group and the literal field identified by E2; the matrix theorem supplies the negative total-reality result. External inputs: E1, E2, E3.
 
@@ -1055,7 +1057,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For a finite-volume Coxeter reflection lattice, the cyclic-product field equals its adjoint trace field.
 
-**Status.** Mathematical statement remains external. Source lines: 61, 193, 258, 540, 548, 871, 932, 1094, 1105, 1217, 1273, 1314.
+**Status.** Mathematical statement remains external. Source lines: 61, 192, 259, 500, 508, 831, 892, 1054, 1065, 1177, 1234, 1274.
 
 **Translation.** Reviewed specialization of an external input. The same group and its unit-normal matrix must satisfy reflectionGroupOf and finiteVolumeLattice; the conclusion is equality with the generated field of closed products in 2G. External inputs: E1, E2.
 
@@ -1087,7 +1089,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Ma–Zheng's census classifies 331 finite-volume hyperbolic Coxeter 4-polytopes with seven facets.
 
-**Status.** Mathematical statement remains external. Source lines: 122, 258, 613, 865, 932, 978, 1206, 1314.
+**Status.** Mathematical statement remains external. Source lines: 122, 259, 573, 825, 892, 938, 1166, 1274.
 
 **Translation.** Background generality not separately used by the Lean argument. E1 imports the three selected cases. The full count 331 is reviewed external classification data and is not used as a premise of the Lean implication. External inputs: E1, background.
 
@@ -1103,7 +1105,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The 21 entries list all unordered facet pairs in lexicographic order.
 
-**Status.** Mathematical content checked in Lean. Source lines: 574.
+**Status.** Mathematical content checked in Lean. Source lines: 534.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1119,7 +1121,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Integers encode angles, 0 encodes parallel facets, and a,b encode disjoint-facet distances.
 
-**Status.** Mathematical content checked in Lean. Source lines: 574, 642.
+**Status.** Mathematical content checked in Lean. Source lines: 534, 602.
 
 **Translation.** Matched mathematical statement, checked in Lean. All 21 symbols are decoded and equated with the actual matrix entries for each of the three cases, including the code 0 giving -1. Geometric angles and distances are interpreted by E1. External inputs: E1.
 
@@ -1135,7 +1137,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The rows share all entries except q₆=2,q₇=3,q₈=4 at pair (1,6).
 
-**Status.** External data with arithmetic/encoding controls. Source lines: 122, 591, 594, 619, 1206.
+**Status.** External data with arithmetic/encoding controls. Source lines: 122, 551, 554, 579, 1166.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1151,7 +1153,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The published cusp counts for rows 6,7,8 are 1,1,2.
 
-**Status.** External data with arithmetic/encoding controls. Source lines: 594, 908, 1206.
+**Status.** External data with arithmetic/encoding controls. Source lines: 554, 868, 1166.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1167,7 +1169,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The volumes are 13π²/864, π²/54, and 19π²/864 respectively.
 
-**Status.** External data with arithmetic/encoding controls. Source lines: 591, 594, 978, 1206.
+**Status.** External data with arithmetic/encoding controls. Source lines: 551, 554, 938, 1166.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1183,7 +1185,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** s=√5 and r=√2 are positive, with 1<s<3 and 1<r<2.
 
-**Status.** Mathematical content checked in Lean. Source lines: 619, 733, 939.
+**Status.** Mathematical content checked in Lean. Source lines: 579, 693, 899.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1199,7 +1201,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** a=(1/2)√(7+s+2√(2+2s)) is defined on positive radicands and exceeds 1.
 
-**Status.** Mathematical content checked in Lean. Source lines: 619, 1206.
+**Status.** Mathematical content checked in Lean. Source lines: 579, 1166.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1215,7 +1217,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The three displayed formulas for b₆,b₇,b₈ use positive real branches and each exceeds 1.
 
-**Status.** Mathematical content checked in Lean. Source lines: 619, 1206.
+**Status.** Mathematical content checked in Lean. Source lines: 579, 1166.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1231,7 +1233,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Each displayed 7×7 matrix is symmetric with the listed entries and unit diagonal.
 
-**Status.** Mathematical content checked in Lean. Source lines: 258, 642, 1094, 1105, 1206.
+**Status.** Mathematical content checked in Lean. Source lines: 259, 602, 1054, 1065, 1166.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1247,7 +1249,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A₁₂=A₂₁=−(1+s)/2.
 
-**Status.** Mathematical content checked in Lean. Source lines: 122, 231, 258, 680, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 122, 230, 259, 640, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1263,7 +1265,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A₀₃=A₃₀=−1.
 
-**Status.** Mathematical content checked in Lean. Source lines: 122, 231, 258, 680, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 122, 230, 259, 640, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1279,7 +1281,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A₃₅=A₅₃=−r.
 
-**Status.** Mathematical content checked in Lean. Source lines: 122, 231, 258, 680, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 122, 230, 259, 640, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1295,7 +1297,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A₀₅=A₅₀=−2a.
 
-**Status.** Mathematical content checked in Lean. Source lines: 122, 231, 258, 680, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 122, 230, 259, 640, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1311,7 +1313,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The entry field and its cyclic subfield are number fields for each displayed matrix.
 
-**Status.** Mathematical content checked in Lean. Source lines: 871, 1094.
+**Status.** Mathematical content checked in Lean. Source lines: 831, 1054.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1327,7 +1329,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For z=exp(iπ/5), the equation z⁵=-1 and z≠-1 give x²-x-1=0 for x=z+z⁻¹, with positivity selecting x=(1+√5)/2.
 
-**Status.** Mathematical content checked in Lean. Source lines: 642.
+**Status.** Mathematical content checked in Lean. Source lines: 602.
 
 **Translation.** Matched mathematical statement, checked in Lean. The actual exponential z=exp(iπ/5), its fifth power, the excluded -1 value, the quotient-polynomial relation, and z+z⁻¹=(1+√5)/2 are checked. The cosine evaluation may reuse mathlib. External inputs: none.
 
@@ -1343,7 +1345,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** A cyclic product follows a finite closed walk; repeated indices are permitted.
 
-**Status.** Mathematical content checked in Lean. Source lines: 161, 528.
+**Status.** Mathematical content checked in Lean. Source lines: 161, 488.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1359,7 +1361,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Reversing a closed walk in a symmetric matrix preserves its product.
 
-**Status.** Mathematical content checked in Lean. Source lines: 528.
+**Status.** Mathematical content checked in Lean. Source lines: 488.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1375,7 +1377,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Scaling every entry by a nonzero rational q multiplies a length-l cycle by q^l and preserves the generated field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 161, 548, 680.
+**Status.** Mathematical content checked in Lean. Source lines: 161, 508, 640.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1391,7 +1393,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Changing basis vectors by nonzero factors changes reflection coefficients by scaleⱼ/scaleᵢ, so closed products telescope.
 
-**Status.** Mathematical content checked in Lean. Source lines: 556.
+**Status.** Mathematical content checked in Lean. Source lines: 516.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1407,7 +1409,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** All cycles lie in the entry field, but in general these fields need not be equal.
 
-**Status.** Mathematical content checked in Lean. Source lines: 161, 528, 556, 871, 995.
+**Status.** Mathematical content checked in Lean. Source lines: 161, 488, 516, 831, 955.
 
 **Translation.** Matched mathematical statement, checked in Lean. The cyclic field is a subfield of the entry field; the strict example is a symmetric unit-diagonal matrix with off-diagonal -√5 and cyclic field exactly ℚ. External inputs: none.
 
@@ -1423,7 +1425,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** c₁₂=A₁₂A₂₁=(3+s)/2.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 122, 231, 258, 680, 1094, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 122, 230, 259, 640, 1054, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1439,7 +1441,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** s=2c₁₂−3 belongs to the cycle field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 231, 680, 871, 1062, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 230, 640, 831, 1022, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1455,7 +1457,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** c₀₃₅=A₀₃A₃₅A₅₀=−2u, where u=ra.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 122, 231, 258, 680, 1094, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 122, 230, 259, 640, 1054, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1471,7 +1473,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** u=−c₀₃₅/2 belongs to the same cycle field as s.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 231, 680, 871, 1062, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 230, 640, 831, 1022, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1487,7 +1489,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** u²=(7+s)/2+t, with t=√(2+2s)>0.
 
-**Status.** Mathematical content checked in Lean. Source lines: 733.
+**Status.** Mathematical content checked in Lean. Source lines: 693.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1503,7 +1505,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** (s−1)u=3−s+t for the chosen positive radicals.
 
-**Status.** Mathematical content checked in Lean. Source lines: 733, 791.
+**Status.** Mathematical content checked in Lean. Source lines: 693, 751.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1519,7 +1521,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Substituting t=(s−1)u+s−3 and cancelling s−1 produces F(s,u)=0.
 
-**Status.** Mathematical content checked in Lean. Source lines: 775, 791, 1062.
+**Status.** Mathematical content checked in Lean. Source lines: 735, 751, 1022.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1535,7 +1537,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** F(s,u)=(s−1)u²+2(s−3)u+s−7 vanishes for the stated radicals.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 79, 231, 258, 723, 775, 791, 888, 1062, 1273, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 79, 230, 259, 683, 735, 751, 848, 1022, 1234, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1551,7 +1553,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The discriminant of F(s,·) is 8(1+s).
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 231, 258, 813.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 230, 259, 773.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1567,7 +1569,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For s²=5 with s<0, the leading coefficient s−1 is nonzero.
 
-**Status.** Mathematical content checked in Lean. Source lines: 231, 813.
+**Status.** Mathematical content checked in Lean. Source lines: 230, 773.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1583,7 +1585,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** If s²=5 and s<0, there is no real u with F(s,u)=0.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 231, 813, 1062, 1273.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 230, 773, 1022, 1234.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1599,7 +1601,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For arbitrary real s, F(s,·) has a real root exactly when s≥-1.
 
-**Status.** Mathematical content checked in Lean. Source lines: 813, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 773, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1615,7 +1617,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** L=ℚ(s,u) for the actual radicals is a number field that is not totally real.
 
-**Status.** Mathematical content checked in Lean. Source lines: 847, 888.
+**Status.** Mathematical content checked in Lean. Source lines: 807, 848.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1631,7 +1633,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The square equation alone does not imply non-total reality; the u relation is also needed.
 
-**Status.** Mathematical content checked in Lean. Source lines: 847.
+**Status.** Mathematical content checked in Lean. Source lines: 807.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1647,7 +1649,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The minimal polynomial realizes s↦-√5 in an embedding of K, forcing a nonreal image for u.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 79, 231, 258, 839, 847, 888, 1062, 1175, 1232, 1314, 1343.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 79, 230, 259, 799, 807, 848, 1022, 1135, 1192, 1274, 1303.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1663,7 +1665,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** If s,u∈K satisfy the equations, the conjugate polynomial has a nonreal root in the image of K.
 
-**Status.** Mathematical content checked in Lean. Source lines: 231, 839, 847, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 230, 799, 807, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1679,7 +1681,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The cyclic-product field of each displayed matrix is a number field and is not totally real.
 
-**Status.** Mathematical content checked in Lean. Source lines: 61, 106, 231, 871, 888, 1094, 1105, 1217, 1314.
+**Status.** Mathematical content checked in Lean. Source lines: 61, 106, 230, 831, 848, 1054, 1065, 1177, 1274.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1695,7 +1697,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Two actual cycle values under a real embedding determine the internal certificate equations.
 
-**Status.** Mathematical content checked in Lean. Source lines: 847, 1062.
+**Status.** Mathematical content checked in Lean. Source lines: 807, 1022.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1711,7 +1713,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For any complex s,u satisfying s²=5 and F(s,u)=0, ℚ(s,u) is a number field and is not totally real.
 
-**Status.** Mathematical content checked in Lean. Source lines: 807, 839.
+**Status.** Mathematical content checked in Lean. Source lines: 767, 799.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1727,7 +1729,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Raw Gram entries scale by the product of normal scalars; normalized reflection coefficients scale by their ratio.
 
-**Status.** Mathematical content checked in Lean. Source lines: 556.
+**Status.** Mathematical content checked in Lean. Source lines: 516.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -1743,7 +1745,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The three census reflection groups are finite-volume lattices with non-totally-real trace fields and are not pseudo-arithmetic.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 79, 93, 104, 106, 258, 865, 893, 932, 1105, 1155, 1314.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 79, 93, 104, 106, 259, 825, 853, 892, 1065, 1115, 1274.
 
 **Translation.** Reviewed specialization of an external input. The theorem quantifies over all three cases and ties each group to its actual matrix and generated cycle field. No caller-selected field or two-cycle certificate is needed. External inputs: E1, E2, E3.
 
@@ -1759,7 +1761,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** There exists an orientable, noncompact, finite-volume hyperbolic 4-manifold that is not pseudo-arithmetic.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 79, 116, 258, 900, 908, 1130, 1155, 1252, 1314.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 61, 79, 116, 259, 860, 868, 1090, 1115, 1212, 1274.
 
 **Translation.** Reviewed specialization of an external input. A shared existential pair Λ,M carries finite index, quotient correspondence, geometry, the actual trace field, and both non-pseudo-arithmeticity conclusions. E7 makes Λ a lattice before E3 is used. External inputs: E1, E2, E3, E5, E6, E7.
 
@@ -1775,7 +1777,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The cover has the same non-totally-real trace field as the base.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 919, 1130, 1246, 1314.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 879, 1090, 1206, 1274.
 
 **Translation.** Reviewed specialization of an external input. Field equality transfers the already proved obstruction to the cover field and identifies it with the same case cycleField j. External inputs: E2, E6.
 
@@ -1791,7 +1793,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Pseudo-arithmeticity of the manifold corresponds to that of its quotient group.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 919, 1130, 1252, 1314.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 879, 1090, 1212, 1274.
 
 **Translation.** Reviewed specialization of an external input. The equivalence is guarded by finite-volume lattice and quotient hypotheses for the same Λ,M, so manifold pseudo-arithmeticity transfers to the group used in E3. External inputs: E7.
 
@@ -1807,7 +1809,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Each full 7×7 Gram matrix has rank 5.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 258, 939, 1206.
+**Status.** Exact computation; not a Lean proof. Source lines: 259, 899, 1166.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1823,7 +1825,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Each matrix has four positive, one negative, and two zero eigenvalue directions.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 258, 939, 1206.
+**Status.** Exact computation; not a Lean proof. Source lines: 259, 899, 1166.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1839,7 +1841,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The common five leading minors are 1,1,(5-s)/8,3(5-s)/32,-(1+s)/32.
 
-**Status.** Mathematical content checked in Lean. Source lines: 939, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 899, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. Each expression is the determinant of the corresponding leading principal submatrix of the actual gram j, for every case j. The five values and their signs are checked in Lean. External inputs: none.
 
@@ -1855,7 +1857,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The nonzero leading minors with signs +,+,+,+,- give inertia (4,1) on the five-dimensional block.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 939.
+**Status.** Exact computation; not a Lean proof. Source lines: 899.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1871,7 +1873,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The nonzero five-minor plus full elimination proves rank 5; all seven principal six-minors also vanish.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 939.
+**Status.** Exact computation; not a Lean proof. Source lines: 899.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -1887,7 +1889,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** All 127 nonempty principal subsets of the actual P11,8 Gram matrix are classified: 54 positive definite, 12 positive semidefinite but not positive definite, and 61 with a negative direction; exactly ten subsets are maximal positive semidefinite.
 
-**Status.** Mathematical content checked in Lean. Source lines: 961, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 921, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The biconditionals quantify over actual principal matrices and all real vectors through mathlib PosDef/PosSemidef. The 127 nonempty subsets and both directions of the classification are proved; no CAS answers are assumed. External inputs: none.
 
@@ -1903,7 +1905,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Eight maximal vertex subdiagrams of P11,8 are positive definite of rank 4.
 
-**Status.** Mathematical content checked in Lean. Source lines: 961, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 921, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The eight sets are selected from the proved complete maximal positive-semidefinite list, and rank four is deduced from positivity and cardinality. External inputs: E1.
 
@@ -1919,7 +1921,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The subset {1,3,4,6} is a rank-3 positive-semidefinite link of type C̃₃.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 961, 1155.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 921, 1115.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The actual indexed Gram block, all its coefficients, and its rank are checked; the affine-type and ideal-link interpretation is the cited geometric input. No numerical premise remains. External inputs: E1.
 
@@ -1935,7 +1937,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The subset {2,3,4,5,6} has type Ã₁ disjoint union C̃₂, rank 3 and nullity 2; its link is a triangular prism.
 
-**Status.** Some mathematical content checked; stated boundary remains. Source lines: 961, 1155.
+**Status.** Some mathematical content checked; stated boundary remains. Source lines: 921, 1115.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The five-facet actual matrix and its rank-three, nullity-two assertion are literal Lean statements. Only the interpretation as the stated product of affine types and geometric link remains imported. External inputs: E1.
 
@@ -1951,7 +1953,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Each of the 21 elliptic rank-3 edge diagrams has exactly two ordinary or ideal endpoints.
 
-**Status.** Mathematical content checked in Lean. Source lines: 961, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 921, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. PositiveTest is proved equivalent to actual positive definiteness; cardinality three gives rank three. The endpoint count is proved for every such subset of the seven facets. External inputs: E1.
 
@@ -1967,7 +1969,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The stated complete vertex-link and edge checks imply finite volume and two cusps for P11,8.
 
-**Status.** Mathematical statement remains external. Source lines: 79, 258, 613, 961, 1206.
+**Status.** Mathematical statement remains external. Source lines: 79, 259, 573, 921, 1166.
 
 **Translation.** Reviewed external interpretation of the vocabulary. The supplement applies the criterion to the realized P₁₁,₈ with a complete vertex/edge enumeration; rank and inertia alone are not substituted for its hypotheses. This independent geometric criterion is not needed as a second assumption after E1. External inputs: E1.
 
@@ -1983,7 +1985,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The complete nonempty face incidence poset for P11,8, including the polytope, has face vector (10,21,18,7,1), also reported independently by CoxIter.
 
-**Status.** Mathematical content checked in Lean. Source lines: 978, 1155.
+**Status.** Mathematical content checked in Lean. Source lines: 938, 1115.
 
 **Translation.** Matched mathematical statement, checked in Lean. The conclusion states each of the five counts, not just Euler consistency. The quantified face transfer requires a complete bijection and dimension preservation; the constructed poset supplies a satisfying instance. External inputs: E1.
 
@@ -1999,7 +2001,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** CoxIter reports volume 19π²/864 for P11,8, agreeing with the census.
 
-**Status.** External data with arithmetic/encoding controls. Source lines: 978.
+**Status.** External data with arithmetic/encoding controls. Source lines: 938.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -2015,7 +2017,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For row 8, c₁₂₆=-r(1+s), so r lies in the cyclic field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 995.
+**Status.** Mathematical content checked in Lean. Source lines: 955.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -2031,7 +2033,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** For row 8, c₀₃₄₁₆=-4b₈, so b₈ lies in the cyclic field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 995.
+**Status.** Mathematical content checked in Lean. Source lines: 955.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -2047,7 +2049,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The row-8 cyclic field equals ℚ(s,r,a,b₈), and also equals its entry field.
 
-**Status.** Mathematical content checked in Lean. Source lines: 995, 1094.
+**Status.** Mathematical content checked in Lean. Source lines: 955, 1054.
 
 **Translation.** Matched mathematical statement, checked in Lean. The equality literally uses the rational adjoin of {s,r,a,b₈}, as well as equality with the entry field; both inclusions are proved. External inputs: none.
 
@@ -2063,7 +2065,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** w=2(r+a+b₈) generates the full field, with the displayed degree-8 polynomial and reconstructed generator coordinates.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 79, 258, 995, 1155, 1343.
+**Status.** Exact computation; not a Lean proof. Source lines: 79, 259, 955, 1115, 1303.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -2079,7 +2081,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The displayed degree-8 polynomial is irreducible over ℚ.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 995, 1343.
+**Status.** Exact computation; not a Lean proof. Source lines: 955, 1303.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -2095,7 +2097,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The full field has signature (4,2), degree 8, and two conjugate pairs of nonreal embeddings.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 995, 1343.
+**Status.** Exact computation; not a Lean proof. Source lines: 955, 1303.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -2111,7 +2113,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The full field discriminant is 40960000=2¹⁶5⁴.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 995, 1343.
+**Status.** Exact computation; not a Lean proof. Source lines: 955, 1303.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -2127,7 +2129,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Both routes describe the same reconstructed field; degree, signature and discriminant alone do not establish isomorphism.
 
-**Status.** Exact computation; not a Lean proof. Source lines: 995.
+**Status.** Exact computation; not a Lean proof. Source lines: 955.
 
 **Translation.** Explicit computational assertion with checked data. The explicit data and arithmetic are checked by the named artifacts; an executed computation is not presented as a Lean theorem. External inputs: computation.
 
@@ -2143,7 +2145,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** The supplied normalization, Clifford, ABHN and Hasse–Minkowski implications yield the stated similarity-descent equivalences.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 1175.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 1135.
 
 **Translation.** Reviewed specialization of an external input. The listed implication is conditional on the explicitly supplied descent/classification hypotheses. It is supplementary to the main argument; the candidate quantifiers and admissibility guards are checked by the named controls. External inputs: background.
 
@@ -2159,7 +2161,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Split support requires ramification stability on orbits and trivial decomposition at every ramified prime.
 
-**Status.** Mathematical content checked in Lean. Source lines: 1175.
+**Status.** Mathematical content checked in Lean. Source lines: 1135.
 
 **Translation.** Matched mathematical statement, checked in Lean. The listed Lean definitions and theorems express the mathematical content; the scope below specifies the objects and any specialization. External inputs: none.
 
@@ -2175,7 +2177,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Pseudo-arithmeticity needs existence of an eligible admissible candidate passing the descent test, not success of every candidate.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 1175.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 1135.
 
 **Translation.** Reviewed specialization of an external input. The listed implication is conditional on the explicitly supplied descent/classification hypotheses. It is supplementary to the main argument; the candidate quantifiers and admissibility guards are checked by the named controls. External inputs: background.
 
@@ -2191,7 +2193,7 @@ The text now explicitly requires Coxeter-matrix symmetry and lattice discretenes
 
 **English.** Failure of split support for every eligible candidate rules out pseudo-arithmeticity.
 
-**Status.** Implication checked using external predicates/hypotheses. Source lines: 1175.
+**Status.** Implication checked using external predicates/hypotheses. Source lines: 1135.
 
 **Translation.** Reviewed specialization of an external input. The listed implication is conditional on the explicitly supplied descent/classification hypotheses. It is supplementary to the main argument; the candidate quantifiers and admissibility guards are checked by the named controls. External inputs: background.
 
@@ -2225,135 +2227,133 @@ The ledger covers displayed equations and table rows with their enclosing source
 | 13 | 142 | G01, G02, G03, G04, G05, G06 |
 | 14 | 161 | G07, G10, G11, G19, G20, G21, G22, R01, R03, R05 |
 | 15 | 182 | F01, F02, F03, F04, F10, F11 |
-| 16 | 193 | T01, T02, T03, T05, T16 |
-| 17 | 206 | T06, T07, T08, T09, T10, T13, T14 |
-| 18 | 218 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 19 | 228 | Heading, navigation, or document structure; no mathematical assertion. |
-| 20 | 231 | C11, C12, C13, C14, R06, R07, R08, R09, R13, R14, R15, R16, R20, R21, R22 |
-| 21 | 253 | Heading, navigation, or document structure; no mathematical assertion. |
-| 22 | 256 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 23 | 258 | C01, C10, C11, C12, C13, C14, R06, R08, R13, R14, R20, M01, M02, T14, T16, V01, V02, V11, V17 |
-| 24 | 276 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 25 | 279 | Heading, navigation, or document structure; no mathematical assertion. |
-| 26 | 282 | Heading, navigation, or document structure; no mathematical assertion. |
-| 27 | 284 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 28 | 286 | F05 |
-| 29 | 292 | F05, F06 |
-| 30 | 298 | F07, F08, F09 |
-| 31 | 308 | F02, F07, F08, F09 |
-| 32 | 320 | F10 |
-| 33 | 327 | F02, F06, F10, F11, F16, F17 |
-| 34 | 345 | F12 |
-| 35 | 352 | F12, F14 |
-| 36 | 362 | F13 |
-| 37 | 368 | F10, F13 |
-| 38 | 376 | Heading, navigation, or document structure; no mathematical assertion. |
-| 39 | 378 | G01, G02, G12, G13, G14, G15, G16, G17 |
-| 40 | 394 | G18, G20, G21, G22 |
-| 41 | 401 | G07, G08, G09 |
-| 42 | 409 | G10, G11 |
-| 43 | 414 | Heading, navigation, or document structure; no mathematical assertion. |
-| 44 | 417 | G23, G24, G25 |
-| 45 | 424 | G26 |
-| 46 | 426 | G26 |
-| 47 | 432 | G26, G27, G28, G29 |
-| 48 | 443 | Heading, navigation, or document structure; no mathematical assertion. |
-| 49 | 446 | Heading, navigation, or document structure; no mathematical assertion. |
-| 50 | 448 | T01, T02, T03, T06, T07 |
-| 51 | 462 | T04, T05 |
-| 52 | 473 | Heading, navigation, or document structure; no mathematical assertion. |
-| 53 | 475 | T08 |
-| 54 | 481 | T09 |
-| 55 | 493 | T09, T10, T13, F03 |
-| 56 | 501 | T14 |
-| 57 | 507 | T10, T11, T12, T13, T14 |
-| 58 | 517 | T15 |
-| 59 | 525 | Heading, navigation, or document structure; no mathematical assertion. |
-| 60 | 528 | R01, R02, R05 |
-| 61 | 540 | T16 |
-| 62 | 548 | T16, R03 |
-| 63 | 556 | R04, R05, R25 |
-| 64 | 569 | Heading, navigation, or document structure; no mathematical assertion. |
-| 65 | 572 | Heading, navigation, or document structure; no mathematical assertion. |
-| 66 | 574 | C02, C03 |
-| 67 | 591 | C04, C06, G11 |
-| 68 | 594 | C04, C05, C06 |
-| 69 | 613 | C01, V11 |
-| 70 | 617 | Heading, navigation, or document structure; no mathematical assertion. |
-| 71 | 619 | C04, C07, C08, C09, F14, F15 |
-| 72 | 642 | C03, C10, C16, G19, G20, G21, G22 |
-| 73 | 677 | Heading, navigation, or document structure; no mathematical assertion. |
-| 74 | 680 | C11, C12, C13, C14, R03, R06, R07, R08, R09 |
-| 75 | 716 | Heading, navigation, or document structure; no mathematical assertion. |
-| 76 | 719 | Heading, navigation, or document structure; no mathematical assertion. |
-| 77 | 721 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 78 | 723 | R13 |
-| 79 | 733 | C07, R10, R11, F14 |
-| 80 | 775 | R12, R13 |
-| 81 | 791 | R11, R12, R13 |
-| 82 | 805 | Heading, navigation, or document structure; no mathematical assertion. |
-| 83 | 807 | R24 |
-| 84 | 813 | R14, R15, R16, R17, F09, F12 |
-| 85 | 839 | F01, F10, R20, R21, R24 |
-| 86 | 847 | F03, F04, F08, R18, R19, R20, R21, R23 |
-| 87 | 862 | Heading, navigation, or document structure; no mathematical assertion. |
-| 88 | 865 | C01, G10, G11, M01 |
-| 89 | 871 | F01, F15, C15, R05, R07, R09, R22, T16 |
-| 90 | 888 | F13, R13, R18, R20, R22 |
-| 91 | 893 | T14, T15, M01 |
-| 92 | 900 | G23, G24, G26, G27, G31, M02 |
-| 93 | 908 | G25, G28, G29, G30, C05, M02 |
-| 94 | 919 | T05, T15, M03, M04 |
-| 95 | 929 | Heading, navigation, or document structure; no mathematical assertion. |
-| 96 | 932 | C01, T14, T16, M01 |
-| 97 | 937 | Heading, navigation, or document structure; no mathematical assertion. |
-| 98 | 939 | V01, V02, V03, V04, V05, C07 |
-| 99 | 959 | Heading, navigation, or document structure; no mathematical assertion. |
-| 100 | 961 | V06, V07, V08, V09, V10, V11 |
-| 101 | 978 | V12, V13, C01, C06 |
-| 102 | 993 | Heading, navigation, or document structure; no mathematical assertion. |
-| 103 | 995 | V14, V15, V16, V17, V18, V19, V20, V21, R05 |
-| 104 | 1023 | Heading, navigation, or document structure; no mathematical assertion. |
-| 105 | 1025 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 106 | 1045 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 107 | 1051 | Heading, navigation, or document structure; no mathematical assertion. |
-| 108 | 1054 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 109 | 1057 | Heading, navigation, or document structure; no mathematical assertion. |
-| 110 | 1059 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 111 | 1062 | R07, R09, R12, R13, F08, R16, R20, R23 |
-| 112 | 1094 | C10, C15, R06, R08, R22, V16, T16 |
-| 113 | 1103 | Heading, navigation, or document structure; no mathematical assertion. |
-| 114 | 1105 | M01, T14, T16, C10, R22 |
-| 115 | 1130 | G25, G26, G28, G29, G30, T05, M02, M03, M04 |
-| 116 | 1142 | Heading, navigation, or document structure; no mathematical assertion. |
-| 117 | 1144 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 118 | 1155 | F09, F10, F12, T10, T13, G14, G15, G16, G17, G23, G24, G29, V03, V06, V17, R17, M01, M02, V07, V08, V09, V10, V12 |
-| 119 | 1173 | Heading, navigation, or document structure; no mathematical assertion. |
-| 120 | 1175 | D01, D02, D03, D04, R20 |
-| 121 | 1184 | Heading, navigation, or document structure; no mathematical assertion. |
-| 122 | 1186 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 123 | 1199 | Heading, navigation, or document structure; no mathematical assertion. |
-| 124 | 1202 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 125 | 1206 | C01, C04, C05, C06, C08, C09, C10, V01, V02, V11, G30 |
-| 126 | 1217 | T16, R22 |
-| 127 | 1225 | T14, T15 |
-| 128 | 1232 | F09, F10, F11, R20 |
-| 129 | 1239 | G26, G24 |
-| 130 | 1246 | T05, M03 |
-| 131 | 1252 | G25, G28, G29, M02, M04 |
-| 132 | 1263 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 133 | 1267 | Heading, navigation, or document structure; no mathematical assertion. |
-| 134 | 1270 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
-| 135 | 1273 | C11, C12, C13, C14, R06, R08, R13, R16, T14, T16 |
-| 136 | 1279 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 137 | 1285 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 138 | 1291 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 139 | 1298 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
-| 140 | 1309 | Heading, navigation, or document structure; no mathematical assertion. |
-| 141 | 1311 | Heading, navigation, or document structure; no mathematical assertion. |
-| 142 | 1314 | C01, C11, C12, C13, C14, R06, R07, R08, R09, F08, R13, R20, R21, R22, T14, T15, T16, M01, M02, G26, M03, M04 |
-| 143 | 1340 | Heading, navigation, or document structure; no mathematical assertion. |
-| 144 | 1343 | V17, V18, V19, V20, R20, F04 |
+| 16 | 192 | T01, T02, T03, T05, T16 |
+| 17 | 205 | T06, T07, T08, T09, T10, T13, T14 |
+| 18 | 217 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 19 | 227 | Heading, navigation, or document structure; no mathematical assertion. |
+| 20 | 230 | C11, C12, C13, C14, R06, R07, R08, R09, R13, R14, R15, R16, R20, R21, R22 |
+| 21 | 252 | Heading, navigation, or document structure; no mathematical assertion. |
+| 22 | 255 | Organization of the proof for the Lean formalization. |
+| 23 | 259 | C01, C10, C11, C12, C13, C14, R06, R08, R13, R14, R20, M01, M02, T14, T16, V01, V02, V11, V17 |
+| 24 | 277 | Description of proof organization and formalization inputs. |
+| 25 | 280 | Section heading. |
+| 26 | 283 | Subsection heading. |
+| 27 | 285 | F05 |
+| 28 | 289 | F07, F08, F09 |
+| 29 | 299 | F10 |
+| 30 | 306 | F02, F06, F10, F11, F16, F17 |
+| 31 | 323 | F12 |
+| 32 | 329 | F10, F13 |
+| 33 | 336 | Heading, navigation, or document structure; no mathematical assertion. |
+| 34 | 338 | G01, G02, G12, G13, G14, G15, G16, G17 |
+| 35 | 354 | G18, G20, G21, G22 |
+| 36 | 361 | G07, G08, G09 |
+| 37 | 369 | G10, G11 |
+| 38 | 374 | Heading, navigation, or document structure; no mathematical assertion. |
+| 39 | 377 | G23, G24, G25 |
+| 40 | 384 | G26 |
+| 41 | 386 | G26 |
+| 42 | 392 | G26, G27, G28, G29 |
+| 43 | 403 | Heading, navigation, or document structure; no mathematical assertion. |
+| 44 | 406 | Heading, navigation, or document structure; no mathematical assertion. |
+| 45 | 408 | T01, T02, T03, T06, T07 |
+| 46 | 422 | T04, T05 |
+| 47 | 433 | Heading, navigation, or document structure; no mathematical assertion. |
+| 48 | 435 | T08 |
+| 49 | 441 | T09 |
+| 50 | 453 | T09, T10, T13, F03 |
+| 51 | 461 | T14 |
+| 52 | 467 | T10, T11, T12, T13, T14 |
+| 53 | 477 | T15 |
+| 54 | 485 | Heading, navigation, or document structure; no mathematical assertion. |
+| 55 | 488 | R01, R02, R05 |
+| 56 | 500 | T16 |
+| 57 | 508 | T16, R03 |
+| 58 | 516 | R04, R05, R25 |
+| 59 | 529 | Heading, navigation, or document structure; no mathematical assertion. |
+| 60 | 532 | Heading, navigation, or document structure; no mathematical assertion. |
+| 61 | 534 | C02, C03 |
+| 62 | 551 | C04, C06, G11 |
+| 63 | 554 | C04, C05, C06 |
+| 64 | 573 | C01, V11 |
+| 65 | 577 | Heading, navigation, or document structure; no mathematical assertion. |
+| 66 | 579 | C04, C07, C08, C09, F14, F15 |
+| 67 | 602 | C03, C10, C16, G19, G20, G21, G22 |
+| 68 | 637 | Heading, navigation, or document structure; no mathematical assertion. |
+| 69 | 640 | C11, C12, C13, C14, R03, R06, R07, R08, R09 |
+| 70 | 676 | Heading, navigation, or document structure; no mathematical assertion. |
+| 71 | 679 | Heading, navigation, or document structure; no mathematical assertion. |
+| 72 | 681 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
+| 73 | 683 | R13 |
+| 74 | 693 | C07, R10, R11, F14 |
+| 75 | 735 | R12, R13 |
+| 76 | 751 | R11, R12, R13 |
+| 77 | 765 | Heading, navigation, or document structure; no mathematical assertion. |
+| 78 | 767 | R24 |
+| 79 | 773 | R14, R15, R16, R17, F09, F12 |
+| 80 | 799 | F01, F10, R20, R21, R24 |
+| 81 | 807 | F03, F04, F08, R18, R19, R20, R21, R23 |
+| 82 | 822 | Heading, navigation, or document structure; no mathematical assertion. |
+| 83 | 825 | C01, G10, G11, M01 |
+| 84 | 831 | F01, F15, C15, R05, R07, R09, R22, T16 |
+| 85 | 848 | F13, R13, R18, R20, R22 |
+| 86 | 853 | T14, T15, M01 |
+| 87 | 860 | G23, G24, G26, G27, G31, M02 |
+| 88 | 868 | G25, G28, G29, G30, C05, M02 |
+| 89 | 879 | T05, T15, M03, M04 |
+| 90 | 889 | Heading, navigation, or document structure; no mathematical assertion. |
+| 91 | 892 | C01, T14, T16, M01 |
+| 92 | 897 | Heading, navigation, or document structure; no mathematical assertion. |
+| 93 | 899 | V01, V02, V03, V04, V05, C07 |
+| 94 | 919 | Heading, navigation, or document structure; no mathematical assertion. |
+| 95 | 921 | V06, V07, V08, V09, V10, V11 |
+| 96 | 938 | V12, V13, C01, C06 |
+| 97 | 953 | Heading, navigation, or document structure; no mathematical assertion. |
+| 98 | 955 | V14, V15, V16, V17, V18, V19, V20, V21, R05 |
+| 99 | 983 | Heading, navigation, or document structure; no mathematical assertion. |
+| 100 | 985 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 101 | 1005 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 102 | 1011 | Section heading. |
+| 103 | 1014 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 104 | 1017 | Heading, navigation, or document structure; no mathematical assertion. |
+| 105 | 1019 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
+| 106 | 1022 | R07, R09, R12, R13, F08, R16, R20, R23 |
+| 107 | 1054 | C10, C15, R06, R08, R22, V16, T16 |
+| 108 | 1063 | Heading, navigation, or document structure; no mathematical assertion. |
+| 109 | 1065 | M01, T14, T16, C10, R22 |
+| 110 | 1090 | G25, G26, G28, G29, G30, T05, M02, M03, M04 |
+| 111 | 1102 | Heading, navigation, or document structure; no mathematical assertion. |
+| 112 | 1104 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 113 | 1115 | F09, F10, F12, T10, T13, G14, G15, G16, G17, G23, G24, G29, V03, V06, V17, R17, M01, M02, V07, V08, V09, V10, V12 |
+| 114 | 1133 | Heading, navigation, or document structure; no mathematical assertion. |
+| 115 | 1135 | D01, D02, D03, D04, R20 |
+| 116 | 1144 | Heading, navigation, or document structure; no mathematical assertion. |
+| 117 | 1146 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 118 | 1159 | Heading, navigation, or document structure; no mathematical assertion. |
+| 119 | 1162 | Expository transition or trust-boundary explanation; mathematical content is registered in the adjacent blocks. |
+| 120 | 1166 | C01, C04, C05, C06, C08, C09, C10, V01, V02, V11, G30 |
+| 121 | 1177 | T16, R22 |
+| 122 | 1185 | T14, T15 |
+| 123 | 1192 | F09, F10, F11, R20 |
+| 124 | 1199 | G26, G24 |
+| 125 | 1206 | T05, M03 |
+| 126 | 1212 | G25, G28, G29, M02, M04 |
+| 127 | 1223 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 128 | 1227 | Heading, navigation, or document structure; no mathematical assertion. |
+| 129 | 1230 | Repository citation and organization of reproducibility instructions. |
+| 130 | 1234 | C11, C12, C13, C14, R06, R08, R13, R16, T14, T16 |
+| 131 | 1240 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 132 | 1246 | Commands for rebuilding the canonical paper. |
+| 133 | 1251 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 134 | 1258 | Verification/provenance/build metadata, checked by the release workflow; no new mathematical assertion. |
+| 135 | 1269 | Heading, navigation, or document structure; no mathematical assertion. |
+| 136 | 1271 | Heading, navigation, or document structure; no mathematical assertion. |
+| 137 | 1274 | C01, C11, C12, C13, C14, R06, R07, R08, R09, F08, R13, R20, R21, R22, T14, T15, T16, M01, M02, G26, M03, M04 |
+| 138 | 1300 | Heading, navigation, or document structure; no mathematical assertion. |
+| 139 | 1303 | V17, V18, V19, V20, R20, F04 |
+| 140 | 1312 | Acknowledgments heading. |
+| 141 | 1314 | Disclosure of research and editing assistance. |
+| 142 | 1319 | Authorship and responsibility statement. |
 
 ## Reproduce
 

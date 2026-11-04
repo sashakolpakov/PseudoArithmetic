@@ -13,7 +13,7 @@ import subprocess
 import sys
 import tempfile
 
-from manuscript_audit import declarations as statement_declarations
+from manuscript_audit import MANUSCRIPT, declarations as statement_declarations
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -101,8 +101,12 @@ def check_required_files() -> None:
         "scripts/manuscript_audit.py",
         "scripts/manuscript_computation_audit.py",
         "scripts/manuscript_field_controls.gp",
-        "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
-        "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
+        "arxiv/main.tex",
+        "arxiv/main.pdf",
+        "arxiv/references.bib",
+        "arxiv/main.bbl",
+        "scripts/prepare_arxiv.py",
+        "results/arxiv_build.json",
     ]
     missing = [item for item in required if not (ROOT / item).is_file()]
     require(not missing, f"missing release files: {missing}")
@@ -116,10 +120,10 @@ def check_version_consistency() -> None:
     require(f"date-released: {EXPECTED_DATE}" in citation, "CITATION.cff date mismatch")
     readme = (ROOT / "README.md").read_text()
     notes = (ROOT / "RELEASE_NOTES.md").read_text()
-    manuscript = (ROOT / "manuscript/non_pseudo_arithmetic_4_manifolds.tex").read_text()
+    manuscript = MANUSCRIPT.read_text()
     require(EXPECTED_VERSION in readme, "README version mismatch")
     require(EXPECTED_VERSION in notes, "release-notes version mismatch")
-    require("24 September 2026" in manuscript, "manuscript date mismatch")
+    require(r"\date{30 October 2026}" in manuscript, "paper edition date mismatch")
 
 
 def check_json_results() -> None:
@@ -161,7 +165,7 @@ def check_json_results() -> None:
     require(re.fullmatch(r"[0-9a-f]{64}", source_digest) is not None,
             "invalid source SHA-256 in the P11,8 certificate")
     for name in (
-        "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
+        "arxiv/main.tex",
         "REPRODUCIBILITY.md",
         "PRE_RELEASE_CHECKLIST.md",
     ):
@@ -322,21 +326,16 @@ def check_manifest() -> None:
         require(sha256(path) == artifact["sha256"], f"manifest hash mismatch: {artifact['path']}")
 
 
-def check_tex_log() -> None:
-    announce("TeX log diagnostics")
-    log_path = ROOT / "manuscript/non_pseudo_arithmetic_4_manifolds.log"
-    require(log_path.is_file(), "manuscript log was not generated")
-    log = log_path.read_text(errors="replace")
-    forbidden = (
-        "Overfull \\hbox",
-        "There were undefined references",
-        "undefined on input line",
-        "LaTeX Error",
-        "Fatal error",
-    )
-    for marker in forbidden:
-        require(marker not in log, f"TeX log contains {marker!r}")
-    pdf = ROOT / "manuscript/non_pseudo_arithmetic_4_manifolds.pdf"
+def check_manuscript_build() -> None:
+    run_command("paper and arXiv package build",
+                [sys.executable, "-B", "scripts/prepare_arxiv.py"])
+    report = json.loads((ROOT / "results/arxiv_build.json").read_text())
+    require(report["source"]["path"] == str(MANUSCRIPT.relative_to(ROOT)),
+            "paper build used the wrong source")
+    require(report["bibtex_ran_from_clean_inputs"], "clean BibTeX build was skipped")
+    require(not report["warnings"], "TeX build reported warnings")
+    require(not report["undefined_references_or_citations"], "unresolved TeX references")
+    pdf = MANUSCRIPT.with_suffix(".pdf")
     require(pdf.stat().st_size > 100_000, "compiled manuscript PDF is unexpectedly small")
 
 
@@ -350,7 +349,6 @@ def main() -> int:
         check_manuscript_audit()
         check_lean_source_audit()
         check_markdown()
-        check_manifest()
 
         run_command("stored census-log audit", [sys.executable, "scripts/verify_census_logs.py"],
                     required_output=('"result": "PASS"',))
@@ -369,13 +367,8 @@ def main() -> int:
         run_command("Lean build", ["lake", "build"], cwd=ROOT / "formal",
                     required_output=("Build completed successfully",))
         check_lean_axioms()
-        run_command(
-            "manuscript build",
-            ["latexmk", "-pdf", "-interaction=nonstopmode", "-halt-on-error",
-             "non_pseudo_arithmetic_4_manifolds.tex"],
-            cwd=ROOT / "manuscript",
-        )
-        check_tex_log()
+        check_manuscript_build()
+        check_manifest()
         run_command("git whitespace audit", ["git", "diff", "--check"])
     except CheckError as error:
         print(f"[FAIL] {error}", file=sys.stderr)

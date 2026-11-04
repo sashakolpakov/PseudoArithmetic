@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Replace both reading PDFs and the arXiv ZIP using normal BibTeX builds.
+"""Rebuild the canonical paper PDF and current arXiv ZIP.
 
 Requires latexmk, pdflatex, bibtex and pypdf. Builds run in clean temporary
 folders with no prebuilt bibliography. No Lean or scientific jobs are run.
@@ -20,11 +20,10 @@ import zipfile
 from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "arxiv/non_pseudo_arithmetic_4_manifolds/main.tex"
-MANUSCRIPT = ROOT / "manuscript/non_pseudo_arithmetic_4_manifolds.tex"
-PDF = ROOT / "arxiv/build/non_pseudo_arithmetic_4_manifolds.pdf"
-ARCHIVE = ROOT / "dist/PseudoArithmetic-arxiv-2026-10-30.zip"
-REPORT = ROOT / "results/arxiv_submission_build_20261030.json"
+SOURCE = ROOT / "arxiv/main.tex"
+PDF = SOURCE.with_suffix(".pdf")
+ARCHIVE = ROOT / "dist/PseudoArithmetic-arxiv.zip"
+REPORT = ROOT / "results/arxiv_build.json"
 EPOCH = "1793318400"  # 30 October 2026, 00:00 UTC
 
 
@@ -126,21 +125,20 @@ def main() -> None:
     for executable in ("latexmk", "pdflatex", "bibtex"):
         if shutil.which(executable) is None:
             raise SystemExit(f"{executable} is required")
-    if SOURCE.with_name("references.bib").read_bytes() != MANUSCRIPT.with_name("references.bib").read_bytes():
-        raise ValueError("The two bibliography databases differ")
-    allowed = {"main.tex", "references.bib", "main.bbl"}
-    if any(p.name not in allowed for p in SOURCE.parent.iterdir()):
-        raise ValueError("Remove temporary build files from the upload folder")
-
-    # Both builds start with only .tex/.bib: latexmk must actually run BibTeX.
-    manuscript_report, manuscript_pdf, manuscript_bbl = build(MANUSCRIPT, MANUSCRIPT.with_suffix(".pdf"))
+    # Start with only .tex/.bib: latexmk must actually run BibTeX.
     report, pdf_payload, bbl_payload = build(SOURCE, PDF)
-    report.update(schema_version=2, edition_date="2026-10-30",
-                  status="PASS_ISOLATED_LATEXMK_BIBTEX_BUILDS_AND_PACKAGING_ONLY",
+    report.update(schema_version=3, edition_date="2026-10-30",
+                  status="PASS_ISOLATED_LATEXMK_BIBTEX_BUILD_AND_PACKAGING",
                   builder=identity(Path(__file__), Path(__file__).read_bytes()),
                   mathematical_checks_rerun=False, lean_rerun=False,
-                  arxiv_submission_performed=False, source_date_epoch=int(EPOCH),
-                  manuscript_build=manuscript_report)
+                  arxiv_submission_performed=False, source_date_epoch=int(EPOCH))
+
+    metadata_path = SOURCE.parent / "SUBMISSION.md"
+    metadata, replacements = re.subn(
+        r"(?m)^\d+ pages; companion code,",
+        f"{report['pages']} pages; companion code,", metadata_path.read_text())
+    if replacements != 1:
+        raise ValueError("Submission metadata must contain one page-count line")
 
     members = {"main.tex": SOURCE.read_bytes(), "references.bib": SOURCE.with_name("references.bib").read_bytes(),
                "main.bbl": bbl_payload}
@@ -159,17 +157,15 @@ def main() -> None:
         if any(archive.read(name) != payload for name, payload in members.items()):
             raise ValueError("Archive round-trip failed")
     report.update(archive=identity(ARCHIVE, archive_payload), archive_members=sorted(members))
-    save(MANUSCRIPT.with_suffix(".pdf"), manuscript_pdf)
-    save(MANUSCRIPT.with_suffix(".bbl"), manuscript_bbl)
     save(PDF, pdf_payload)
     save(SOURCE.with_suffix(".bbl"), bbl_payload)
+    save(metadata_path, metadata.encode())
     save(ARCHIVE, archive_payload)
     save(ARCHIVE.with_suffix(ARCHIVE.suffix + ".sha256"), f"{sha(archive_payload)}  {ARCHIVE.name}\n".encode())
     save(REPORT, (json.dumps(report, indent=2) + "\n").encode())
-    print(f"Replaced manuscript PDF ({manuscript_report['pages']} pages): {MANUSCRIPT.with_suffix('.pdf').relative_to(ROOT)}")
-    print(f"Replaced submission PDF ({report['pages']} pages): {PDF.relative_to(ROOT)}")
+    print(f"Rebuilt paper PDF ({report['pages']} pages): {PDF.relative_to(ROOT)}")
     print(f"Upload: {ARCHIVE.relative_to(ROOT)} ({', '.join(sorted(members))})")
-    print("Both clean latexmk builds ran BibTeX successfully, with no final TeX warnings.")
+    print("The clean latexmk build ran BibTeX successfully, with no final TeX warnings.")
 
 
 if __name__ == "__main__":

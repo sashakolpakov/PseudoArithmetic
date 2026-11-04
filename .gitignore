@@ -4,15 +4,6 @@ __pycache__/
 
 formal/.lake/
 
-manuscript/*.aux
-manuscript/*.blg
-manuscript/*.fdb_latexmk
-manuscript/*.fls
-manuscript/*.log
-manuscript/*.out
-manuscript/*.synctex.gz
-manuscript/*.toc
-
 arxiv/**/*.aux
 arxiv/**/*.blg
 arxiv/**/*.fdb_latexmk

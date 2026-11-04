@@ -1,0 +1,189 @@
+{
+  "source": {
+    "path": "arxiv/main.tex",
+    "bytes": 53943,
+    "sha256": "466f15ebd170a1e0545f1055c01f4415849db6d932d6ac1a9bf8b21b82826ed4"
+  },
+  "bibliography": {
+    "path": "arxiv/references.bib",
+    "bytes": 2923,
+    "sha256": "9bf74784e9f2a326ce1dc3b4e601deb0e14f1340b43100e371b64f47fddf4e43"
+  },
+  "command": [
+    "latexmk",
+    "-norc",
+    "-pdf",
+    "-no-shell-escape",
+    "-interaction=nonstopmode",
+    "-halt-on-error",
+    "-file-line-error",
+    "-recorder",
+    "main.tex"
+  ],
+  "exit_code": 0,
+  "bibtex_ran_from_clean_inputs": true,
+  "bibtex_log": "This is BibTeX, Version 0.99e (TeX Live 2026/Homebrew)\nCapacity: max_strings=200000, hash_size=200000, hash_prime=170003\nThe top-level auxiliary file: main.aux\nThe style file: plain.bst\nDatabase file #1: references.bib\nYou've used 10 entries,\n            2118 wiz_defined-function locations,\n            578 strings with 5901 characters,\nand the built_in function-call counts, 3090 in all, are:\n= -- 325\n> -- 114\n< -- 2\n+ -- 46\n- -- 36\n* -- 190\n:= -- 526\nadd.period$ -- 39\ncall.type$ -- 10\nchange.case$ -- 48\nchr.to.int$ -- 0\ncite$ -- 10\nduplicate$ -- 116\nempty$ -- 253\nformat.name$ -- 36\nif$ -- 648\nint.to.chr$ -- 0\nint.to.str$ -- 10\nmissing$ -- 9\nnewline$ -- 61\nnum.names$ -- 20\npop$ -- 42\npreamble$ -- 1\npurify$ -- 38\nquote$ -- 0\nskip$ -- 80\nstack$ -- 0\nsubstring$ -- 195\nswap$ -- 21\ntext.length$ -- 2\ntext.prefix$ -- 0\ntop$ -- 0\ntype$ -- 38\nwarning$ -- 0\nwhile$ -- 33\nwidth$ -- 12\nwrite$ -- 129\n",
+  "warnings": [],
+  "undefined_references_or_citations": false,
+  "repository_inputs_read_by_tex": [],
+  "local_source_inputs": [
+    "main.bbl",
+    "main.tex"
+  ],
+  "pages": 20,
+  "pdf_metadata": {
+    "/Producer": "pdfTeX-1.40.29",
+    "/Author": "Alexander Kolpakov",
+    "/Title": "Non-Pseudo-Arithmetic Hyperbolic 4-Manifolds",
+    "/Subject": "",
+    "/Creator": "LaTeX with hyperref",
+    "/Keywords": "",
+    "/CreationDate": "D:20261030000000Z",
+    "/ModDate": "D:20261030000000Z",
+    "/Trapped": "/False",
+    "/PTEX.Fullbanner": "This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Homebrew) kpathsea version 6.4.2"
+  },
+  "fonts": {
+    "/YQPPQP+SFRM1728": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/JYPWPZ+CMR17": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/SZIQDX+SFRM1200": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/YTSVCB+SFBX1000": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UUUCSX+SFRM1000": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UULRQX+CMMI10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/GDCRYW+CMR7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/SRDPYF+CMMI7": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/DOWSID+CMR10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/AASNBF+CMSY10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HALXNC+SFBX1440": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/LKZCCI+SFBX1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MZDLHY+SFRM1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/IKOHDM+SFBX1200": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/LBJXZE+SFTI1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MVJRUH+CMR8": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/BDVOWE+CMMI8": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HLYEZJ+MSBM10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MDXGTO+CMEX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/UCGASP+CMR6": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/QCPTGT+CMMI6": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/KZLGHX+SFTT1095": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/YQKRAV+CMBX10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/MPMWDL+EUFM10": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/AVUNXD+CMSY8": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/HBIEHQ+CMSY6": {
+      "subtype": "/Type1",
+      "embedded": true
+    },
+    "/APWRWU+CMTT10": {
+      "subtype": "/Type1",
+      "embedded": true
+    }
+  },
+  "pdf": {
+    "path": "arxiv/main.pdf",
+    "bytes": 476852,
+    "sha256": "40a79a8b8042e61ecb02163259e75b31e31ff745e87a8f5787f97c029c87bc69"
+  },
+  "bbl": {
+    "path": "arxiv/main.bbl",
+    "bytes": 2493,
+    "sha256": "0479e8731d87d5f67dac3d36b7996eab59ce177f0a8963932857f1fce84d0bbb"
+  },
+  "temporary_auxiliaries_removed": true,
+  "schema_version": 3,
+  "edition_date": "2026-10-30",
+  "status": "PASS_ISOLATED_LATEXMK_BIBTEX_BUILD_AND_PACKAGING",
+  "builder": {
+    "path": "scripts/prepare_arxiv.py",
+    "bytes": 8498,
+    "sha256": "a0af6336d56acda2f4ff30ccb239d44037bb6dafd16e42de057846fd060294cf"
+  },
+  "mathematical_checks_rerun": false,
+  "lean_rerun": false,
+  "arxiv_submission_performed": false,
+  "source_date_epoch": 1793318400,
+  "archive": {
+    "path": "dist/PseudoArithmetic-arxiv.zip",
+    "bytes": 21467,
+    "sha256": "b132afde6b2e653d99c41e1253d3360ddb082a174de2dc0a5a27782c472f6bb8"
+  },
+  "archive_members": [
+    "main.bbl",
+    "main.tex",
+    "references.bib"
+  ]
+}

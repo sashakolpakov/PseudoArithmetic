@@ -4,12 +4,12 @@
   "date": "2026-09-24",
   "artifacts": [
     {
-      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.tex",
-      "sha256": "1285198ad5d866c6bae53739f1fa2b2fafb1d1b6a8f5c87bccbf081de944e0db"
+      "path": "arxiv/main.tex",
+      "sha256": "466f15ebd170a1e0545f1055c01f4415849db6d932d6ac1a9bf8b21b82826ed4"
     },
     {
-      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.pdf",
-      "sha256": "d0c4e641f9b1bbbeae5ff25f1af8e51f15005072f826557adbeff375099942a1"
+      "path": "arxiv/main.pdf",
+      "sha256": "40a79a8b8042e61ecb02163259e75b31e31ff745e87a8f5787f97c029c87bc69"
     },
     {
       "path": "formal/PseudoArithmetic.lean",
@@ -73,7 +73,7 @@
     },
     {
       "path": "scripts/release_check.py",
-      "sha256": "5066abe4cb9185dab6cc4d7930fc58e6289d972a8c88a73d739008da7da2530b"
+      "sha256": "f6ad7bd7521143c9c109e993c318173703bfdd893abd5bfb7ecf716137730af7"
     },
     {
       "path": "scripts/build_release.py",
@@ -133,15 +133,15 @@
     },
     {
       "path": "audit/manuscript_statements.json",
-      "sha256": "324667cd4e86339d78fca673e9cea484da50e9f804cfdeaed73d61778ddd158b"
+      "sha256": "41d4e6f12d5072cb71c8b816c60931185d7ebf60735d48f10249873e90e3aa95"
     },
     {
       "path": "notes/manuscript_semantic_audit.md",
-      "sha256": "76b04c16d6d3982c02477eee32e8922deae15db1c0954322ca1e8a1e35824c18"
+      "sha256": "9fd1ff0353f5bac60cede3e342fcb3258b9b7cfdc2468b2f3bea8adc152b3fdb"
     },
     {
       "path": "scripts/manuscript_audit.py",
-      "sha256": "4564683075e8d7acf6606c7a5ac26aa1e09599be1c120e3ac3f70ba2b7505678"
+      "sha256": "fca921b9e9d45febbe769f3187c269820460dcd5e7ef1e2e24459de75f8a609c"
     },
     {
       "path": "scripts/manuscript_computation_audit.py",
@@ -192,17 +192,25 @@
       "sha256": "9eb8b45e07842c89d4797f2de8b006af0d9402882cfd74e60f240ce4c3e16913"
     },
     {
-      "path": "manuscript/references.bib",
+      "path": "arxiv/references.bib",
       "sha256": "9bf74784e9f2a326ce1dc3b4e601deb0e14f1340b43100e371b64f47fddf4e43"
     },
     {
-      "path": "manuscript/non_pseudo_arithmetic_4_manifolds.bbl",
-      "sha256": "4e51962295d81c3584e52dc1ce7afd2cc7606a0523cde1dd7d35dbd0ab049ead"
+      "path": "arxiv/main.bbl",
+      "sha256": "0479e8731d87d5f67dac3d36b7996eab59ce177f0a8963932857f1fce84d0bbb"
+    },
+    {
+      "path": "scripts/prepare_arxiv.py",
+      "sha256": "a0af6336d56acda2f4ff30ccb239d44037bb6dafd16e42de057846fd060294cf"
+    },
+    {
+      "path": "results/arxiv_build.json",
+      "sha256": "fe2582eb6dd2f8354cfdb7bbc2db10dbaab4855126c848bc4c35516a488b9b28"
     }
   ],
-  "typesetting_revision": {
-    "date": "2026-10-30",
-    "change": "Standard BibTeX database and plain style; freshly rebuilt manuscript PDF and bibliography. Mathematical body and statement register unchanged.",
-    "build_record": "results/arxiv_submission_build_20261030.json"
+  "paper_revision": {
+    "date": "2026-11-04",
+    "change": "One canonical paper at arxiv/main.tex with its PDF and bibliography. Includes the Section 2.1 rewrite, retained embedding-extension proof without its introductory sentence, and the requested section titles and Lean formalization wording.",
+    "build_record": "results/arxiv_build.json"
   }
 }

@@ -1,8 +1,8 @@
 # Submission metadata
 
-Local preparation only; no arXiv submission has been made.
+Local preparation, updated on 4 November 2026; no arXiv submission has been made.
 
-Upload `dist/PseudoArithmetic-arxiv-2026-10-30.zip` and select `main.tex` as the
+Upload `dist/PseudoArithmetic-arxiv.zip` and select `main.tex` as the
 main source with PDFLaTeX. Review the resulting PDF before completing the
 submission, following the [TeX submission guidance](https://info.arxiv.org/help/submit_tex.html)
 and [submission overview](https://info.arxiv.org/help/submit/index.html).

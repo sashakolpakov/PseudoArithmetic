@@ -17,7 +17,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "audit/manuscript_statements.json"
-MANUSCRIPT = ROOT / "manuscript/non_pseudo_arithmetic_4_manifolds.tex"
+MANUSCRIPT = ROOT / "arxiv/main.tex"
 REPORT = ROOT / "notes/manuscript_semantic_audit.md"
 STATUSES = {
     "kernel": "Mathematical content checked in Lean",
@@ -58,6 +58,8 @@ def validate(catalog: dict, source: str) -> dict:
             raise ValueError(message)
 
     require(catalog["schema_version"] == 1, "Unknown statement-register schema")
+    require(catalog["source"] == str(MANUSCRIPT.relative_to(ROOT)),
+            "Statement register must cover the canonical paper")
     claims = catalog["claims"]
     ids = [claim["id"] for claim in claims]
     require(len(set(ids)) == len(ids), "Duplicate statement IDs")
@@ -137,7 +139,8 @@ def lean_link(name: str) -> str:
 
 
 def render(catalog: dict, stats: dict) -> str:
-    lines = ["# Manuscript-wide semantic audit", "", "Reviewed 9 October 2026.", "",
+    lines = ["# Manuscript-wide semantic audit", "", "Mathematical translation reviewed 9 October 2026.", "",
+        f"Source coverage refreshed {catalog['source_reviewed']} for the [current manuscript](../{catalog['source']}).", "",
         f"The register contains **{stats['statements']} distinct statement entries**, with a positive example and a negative control for each. "
         f"All **{stats['source_blocks']} source blocks** from the abstract through the final mathematical appendix are classified; "
         f"{stats['mathematical_source_blocks']} blocks contain mathematical assertions. Repeated statements point to the same entries.", "",
